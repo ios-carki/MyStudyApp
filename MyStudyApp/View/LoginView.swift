@@ -26,17 +26,26 @@ final class LoginView: BaseView {
         return view
     }()
     
+    let borderLineView: UIView = {
+        let view = UIView()
+        view.layer.borderColor = UIColor.colorGray3.cgColor
+        view.layer.borderWidth = 1
+        return view
+    }()
+    
     let getCertificationNumberButton: UIButton = {
         let view = UIButton()
         view.setTitle("인증 문자 받기", for: .normal)
-        view.setTitleColor(.white, for: .normal)
+        view.setTitleColor(.colorGray3, for: .normal)
+        view.isEnabled = true
         view.titleLabel?.font = .systemFont(ofSize: 14)
-        view.backgroundColor = .colorGreen
+        view.layer.cornerRadius = 8
+        view.backgroundColor = .colorGray6
         return view
     }()
     
     override func configureUI() {
-        [descriptionLabelInputPhoneNumber, inputPhoneNumberTextField, getCertificationNumberButton].forEach {
+        [descriptionLabelInputPhoneNumber, inputPhoneNumberTextField, borderLineView, getCertificationNumberButton].forEach {
             self.addSubview($0)
         }
     }
@@ -51,6 +60,19 @@ final class LoginView: BaseView {
         inputPhoneNumberTextField.snp.makeConstraints { make in
             make.top.equalTo(descriptionLabelInputPhoneNumber.snp.bottom).offset(76)
             make.horizontalEdges.equalToSuperview().inset(28)
+        }
+        
+        borderLineView.snp.makeConstraints { make in
+            make.top.equalTo(inputPhoneNumberTextField.snp.bottom).offset(12)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(inputPhoneNumberTextField.snp.width)
+            make.height.equalTo(1)
+        }
+        
+        getCertificationNumberButton.snp.makeConstraints { make in
+            make.top.equalTo(borderLineView).offset(72)
+            make.horizontalEdges.equalToSuperview().inset(16)
+            make.height.equalTo(48)
         }
     }
 }

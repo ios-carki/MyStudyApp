@@ -21,6 +21,9 @@
 		C3B293A729192D0F00F2D55D /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B293A629192D0F00F2D55D /* Color+Extension.swift */; };
 		C3B293AB2919306E00F2D55D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B293AA2919306E00F2D55D /* LoginViewController.swift */; };
 		C3B293AD2919307400F2D55D /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B293AC2919307400F2D55D /* LoginView.swift */; };
+		C3B293B02919424400F2D55D /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C3B293AF2919424400F2D55D /* IQKeyboardManagerSwift */; };
+		C3B293B3291942D100F2D55D /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = C3B293B2291942D100F2D55D /* RxCocoa */; };
+		C3B293B5291942D100F2D55D /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C3B293B4291942D100F2D55D /* RxSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,7 +49,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3B293B3291942D100F2D55D /* RxCocoa in Frameworks */,
 				C3B293972918E1FC00F2D55D /* SnapKit in Frameworks */,
+				C3B293B5291942D100F2D55D /* RxSwift in Frameworks */,
+				C3B293B02919424400F2D55D /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +146,9 @@
 			name = MyStudyApp;
 			packageProductDependencies = (
 				C3B293962918E1FC00F2D55D /* SnapKit */,
+				C3B293AF2919424400F2D55D /* IQKeyboardManagerSwift */,
+				C3B293B2291942D100F2D55D /* RxCocoa */,
+				C3B293B4291942D100F2D55D /* RxSwift */,
 			);
 			productName = MyStudyApp;
 			productReference = C3B293722918D29F00F2D55D /* MyStudyApp.app */;
@@ -171,6 +180,8 @@
 			mainGroup = C3B293692918D29F00F2D55D;
 			packageReferences = (
 				C3B293952918E1FC00F2D55D /* XCRemoteSwiftPackageReference "SnapKit" */,
+				C3B293AE2919424400F2D55D /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				C3B293B1291942D100F2D55D /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = C3B293732918D29F00F2D55D /* Products */;
 			projectDirPath = "";
@@ -436,6 +447,22 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		C3B293AE2919424400F2D55D /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = exactVersion;
+				version = 6.5.10;
+			};
+		};
+		C3B293B1291942D100F2D55D /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.5.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -443,6 +470,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C3B293952918E1FC00F2D55D /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		C3B293AF2919424400F2D55D /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C3B293AE2919424400F2D55D /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
+		C3B293B2291942D100F2D55D /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C3B293B1291942D100F2D55D /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		C3B293B4291942D100F2D55D /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C3B293B1291942D100F2D55D /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
