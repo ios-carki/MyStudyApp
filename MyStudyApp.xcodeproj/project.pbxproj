@@ -24,6 +24,17 @@
 		C3B293B02919424400F2D55D /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C3B293AF2919424400F2D55D /* IQKeyboardManagerSwift */; };
 		C3B293B3291942D100F2D55D /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = C3B293B2291942D100F2D55D /* RxCocoa */; };
 		C3B293B5291942D100F2D55D /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C3B293B4291942D100F2D55D /* RxSwift */; };
+		C3C226542919EAF90042062A /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = C3C226532919EAF90042062A /* .gitignore */; };
+		C3C22656291A50CA0042062A /* SecondLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C22655291A50CA0042062A /* SecondLoginViewController.swift */; };
+		C3C22658291A50D50042062A /* SecondLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C22657291A50D50042062A /* SecondLoginView.swift */; };
+		C3C2265A291A5CAF0042062A /* NickNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C22659291A5CAF0042062A /* NickNameView.swift */; };
+		C3C2265C291A5CB50042062A /* NickNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C2265B291A5CB50042062A /* NickNameViewController.swift */; };
+		C3C2265E291A603F0042062A /* BirthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C2265D291A603F0042062A /* BirthView.swift */; };
+		C3C22660291A604D0042062A /* BirthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C2265F291A604D0042062A /* BirthViewController.swift */; };
+		C3C22662291A62590042062A /* EmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C22661291A62590042062A /* EmailView.swift */; };
+		C3C22664291A62610042062A /* EmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C22663291A62610042062A /* EmailViewController.swift */; };
+		C3C22666291AA7A00042062A /* GenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C22665291AA7A00042062A /* GenderView.swift */; };
+		C3C22668291AA7A70042062A /* GenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C22667291AA7A70042062A /* GenderViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +53,17 @@
 		C3B293A629192D0F00F2D55D /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		C3B293AA2919306E00F2D55D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C3B293AC2919307400F2D55D /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		C3C226532919EAF90042062A /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		C3C22655291A50CA0042062A /* SecondLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondLoginViewController.swift; sourceTree = "<group>"; };
+		C3C22657291A50D50042062A /* SecondLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondLoginView.swift; sourceTree = "<group>"; };
+		C3C22659291A5CAF0042062A /* NickNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameView.swift; sourceTree = "<group>"; };
+		C3C2265B291A5CB50042062A /* NickNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameViewController.swift; sourceTree = "<group>"; };
+		C3C2265D291A603F0042062A /* BirthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthView.swift; sourceTree = "<group>"; };
+		C3C2265F291A604D0042062A /* BirthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthViewController.swift; sourceTree = "<group>"; };
+		C3C22661291A62590042062A /* EmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailView.swift; sourceTree = "<group>"; };
+		C3C22663291A62610042062A /* EmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailViewController.swift; sourceTree = "<group>"; };
+		C3C22665291AA7A00042062A /* GenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderView.swift; sourceTree = "<group>"; };
+		C3C22667291AA7A70042062A /* GenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +112,7 @@
 				C3B293802918D2A100F2D55D /* LaunchScreen.storyboard */,
 				C3B293832918D2A100F2D55D /* Info.plist */,
 				C3B2939E2918E24A00F2D55D /* BaseView.swift */,
+				C3C226532919EAF90042062A /* .gitignore */,
 			);
 			path = MyStudyApp;
 			sourceTree = "<group>";
@@ -116,6 +139,11 @@
 			isa = PBXGroup;
 			children = (
 				C3B293AC2919307400F2D55D /* LoginView.swift */,
+				C3C22657291A50D50042062A /* SecondLoginView.swift */,
+				C3C22659291A5CAF0042062A /* NickNameView.swift */,
+				C3C2265D291A603F0042062A /* BirthView.swift */,
+				C3C22661291A62590042062A /* EmailView.swift */,
+				C3C22665291AA7A00042062A /* GenderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -124,6 +152,11 @@
 			isa = PBXGroup;
 			children = (
 				C3B293AA2919306E00F2D55D /* LoginViewController.swift */,
+				C3C22655291A50CA0042062A /* SecondLoginViewController.swift */,
+				C3C2265B291A5CB50042062A /* NickNameViewController.swift */,
+				C3C2265F291A604D0042062A /* BirthViewController.swift */,
+				C3C22663291A62610042062A /* EmailViewController.swift */,
+				C3C22667291AA7A70042062A /* GenderViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -197,6 +230,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3C226542919EAF90042062A /* .gitignore in Resources */,
 				C3B293822918D2A100F2D55D /* LaunchScreen.storyboard in Resources */,
 				C3B2937F2918D2A100F2D55D /* Assets.xcassets in Resources */,
 				C3B2937D2918D29F00F2D55D /* Main.storyboard in Resources */,
@@ -211,13 +245,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3B293AB2919306E00F2D55D /* LoginViewController.swift in Sources */,
+				C3C22668291AA7A70042062A /* GenderViewController.swift in Sources */,
+				C3C22664291A62610042062A /* EmailViewController.swift in Sources */,
+				C3C22662291A62590042062A /* EmailView.swift in Sources */,
 				C3B293A529190DEF00F2D55D /* CustomPageCollectionView.swift in Sources */,
+				C3C22666291AA7A00042062A /* GenderView.swift in Sources */,
 				C3B2939F2918E24A00F2D55D /* BaseView.swift in Sources */,
+				C3C2265A291A5CAF0042062A /* NickNameView.swift in Sources */,
 				C3B293A32918F32700F2D55D /* PageView.swift in Sources */,
 				C3B2938E2918E1B300F2D55D /* PageViewController.swift in Sources */,
 				C3B2937A2918D29F00F2D55D /* ViewController.swift in Sources */,
 				C3B293762918D29F00F2D55D /* AppDelegate.swift in Sources */,
+				C3C2265E291A603F0042062A /* BirthView.swift in Sources */,
 				C3B293782918D29F00F2D55D /* SceneDelegate.swift in Sources */,
+				C3C22658291A50D50042062A /* SecondLoginView.swift in Sources */,
+				C3C2265C291A5CB50042062A /* NickNameViewController.swift in Sources */,
+				C3C22660291A604D0042062A /* BirthViewController.swift in Sources */,
+				C3C22656291A50CA0042062A /* SecondLoginViewController.swift in Sources */,
 				C3B293AD2919307400F2D55D /* LoginView.swift in Sources */,
 				C3B293A729192D0F00F2D55D /* Color+Extension.swift in Sources */,
 			);

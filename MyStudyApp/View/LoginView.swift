@@ -48,6 +48,7 @@ final class LoginView: BaseView {
         [descriptionLabelInputPhoneNumber, inputPhoneNumberTextField, borderLineView, getCertificationNumberButton].forEach {
             self.addSubview($0)
         }
+        self.backgroundColor = .white
     }
     
     override func setConstraints() {

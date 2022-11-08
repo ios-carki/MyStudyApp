@@ -43,6 +43,7 @@ final class PageView: BaseView {
         [pageCollectionView, pageControl, startButton].forEach {
             self.addSubview($0)
         }
+        self.backgroundColor = .white
     }
     
     override func setConstraints() {
