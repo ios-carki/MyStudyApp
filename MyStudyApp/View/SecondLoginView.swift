@@ -14,6 +14,7 @@ final class SecondLoginView: BaseView {
     let inputCertificationNumberLabel: UILabel = {
         let view = UILabel()
         view.text = "인증번호가 문자로 전송되었어요"
+        view.textColor = .black
         view.textAlignment = .center
         view.font = .systemFont(ofSize: 20)
         return view
@@ -22,6 +23,7 @@ final class SecondLoginView: BaseView {
     let inputCertificationNumberTextField: UITextField = {
         let view = UITextField()
         view.placeholder = "인증번호 입력"
+        view.textColor = .black
         view.keyboardType = .numberPad
         return view
     }()
@@ -29,6 +31,7 @@ final class SecondLoginView: BaseView {
     let countDownLabel: UILabel = {
         let view = UILabel()
         view.text = "05:00"
+        view.textColor = .colorGreen
         view.textAlignment = .right
         view.font = .systemFont(ofSize: 14)
         return view
@@ -43,7 +46,7 @@ final class SecondLoginView: BaseView {
     
     let reSendButton: UIButton = {
         let view = UIButton()
-        view.backgroundColor = .green
+        view.backgroundColor = .colorGreen
         view.layer.cornerRadius = 8
         view.setTitle("재전송", for: .normal)
         view.titleLabel?.font = .systemFont(ofSize: 14)
@@ -53,7 +56,7 @@ final class SecondLoginView: BaseView {
     
     let certificationButton: UIButton = {
         let view = UIButton()
-        view.backgroundColor = .black
+        view.backgroundColor = .colorGray3
         view.setTitle("인증하고 시작하기", for: .normal)
         view.layer.cornerRadius = 8
         view.titleLabel?.font = .systemFont(ofSize: 14)

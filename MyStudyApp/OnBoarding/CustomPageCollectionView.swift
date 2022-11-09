@@ -16,6 +16,7 @@ final class CustomPageCollectionView: UICollectionViewCell {
     let pageTopLabel: UILabel = {
         let view = UILabel()
         view.text = "위치 기반으로 빠르게\n주위 친구를 확인"
+        view.textColor = .black
         view.numberOfLines = 0
         view.textAlignment = .center
         view.font = .systemFont(ofSize: 24)

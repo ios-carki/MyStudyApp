@@ -14,6 +14,7 @@ final class LoginView: BaseView {
     let descriptionLabelInputPhoneNumber: UILabel = {
         let view = UILabel()
         view.text = "새싹 서비스 이용을 위해\n휴대폰 번호를 입력해 주세요"
+        view.textColor = .black
         view.font = .systemFont(ofSize: 20)
         view.textAlignment = .center
         view.numberOfLines = 0
@@ -23,6 +24,7 @@ final class LoginView: BaseView {
     let inputPhoneNumberTextField: UITextField = {
         let view = UITextField()
         view.placeholder = "휴대폰 번호(-없이 숫자만 입력)"
+        view.textColor = .black
         view.keyboardType = .numberPad
         return view
     }()

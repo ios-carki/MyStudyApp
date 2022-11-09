@@ -24,10 +24,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //            
 //            window?.rootViewController = vc
 //        }
-        let vc = PageViewController()
-        //let nav = UINavigationController(rootViewController: vc)
+        let vc = LoginViewController()
+        let nav = UINavigationController(rootViewController: vc)
 
-        window?.rootViewController = vc
+        window?.rootViewController = nav
         window?.makeKeyAndVisible()
     }
 

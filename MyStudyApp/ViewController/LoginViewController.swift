@@ -29,7 +29,13 @@ final class LoginViewController: UIViewController {
         phoneNumberTextFieldSetting()
         changeUnderLineOfTextField()
         certificatieButtonSetting()
+        navigationSetting()
         
+    }
+    
+    func navigationSetting() {
+        
+        navigationController?.navigationBar.backgroundColor = .black
     }
     
     //MARK: - 이런식으로도 구현 할 수 있겠지만 같은코드에 컨트롤 이벤트만 달라서 조건문 활용해도 되는게 아닌지 혹은 델리게이트 or 다른 컨트롤 이벤트가 있는지
@@ -62,20 +68,28 @@ final class LoginViewController: UIViewController {
         print(mainView.inputPhoneNumberTextField.text)
     }
     
+    func verifyPhoneNumber(textFieldText: String) -> String {
+        let replaceNumber = String((textFieldText.replacingOccurrences(of: "-", with: "")).dropFirst(1))
+        
+        return replaceNumber
+    }
+    
     func certificatieButtonSetting() {
+        
         mainView.getCertificationNumberButton.rx.tap
             .subscribe(onNext: { [weak self] _ in
+                guard let textFieldPhoneNumber = self?.verifyPhoneNumber(textFieldText: self?.mainView.inputPhoneNumberTextField.text ?? "") else { return }
+                let userPhoneNumber = "+82\(textFieldPhoneNumber)"
+                
                 if ((self?.isValidPhone(phone: self?.mainView.inputPhoneNumberTextField.text)) != false) {
                     print("맞는 번호형식: ", self?.mainView.inputPhoneNumberTextField.text)
                     
                     Auth.auth().languageCode = "kr"
                     PhoneAuthProvider.provider()
-                      .verifyPhoneNumber("+82내번호", uiDelegate: nil) { (verificationID, error) in
-//                          if let id = verificationID {
-//                              print("success")
-//                              UserDefaults.standard.set(verificationID, forKey: "verificationID")
-//                          }
+                    .verifyPhoneNumber(userPhoneNumber, uiDelegate: nil) { (verificationID, error) in //번호에서 0 빼고 +82랑 붙여쓰기
+//
                           if let error = error {
+                              print(userPhoneNumber)
                               print("🩴🩴🩴🩴🩴에러.로컬라이즈드~🩴🩴🩴🩴🩴🩴🩴🩴🩴", error.localizedDescription)
                               print("😡😡😡😡😡😡얜 그냥 에러😡😡😡😡😡😡😡", error)
                               return
@@ -85,12 +99,12 @@ final class LoginViewController: UIViewController {
                           }
 
                       }
-                    let vc = SecondLoginViewController()
-                    self?.navigationController?.pushViewController(vc, animated: true)
                     
                 } else {
                     print("다른 번호 형식")
                 }
+                let vc = SecondLoginViewController()
+                self?.navigationController?.pushViewController(vc, animated: true)
             })
             .disposed(by: disposeBag)
     }
