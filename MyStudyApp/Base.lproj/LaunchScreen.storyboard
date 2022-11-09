@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,27 +13,25 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_logo" translatesAutoresizingMaskIntoConstraints="NO" id="jQi-pN-b0Q">
-                                <rect key="frame" x="78" y="265" width="234" height="264"/>
+                                <rect key="frame" x="78" y="198" width="258" height="264"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="txt" translatesAutoresizingMaskIntoConstraints="NO" id="eFW-Xo-nim">
-                                <rect key="frame" x="24" y="558" width="342" height="112"/>
+                                <rect key="frame" x="40" y="497" width="334" height="112"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="jQi-pN-b0Q" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="3yX-Rd-pTq"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eFW-Xo-nim" secondAttribute="trailing" constant="24" id="EuQ-Zr-75G"/>
-                            <constraint firstItem="eFW-Xo-nim" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="RuP-ux-oHx"/>
-                            <constraint firstItem="jQi-pN-b0Q" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="218" id="Z53-Qw-iDb"/>
-                            <constraint firstItem="jQi-pN-b0Q" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="78" id="bYr-U2-YGG"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jQi-pN-b0Q" secondAttribute="trailing" constant="78" id="cOt-DW-ffQ"/>
-                            <constraint firstItem="eFW-Xo-nim" firstAttribute="top" secondItem="jQi-pN-b0Q" secondAttribute="bottom" constant="29" id="pcR-ts-PSn"/>
-                            <constraint firstItem="eFW-Xo-nim" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="qZE-cI-mkd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eFW-Xo-nim" secondAttribute="trailing" constant="40" id="5La-pY-G2U"/>
+                            <constraint firstItem="jQi-pN-b0Q" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="topMargin" constant="150" id="KcE-KG-43w"/>
+                            <constraint firstItem="jQi-pN-b0Q" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="78" id="p5A-g7-kJw"/>
+                            <constraint firstItem="eFW-Xo-nim" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="to9-2k-L4Y"/>
+                            <constraint firstItem="eFW-Xo-nim" firstAttribute="top" secondItem="jQi-pN-b0Q" secondAttribute="bottom" constant="35" id="vEv-NL-bcr"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jQi-pN-b0Q" secondAttribute="trailing" constant="78" id="zQs-bq-jPF"/>
                         </constraints>
                     </view>
                 </viewController>

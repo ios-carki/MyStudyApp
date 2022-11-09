@@ -6,8 +6,12 @@
 //
 
 import UIKit
+import UserNotifications
 
 import IQKeyboardManagerSwift
+import FirebaseCore
+import FirebaseAuth
+
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,6 +24,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.enableAutoToolbar = false
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true //뷰 터치제스쳐, 키보드 자동으로 내림
+        
+        FirebaseApp.configure()
+        
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { _, _ in
+            
+        }
+        
+        application.registerForRemoteNotifications()
         
         return true
     }
@@ -41,3 +53,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        Auth.auth().setAPNSToken(deviceToken, type: AuthAPNSTokenType.unknown)
+    }
+}

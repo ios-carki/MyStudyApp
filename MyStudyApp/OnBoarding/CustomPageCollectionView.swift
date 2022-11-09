@@ -44,6 +44,7 @@ final class CustomPageCollectionView: UICollectionViewCell {
         [pageTopLabel, pageImage].forEach {
             contentView.addSubview($0)
         }
+        self.backgroundColor = .white
         
     }
     

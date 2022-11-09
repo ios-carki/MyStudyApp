@@ -23,6 +23,7 @@ final class LoginView: BaseView {
     let inputPhoneNumberTextField: UITextField = {
         let view = UITextField()
         view.placeholder = "휴대폰 번호(-없이 숫자만 입력)"
+        view.keyboardType = .numberPad
         return view
     }()
     

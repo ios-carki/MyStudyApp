@@ -24,7 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //            
 //            window?.rootViewController = vc
 //        }
-        let vc = GenderViewController()
+        let vc = PageViewController()
         //let nav = UINavigationController(rootViewController: vc)
 
         window?.rootViewController = vc

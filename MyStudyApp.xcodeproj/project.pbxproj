@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C32C81D5291B78B60070F387 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32C81D4291B78B60070F387 /* String+Extension.swift */; };
+		C32C81DE291BAA3A0070F387 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = C32C81DD291BAA3A0070F387 /* FirebaseAnalytics */; };
+		C32C81E0291BAA3A0070F387 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = C32C81DF291BAA3A0070F387 /* FirebaseAuth */; };
+		C32C81E3291BDAAA0070F387 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C32C81E2291BDAAA0070F387 /* GoogleService-Info.plist */; };
 		C3B293762918D29F00F2D55D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B293752918D29F00F2D55D /* AppDelegate.swift */; };
 		C3B293782918D29F00F2D55D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B293772918D29F00F2D55D /* SceneDelegate.swift */; };
 		C3B2937A2918D29F00F2D55D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B293792918D29F00F2D55D /* ViewController.swift */; };
@@ -38,6 +42,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C32C81D4291B78B60070F387 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		C32C81E1291BAAD70070F387 /* MyStudyApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyStudyApp.entitlements; sourceTree = "<group>"; };
+		C32C81E2291BDAAA0070F387 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C3B293722918D29F00F2D55D /* MyStudyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyStudyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3B293752918D29F00F2D55D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3B293772918D29F00F2D55D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,8 +79,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3B293B3291942D100F2D55D /* RxCocoa in Frameworks */,
+				C32C81E0291BAA3A0070F387 /* FirebaseAuth in Frameworks */,
 				C3B293972918E1FC00F2D55D /* SnapKit in Frameworks */,
 				C3B293B5291942D100F2D55D /* RxSwift in Frameworks */,
+				C32C81DE291BAA3A0070F387 /* FirebaseAnalytics in Frameworks */,
 				C3B293B02919424400F2D55D /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -100,6 +109,8 @@
 		C3B293742918D29F00F2D55D /* MyStudyApp */ = {
 			isa = PBXGroup;
 			children = (
+				C32C81E2291BDAAA0070F387 /* GoogleService-Info.plist */,
+				C32C81E1291BAAD70070F387 /* MyStudyApp.entitlements */,
 				C3B293A929192E6400F2D55D /* ViewController */,
 				C3B293A829192E5400F2D55D /* View */,
 				C3B2938C2918E18400F2D55D /* OnBoarding */,
@@ -121,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				C3B293A629192D0F00F2D55D /* Color+Extension.swift */,
+				C32C81D4291B78B60070F387 /* String+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -182,6 +194,8 @@
 				C3B293AF2919424400F2D55D /* IQKeyboardManagerSwift */,
 				C3B293B2291942D100F2D55D /* RxCocoa */,
 				C3B293B4291942D100F2D55D /* RxSwift */,
+				C32C81DD291BAA3A0070F387 /* FirebaseAnalytics */,
+				C32C81DF291BAA3A0070F387 /* FirebaseAuth */,
 			);
 			productName = MyStudyApp;
 			productReference = C3B293722918D29F00F2D55D /* MyStudyApp.app */;
@@ -215,6 +229,7 @@
 				C3B293952918E1FC00F2D55D /* XCRemoteSwiftPackageReference "SnapKit" */,
 				C3B293AE2919424400F2D55D /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				C3B293B1291942D100F2D55D /* XCRemoteSwiftPackageReference "RxSwift" */,
+				C32C81DC291BAA3A0070F387 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = C3B293732918D29F00F2D55D /* Products */;
 			projectDirPath = "";
@@ -232,6 +247,7 @@
 			files = (
 				C3C226542919EAF90042062A /* .gitignore in Resources */,
 				C3B293822918D2A100F2D55D /* LaunchScreen.storyboard in Resources */,
+				C32C81E3291BDAAA0070F387 /* GoogleService-Info.plist in Resources */,
 				C3B2937F2918D2A100F2D55D /* Assets.xcassets in Resources */,
 				C3B2937D2918D29F00F2D55D /* Main.storyboard in Resources */,
 			);
@@ -245,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3B293AB2919306E00F2D55D /* LoginViewController.swift in Sources */,
+				C32C81D5291B78B60070F387 /* String+Extension.swift in Sources */,
 				C3C22668291AA7A70042062A /* GenderViewController.swift in Sources */,
 				C3C22664291A62610042062A /* EmailViewController.swift in Sources */,
 				C3C22662291A62590042062A /* EmailView.swift in Sources */,
@@ -408,6 +425,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MyStudyApp/MyStudyApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 48S4T8HCYX;
@@ -436,6 +454,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MyStudyApp/MyStudyApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 48S4T8HCYX;
@@ -483,6 +502,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		C32C81DC291BAA3A0070F387 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
 		C3B293952918E1FC00F2D55D /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -510,6 +537,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C32C81DD291BAA3A0070F387 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C32C81DC291BAA3A0070F387 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		C32C81DF291BAA3A0070F387 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C32C81DC291BAA3A0070F387 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
 		C3B293962918E1FC00F2D55D /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C3B293952918E1FC00F2D55D /* XCRemoteSwiftPackageReference "SnapKit" */;
