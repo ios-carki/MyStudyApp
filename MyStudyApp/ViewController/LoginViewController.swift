@@ -54,18 +54,20 @@ final class LoginViewController: UIViewController {
                 self?.mainView.borderLineView.layer.borderColor = UIColor.colorGray3.cgColor
             })
             .disposed(by: disposeBag)
+        
+        
     }
     //MARK: -
     
     func phoneNumberTextFieldSetting() {
         mainView.inputPhoneNumberTextField.delegate = self
         
-        mainView.inputPhoneNumberTextField.rx.text.orEmpty
-            .map { $0.count >= 11 }
-            .bind(to: mainView.getCertificationNumberButton.rx.isEnabled)
+        mainView.inputPhoneNumberTextField.rx.text.orEmpty //011 일땐 10글자 / 010 일때 11글자//맵 대신
+            .bind(onNext: { [weak self] value in // bind -> 에러가 일어날 가능성이 없을때(단순 버튼클릭, 텍스트필드에 글자 쓰거나)
+               
+            })
             .disposed(by: disposeBag)
         
-        print(mainView.inputPhoneNumberTextField.text)
     }
     
     func verifyPhoneNumber(textFieldText: String) -> String {
@@ -95,6 +97,7 @@ final class LoginViewController: UIViewController {
                               return
                           } else {
                               UserDefaults.standard.set(verificationID, forKey: "verificationID")
+                              print(UserDefaults.standard.string(forKey: "verificationID"))
                               print("성공!")
                           }
 
@@ -152,10 +155,15 @@ extension LoginViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         guard let text = textField.text else { return false }
-            let newString = (text as NSString).replacingCharacters(in: range, with: string)
-            textField.text = format(with: "XXX-XXXX-XXXX", phone: newString)
-            return false
-        }
+        print(text)
+
+        let newString = (text as NSString).replacingCharacters(in: range, with: string)
+//
+//        textField.text = format(with: "XXX-XXXX-XXXX", phone: newString)
+        textField.text = newString.pretty()
+
+        return false
+    }
 }
 
 /*

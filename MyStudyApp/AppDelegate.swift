@@ -11,6 +11,7 @@ import UserNotifications
 import IQKeyboardManagerSwift
 import FirebaseCore
 import FirebaseAuth
+import FirebaseMessaging
 
 
 @main
@@ -26,11 +27,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true //뷰 터치제스쳐, 키보드 자동으로 내림
         
         FirebaseApp.configure()
-        
+        Messaging.messaging().delegate = self
+        UNUserNotificationCenter.current().delegate = self
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { _, _ in
             
         }
-        
         application.registerForRemoteNotifications()
         
         return true
@@ -53,8 +54,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
-extension AppDelegate: UNUserNotificationCenterDelegate {
+extension AppDelegate: UNUserNotificationCenterDelegate, MessagingDelegate {
+    
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         Auth.auth().setAPNSToken(deviceToken, type: AuthAPNSTokenType.unknown)
     }
+    
+    //메시징 관련
+    public func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+            let firebaseToken = fcmToken ?? ""
+            print("firebase token: \(firebaseToken)")
+        UserDefaults.standard.set(firebaseToken, forKey: "FCMTokken")
+        }
+        
+        public func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+            completionHandler([.alert, .badge, .sound])
+        }
+        
+        public func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+            completionHandler()
+        }
 }
+
