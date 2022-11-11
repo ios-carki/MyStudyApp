@@ -30,7 +30,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        window?.rootViewController = nav
 //        window?.makeKeyAndVisible()
         
-        let vc = BirthViewController()
+        let vc = EmailViewController()
         let nav = UINavigationController(rootViewController: vc)
         
         window?.rootViewController = nav

@@ -30,6 +30,7 @@ final class BirthViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        mainView.yearButton.becomeFirstResponder()
         nextButtonSetting()
         datePickerSetting()
         popupDatePicker()
