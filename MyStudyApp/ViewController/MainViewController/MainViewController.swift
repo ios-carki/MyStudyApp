@@ -1,15 +1,15 @@
 //
-//  BirthViewController.swift
+//  MainViewController.swift
 //  MyStudyApp
 //
-//  Created by Carki on 2022/11/08.
+//  Created by Carki on 2022/11/11.
 //
 
 import UIKit
 
-final class BirthViewController: UIViewController {
+final class MainViewController: UIViewController {
     
-    let mainView = BirthView()
+    let mainView = MainView()
     
     override func loadView() {
         view = mainView

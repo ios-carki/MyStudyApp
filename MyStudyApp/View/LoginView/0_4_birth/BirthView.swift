@@ -34,11 +34,10 @@ final class BirthView: BaseView {
         return view
     }()
     
-    let yearButton: UIButton = {
-        let view = UIButton()
-        view.setTitle("1990", for: .normal)
-        view.setTitleColor(.colorGray7, for: .normal)
-        view.contentHorizontalAlignment = .left
+    let yearButton: UITextField = {
+        let view = UITextField()
+        view.placeholder = "1990"
+        view.textColor = .black
         return view
     }()
     
@@ -62,11 +61,10 @@ final class BirthView: BaseView {
         return view
     }()
     
-    let monthButton: UIButton = {
-        let view = UIButton()
-        view.setTitle("1", for: .normal)
-        view.setTitleColor(.colorGray7, for: .normal)
-        view.contentHorizontalAlignment = .left
+    let monthButton: UITextField = {
+        let view = UITextField()
+        view.placeholder = "1"
+        view.textColor = .black
         return view
     }()
     
@@ -90,11 +88,10 @@ final class BirthView: BaseView {
         return view
     }()
     
-    let dayButton: UIButton = {
-        let view = UIButton()
-        view.setTitle("1", for: .normal)
-        view.setTitleColor(.colorGray7, for: .normal)
-        view.contentHorizontalAlignment = .left
+    let dayButton: UITextField = {
+        let view = UITextField()
+        view.placeholder = "1"
+        view.textColor = .black
         return view
     }()
     

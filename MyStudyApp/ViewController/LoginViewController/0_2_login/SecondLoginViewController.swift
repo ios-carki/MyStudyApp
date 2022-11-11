@@ -83,12 +83,15 @@ final class SecondLoginViewController: UIViewController {
         }
     }
     
+    //회원정보 입력뷰
     func ifNewUser() {
         let vc = NickNameViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
     
+    //메인 지도뷰
     func ifOldUser() {
-        //메인 지도뷰 구성하기
+        let vc = MainViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

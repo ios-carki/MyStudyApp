@@ -62,17 +62,20 @@ extension AppDelegate: UNUserNotificationCenterDelegate, MessagingDelegate {
     
     //메시징 관련
     public func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
-            let firebaseToken = fcmToken ?? ""
-            print("firebase token: \(firebaseToken)")
-        UserDefaults.standard.set(firebaseToken, forKey: "FCMTokken")
-        }
+        let firebaseToken = fcmToken ?? ""
+        print("firebase token: \(firebaseToken)")
+        UserDefaults.standard.set(firebaseToken, forKey: "FCMtoken")
         
-        public func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-            completionHandler([.alert, .badge, .sound])
-        }
-        
-        public func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-            completionHandler()
-        }
+        var FCMtoken: User = User()
+        FCMtoken.FCMtoken = UserDefaults.standard.string(forKey: "FCMtoken") ?? "토큰 없음."
+    }
+    
+    public func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert, .badge, .sound])
+    }
+    
+    public func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        completionHandler()
+    }
 }
 
