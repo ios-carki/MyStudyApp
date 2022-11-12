@@ -63,11 +63,12 @@ extension AppDelegate: UNUserNotificationCenterDelegate, MessagingDelegate {
     //메시징 관련
     public func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
         let firebaseToken = fcmToken ?? ""
+        UserDefaults.standard.set(firebaseToken, forKey: "firebaseToken")
         print("firebase token: \(firebaseToken)")
-        UserDefaults.standard.set(firebaseToken, forKey: "FCMtoken")
         
         var FCMtoken: User = User()
-        FCMtoken.FCMtoken = UserDefaults.standard.string(forKey: "FCMtoken") ?? "토큰 없음."
+        FCMtoken.FCMtoken = UserDefaults.standard.string(forKey: "firebaseToken") ?? "토큰 없음."
+        
     }
     
     public func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {

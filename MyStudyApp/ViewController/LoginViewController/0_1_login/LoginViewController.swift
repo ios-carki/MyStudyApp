@@ -122,9 +122,6 @@ final class LoginViewController: UIViewController {
         let pred = NSPredicate(format:"SELF MATCHES %@", phoneRegEx)
         return pred.evaluate(with: phone)
     }
-    
-    
-    
 }
 
 

@@ -14,21 +14,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
-        if UserDefaults.standard.bool(forKey: "oldUser") {
-            let vc = LoginViewController()
-            
-            window?.rootViewController = vc
-        } else {
-            let vc = PageViewController()
-            let nav = UINavigationController(rootViewController: vc)
-            
-            window?.rootViewController = nav
-        }
+//        if UserDefaults.standard.bool(forKey: "oldUser") {
+//            let vc = LoginViewController()
+//            
+//            window?.rootViewController = vc
+//        } else {
+//            let vc = PageViewController()
+//            let nav = UINavigationController(rootViewController: vc)
+//            
+//            window?.rootViewController = nav
+//        }
         
-        let rootVC = LoginViewController()
+        let rootVC = GenderViewController()
         let nav = UINavigationController(rootViewController: rootVC)
         
-        self.window?.makeKeyAndVisible()
+        window?.rootViewController = nav
         
         window?.makeKeyAndVisible()
     }

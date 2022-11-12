@@ -18,6 +18,11 @@
 		C32C821F291E5C4C0070F387 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32C821E291E5C4C0070F387 /* MainView.swift */; };
 		C32C8222291E609A0070F387 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32C8221291E609A0070F387 /* User.swift */; };
 		C32C8237291E70B40070F387 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = C32C8236291E70B40070F387 /* Toast */; };
+		C32C823A291FB2770070F387 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = C32C8239291FB2770070F387 /* Alamofire */; };
+		C32C823D291FB2E40070F387 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32C823C291FB2E40070F387 /* APIService.swift */; };
+		C32C8240291FB6320070F387 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32C823F291FB6320070F387 /* API.swift */; };
+		C32C8244291FB7F50070F387 /* KEY.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32C8243291FB7F50070F387 /* KEY.swift */; };
+		C32C8246291FC4960070F387 /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32C8245291FC4960070F387 /* URL+Extension.swift */; };
 		C3B293762918D29F00F2D55D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B293752918D29F00F2D55D /* AppDelegate.swift */; };
 		C3B293782918D29F00F2D55D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B293772918D29F00F2D55D /* SceneDelegate.swift */; };
 		C3B2937A2918D29F00F2D55D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B293792918D29F00F2D55D /* ViewController.swift */; };
@@ -56,6 +61,10 @@
 		C32C821C291E5C460070F387 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		C32C821E291E5C4C0070F387 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		C32C8221291E609A0070F387 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		C32C823C291FB2E40070F387 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		C32C823F291FB6320070F387 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		C32C8243291FB7F50070F387 /* KEY.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KEY.swift; sourceTree = "<group>"; };
+		C32C8245291FC4960070F387 /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
 		C3B293722918D29F00F2D55D /* MyStudyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyStudyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3B293752918D29F00F2D55D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3B293772918D29F00F2D55D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +103,7 @@
 				C32C8213291E508E0070F387 /* FirebaseAuth in Frameworks */,
 				C32C8237291E70B40070F387 /* Toast in Frameworks */,
 				C3B293972918E1FC00F2D55D /* SnapKit in Frameworks */,
+				C32C823A291FB2770070F387 /* Alamofire in Frameworks */,
 				C3B293B5291942D100F2D55D /* RxSwift in Frameworks */,
 				C32C8211291E508E0070F387 /* FirebaseAnalytics in Frameworks */,
 				C3B293B02919424400F2D55D /* IQKeyboardManagerSwift in Frameworks */,
@@ -123,6 +133,7 @@
 		C32C8220291E608E0070F387 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C32C823E291FB5EB0070F387 /* Network */,
 				C32C8221291E609A0070F387 /* User.swift */,
 			);
 			path = Model;
@@ -250,6 +261,16 @@
 			path = LoginView;
 			sourceTree = "<group>";
 		};
+		C32C823E291FB5EB0070F387 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				C32C823C291FB2E40070F387 /* APIService.swift */,
+				C32C823F291FB6320070F387 /* API.swift */,
+				C32C8243291FB7F50070F387 /* KEY.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		C3B293692918D29F00F2D55D = {
 			isa = PBXGroup;
 			children = (
@@ -295,6 +316,7 @@
 				C3B293A629192D0F00F2D55D /* Color+Extension.swift */,
 				C32C81D4291B78B60070F387 /* String+Extension.swift */,
 				C32C8218291E546D0070F387 /* Elert+Extension.swift */,
+				C32C8245291FC4960070F387 /* URL+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -353,6 +375,7 @@
 				C32C8214291E508E0070F387 /* FirebaseFirestore */,
 				C32C8216291E508E0070F387 /* FirebaseMessaging */,
 				C32C8236291E70B40070F387 /* Toast */,
+				C32C8239291FB2770070F387 /* Alamofire */,
 			);
 			productName = MyStudyApp;
 			productReference = C3B293722918D29F00F2D55D /* MyStudyApp.app */;
@@ -388,6 +411,7 @@
 				C3B293B1291942D100F2D55D /* XCRemoteSwiftPackageReference "RxSwift" */,
 				C32C820F291E508E0070F387 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				C32C8235291E70B40070F387 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
+				C32C8238291FB2770070F387 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = C3B293732918D29F00F2D55D /* Products */;
 			projectDirPath = "";
@@ -419,12 +443,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3B293AB2919306E00F2D55D /* LoginViewController.swift in Sources */,
+				C32C8244291FB7F50070F387 /* KEY.swift in Sources */,
 				C32C821F291E5C4C0070F387 /* MainView.swift in Sources */,
 				C32C821D291E5C460070F387 /* MainViewController.swift in Sources */,
 				C32C8222291E609A0070F387 /* User.swift in Sources */,
+				C32C8246291FC4960070F387 /* URL+Extension.swift in Sources */,
 				C32C81D5291B78B60070F387 /* String+Extension.swift in Sources */,
 				C32C8219291E546D0070F387 /* Elert+Extension.swift in Sources */,
 				C3C22668291AA7A70042062A /* GenderViewController.swift in Sources */,
+				C32C8240291FB6320070F387 /* API.swift in Sources */,
 				C3C22664291A62610042062A /* EmailViewController.swift in Sources */,
 				C3C22662291A62590042062A /* EmailView.swift in Sources */,
 				C3B293A529190DEF00F2D55D /* CustomPageCollectionView.swift in Sources */,
@@ -440,6 +467,7 @@
 				C3C22658291A50D50042062A /* SecondLoginView.swift in Sources */,
 				C3C2265C291A5CB50042062A /* NickNameViewController.swift in Sources */,
 				C3C22660291A604D0042062A /* BirthViewController.swift in Sources */,
+				C32C823D291FB2E40070F387 /* APIService.swift in Sources */,
 				C3C22656291A50CA0042062A /* SecondLoginViewController.swift in Sources */,
 				C3B293AD2919307400F2D55D /* LoginView.swift in Sources */,
 				C3B293A729192D0F00F2D55D /* Color+Extension.swift in Sources */,
@@ -680,6 +708,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		C32C8238291FB2770070F387 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.5.0;
+			};
+		};
 		C3B293952918E1FC00F2D55D /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -731,6 +767,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C32C8235291E70B40070F387 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
 			productName = Toast;
+		};
+		C32C8239291FB2770070F387 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C32C8238291FB2770070F387 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 		C3B293962918E1FC00F2D55D /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;

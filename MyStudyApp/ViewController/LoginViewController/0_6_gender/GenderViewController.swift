@@ -7,9 +7,15 @@
 
 import UIKit
 
+import FirebaseCore
+import FirebaseAuth
+import FirebaseMessaging
+
 final class GenderViewController: UIViewController {
     
     let mainView = GenderView()
+    
+    let modelView = APIService()
     
     var gender: User = User()
     
@@ -68,6 +74,47 @@ final class GenderViewController: UIViewController {
             print("성별데이터 있음")
             ///네트워크 통신 시작.
             print("완성된 유저 데이터: ", gender)
+            
+            modelView.signup(phoneNum: "+821043136060", FCMToken: UserDefaults.standard.string(forKey: "firebaseToken") ?? "", nickName: "노준혁", birth: "1994-03-01T09:23:44.054Z", email: "test@gmail.com", gender: 1) { statusCode in
+                
+                if statusCode == 401 {
+                    //갱신코드 -> 401 상태코드받을때로 옮겨야됨
+                    let currentUser = Auth.auth().currentUser
+                    currentUser?.getIDTokenForcingRefresh(true) { idToken, error in
+                      if let error = error {
+                        // Handle error
+                          print("토큰갱신 에러")
+                        return;
+                      }
+                        print("토큰 갱신 성공")
+                        print("갱신된 파베 토큰: ", idToken)
+                        UserDefaults.standard.set(idToken, forKey: "firebaseToken")
+                        //UserDefaults.standard.set(firebaseToken, forKey: "firebaseToken")
+                      // Send token to your backend via HTTPS
+                      // ...
+                    }
+                }
+                
+                switch statusCode {
+                case 200:
+                    return self.customAlert(alertTitle: "회원가입 성공", alertMessage: "축하합니다", alertStyle: .alert)
+                case 201:
+                    return self.customAlert(alertTitle: "회원가입 실패", alertMessage: "이미 가입한 유저입니다.", alertStyle: .alert)
+                case 202:
+                    return self.customAlert(alertTitle: "회원가입 실패", alertMessage: "사용할 수 없는 닉네임 입니다.", alertStyle: .alert)
+                case 401:
+                    return self.customAlert(alertTitle: "회원가입 실패", alertMessage: "만료된 토큰입니다.", alertStyle: .alert)
+                case 406:
+                    return self.customAlert(alertTitle: "회원가입 실패", alertMessage: "미가입 회원입니다.", alertStyle: .alert)
+                case 500:
+                    return self.customAlert(alertTitle: "회원가입 실패", alertMessage: "서버에러", alertStyle: .alert)
+                case 501:
+                    return self.customAlert(alertTitle: "회원가입 실패", alertMessage: "인터넷연결확인", alertStyle: .alert)
+                default:
+                    return print("anjwl")
+                }
+            }
+            
         } else {
             print("성별데이터 없음")
             view.makeToast("성별을 선택해주세요.", position: .top)
