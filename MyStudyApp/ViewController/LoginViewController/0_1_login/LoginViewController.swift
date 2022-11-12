@@ -34,7 +34,7 @@ final class LoginViewController: UIViewController {
     }
     
     func navigationSetting() {
-        
+        title = "네비 테스트"
         navigationController?.navigationBar.backgroundColor = .black
     }
     
@@ -159,8 +159,8 @@ extension LoginViewController: UITextFieldDelegate {
 
         let newString = (text as NSString).replacingCharacters(in: range, with: string)
 //
-//        textField.text = format(with: "XXX-XXXX-XXXX", phone: newString)
-        textField.text = newString.pretty()
+        textField.text = format(with: "XXX-XXXX-XXXX", phone: newString)
+        //textField.text = newString.pretty()
 
         return false
     }

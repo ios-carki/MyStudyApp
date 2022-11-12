@@ -14,26 +14,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
-//        if UserDefaults.standard.bool(forKey: "oldUser") {
-//            let vc = PageViewController()
-//
-//            window?.rootViewController = vc
-//        } else {
-//            let vc = LoginViewController()
-//            let nav = UINavigationController(rootViewController: vc)
-//            
-//            window?.rootViewController = vc
-//        }
-//        let vc = LoginViewController()
-//        let nav = UINavigationController(rootViewController: vc)
-//
-//        window?.rootViewController = nav
-//        window?.makeKeyAndVisible()
+        if UserDefaults.standard.bool(forKey: "oldUser") {
+            let vc = LoginViewController()
+            
+            window?.rootViewController = vc
+        } else {
+            let vc = PageViewController()
+            let nav = UINavigationController(rootViewController: vc)
+            
+            window?.rootViewController = nav
+        }
         
-        let vc = EmailViewController()
-        let nav = UINavigationController(rootViewController: vc)
+        let rootVC = LoginViewController()
+        let nav = UINavigationController(rootViewController: rootVC)
         
-        window?.rootViewController = nav
+        self.window?.makeKeyAndVisible()
+        
         window?.makeKeyAndVisible()
     }
 

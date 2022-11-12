@@ -11,6 +11,12 @@ import SnapKit
 
 final class GenderView: BaseView {
     
+    let backGroundView: UIView = {
+        let view = UIView()
+        
+        return view
+    }()
+    
     let selectGenderLabel: UILabel = {
         let view = UILabel()
         view.text = "성별을 선택해 주세요"
@@ -107,7 +113,7 @@ final class GenderView: BaseView {
             womanView.addSubview($0)
         }
         
-        [selectGenderLabel, detailTextLabel, genderStackView, nextButton].forEach {
+        [backGroundView, selectGenderLabel, detailTextLabel, genderStackView, nextButton].forEach {
             self.addSubview($0)
         }
         
@@ -115,6 +121,10 @@ final class GenderView: BaseView {
     }
     
     override func setConstraints() {
+        
+        backGroundView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
         
         selectGenderLabel.snp.makeConstraints { make in
             make.top.equalTo(safeAreaLayoutGuide).offset(80)

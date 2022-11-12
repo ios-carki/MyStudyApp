@@ -13,5 +13,5 @@ struct User {
     var nick: String = ""
     var birth: String = ""
     var email: String = ""
-    var gender: Int = 0
+    var gender: Int = -1
 }
