@@ -39,7 +39,7 @@ final class MyInfoViewController: UIViewController {
 
 extension MyInfoViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return infoIconData.count
+        return infoLableData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -53,7 +53,7 @@ extension MyInfoViewController: UITableViewDelegate, UITableViewDataSource {
             cell.iconImage.image = UIImage(named: infoIconData[indexPath.row])
             cell.infoLabel.text = infoLableData[indexPath.row]
             cell.infoLabel.font = .boldSystemFont(ofSize: 16)
-            cell.sideIcon.image = UIImage(systemName: "chevron.right")
+            cell.sideIcon.image = UIImage(systemName: infoIconData[0])
         }
         
         return cell
@@ -62,9 +62,7 @@ extension MyInfoViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch (indexPath.row) {
         case 0:
-            let vc = SecondMyInfoViewController()
-            
-            navigationController?.pushViewController(vc, animated: true)
+            firstIndexFunc()
         case 1:
             print("1번 로우")
         case 2:
@@ -86,6 +84,12 @@ extension MyInfoViewController: UITableViewDelegate, UITableViewDataSource {
         } else {
             return 96
         }
+    }
+    
+    func firstIndexFunc() {
+        let vc = SecondMyInfoViewController()
+        
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     
