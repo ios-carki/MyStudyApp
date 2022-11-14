@@ -32,28 +32,19 @@ final class SecondMyInfoView: BaseView {
         return view
     }()
     
-    let userDetailView: UIView = {
-        let view = UIView()
-        view.layer.cornerRadius = 8
-        view.clipsToBounds = true
-        view.layer.borderColor = UIColor.colorGray2.cgColor
+    let detailTableView: UITableView = {
+        let view = UITableView()
         view.layer.borderWidth = 1
+        view.layer.borderColor = UIColor.colorGray2.cgColor
+        view.layer.cornerRadius = 8
+        view.separatorStyle = .none
         return view
     }()
     
-    let userNickLabel: UILabel = {
-        let view = UILabel()
-        view.text = "테스트"
-        view.textColor = .black
-        view.textAlignment = .left
-        view.font = .systemFont(ofSize: 16)
-        return view
-    }()
-    
-    let detailButton: UIImageView = {
-        let view = UIImageView()
-        view.image = UIImage(systemName: "chevron.down")
-        view.tintColor = .colorGray7
+    let testView: UIView = {
+        let view = UIView()
+        view.layer.borderColor = UIColor.colorGray7.cgColor
+        view.layer.borderWidth = 1
         return view
     }()
     
@@ -62,11 +53,7 @@ final class SecondMyInfoView: BaseView {
             cardView.addSubview($0)
         }
         
-        [userNickLabel, detailButton].forEach {
-            userDetailView.addSubview($0)
-        }
-        
-        [cardView, userDetailView].forEach {
+        [cardView, detailTableView, testView].forEach {
             self.addSubview($0)
         }
         self.backgroundColor = .white
@@ -87,23 +74,12 @@ final class SecondMyInfoView: BaseView {
         cardView.snp.makeConstraints { make in
             make.top.equalTo(safeAreaLayoutGuide).offset(16)
             make.horizontalEdges.equalTo(safeAreaLayoutGuide).inset(16)
+            make.height.equalTo(200)
         }
         
-        userNickLabel.snp.makeConstraints { make in
-            make.centerY.equalTo(userDetailView.safeAreaLayoutGuide)
-            make.leading.equalTo(userDetailView.safeAreaLayoutGuide).offset(16)
-        }
-        
-        detailButton.snp.makeConstraints { make in
-            make.centerY.equalTo(userNickLabel.snp.centerY)
-            make.trailing.equalTo(userDetailView.safeAreaLayoutGuide).offset(-26)
-            make.width.equalTo(16)
-        }
-        
-        userDetailView.snp.makeConstraints { make in
+        detailTableView.snp.makeConstraints { make in
             make.top.equalTo(cardView.snp.bottom)
-            make.horizontalEdges.equalTo(safeAreaLayoutGuide).inset(16)
-            make.height.equalTo(58)
+            make.horizontalEdges.equalToSuperview().inset(16)
         }
     }
 }

@@ -29,11 +29,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        }
 //        window?.makeKeyAndVisible()
         
-        let vc = MyInfoViewController()
+        let vc = SecondMyInfoViewController()
         let nav = UINavigationController(rootViewController: vc)
         
         window?.rootViewController = nav
         window?.makeKeyAndVisible()
+        print(#function)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

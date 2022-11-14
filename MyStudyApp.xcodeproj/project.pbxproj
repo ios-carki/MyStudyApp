@@ -28,6 +28,8 @@
 		C36907F629220DB2002B4C4D /* MyInfoCustomTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36907F529220DB2002B4C4D /* MyInfoCustomTableView.swift */; };
 		C36907FA29221E91002B4C4D /* SecondMyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36907F929221E91002B4C4D /* SecondMyInfoView.swift */; };
 		C36907FC29221E9F002B4C4D /* SecondMyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36907FB29221E9F002B4C4D /* SecondMyInfoViewController.swift */; };
+		C36907FE29223B9F002B4C4D /* SecondMyInfoDetailTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36907FD29223B9F002B4C4D /* SecondMyInfoDetailTableView.swift */; };
+		C3690800292251F2002B4C4D /* SecondMyInfoExpandTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36907FF292251F2002B4C4D /* SecondMyInfoExpandTableView.swift */; };
 		C3B293762918D29F00F2D55D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B293752918D29F00F2D55D /* AppDelegate.swift */; };
 		C3B293782918D29F00F2D55D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B293772918D29F00F2D55D /* SceneDelegate.swift */; };
 		C3B2937A2918D29F00F2D55D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B293792918D29F00F2D55D /* ViewController.swift */; };
@@ -75,6 +77,8 @@
 		C36907F529220DB2002B4C4D /* MyInfoCustomTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoCustomTableView.swift; sourceTree = "<group>"; };
 		C36907F929221E91002B4C4D /* SecondMyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondMyInfoView.swift; sourceTree = "<group>"; };
 		C36907FB29221E9F002B4C4D /* SecondMyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondMyInfoViewController.swift; sourceTree = "<group>"; };
+		C36907FD29223B9F002B4C4D /* SecondMyInfoDetailTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondMyInfoDetailTableView.swift; sourceTree = "<group>"; };
+		C36907FF292251F2002B4C4D /* SecondMyInfoExpandTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondMyInfoExpandTableView.swift; sourceTree = "<group>"; };
 		C3B293722918D29F00F2D55D /* MyStudyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyStudyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3B293752918D29F00F2D55D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3B293772918D29F00F2D55D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -330,6 +334,8 @@
 			isa = PBXGroup;
 			children = (
 				C36907F929221E91002B4C4D /* SecondMyInfoView.swift */,
+				C36907FD29223B9F002B4C4D /* SecondMyInfoDetailTableView.swift */,
+				C36907FF292251F2002B4C4D /* SecondMyInfoExpandTableView.swift */,
 			);
 			path = 4_1_my_info;
 			sourceTree = "<group>";
@@ -505,8 +511,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C36907FE29223B9F002B4C4D /* SecondMyInfoDetailTableView.swift in Sources */,
 				C3B293AB2919306E00F2D55D /* LoginViewController.swift in Sources */,
 				C32C8244291FB7F50070F387 /* KEY.swift in Sources */,
+				C3690800292251F2002B4C4D /* SecondMyInfoExpandTableView.swift in Sources */,
 				C32C821F291E5C4C0070F387 /* MainView.swift in Sources */,
 				C32C821D291E5C460070F387 /* MainViewController.swift in Sources */,
 				C32C8222291E609A0070F387 /* User.swift in Sources */,
