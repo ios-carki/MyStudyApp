@@ -66,8 +66,6 @@ extension AppDelegate: UNUserNotificationCenterDelegate, MessagingDelegate {
         UserDefaults.standard.set(firebaseToken, forKey: "firebaseToken")
         print("firebase token: \(firebaseToken)")
         
-        var FCMtoken: User = User()
-        FCMtoken.FCMtoken = UserDefaults.standard.string(forKey: "firebaseToken") ?? "토큰 없음."
         
     }
     

@@ -40,12 +40,15 @@ final class NickNameViewController: UIViewController {
     @objc func nextButtonClicked() {
         guard let nickNameText = mainView.inputNickNameTextField.text else { return }
         
-        var nickName: User = User()
-        nickName.nick = nickNameText
-        print("유저가 설정한 닉네임: ", nickName.nick)
-        print("현재 유저 데이터 상태: ", nickName)
+        //UPDATE: 유저데이터 빠른 확인을위해 유저디폴트 사용 -> 나중에 삭제 후 구조체 직접 대입으로 바꾸기
+//        UserDefaults.standard.set(nickNameText, forKey: "nick")
+//        print("저장된 닉네임 데이터: ", UserDefaults.standard.string(forKey: "nick"))
         
-        if isValidNickName(nickName: nickName.nick) {
+        //닉네임 저장
+        let user = User.shared
+        user.nick = nickNameText
+    
+        if isValidNickName(nickName: nickNameText) {
             nextView()
         } else {
             view.makeToast("닉네임은 1자 이상 10자 이내로 부탁드려요")
@@ -66,3 +69,5 @@ final class NickNameViewController: UIViewController {
     }
 }
 
+
+//닉네임필드 다 쓰면 다음버튼 배경색 바꾸기

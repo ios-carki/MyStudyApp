@@ -19,4 +19,8 @@ final class MainViewController: UIViewController {
         super.viewDidLoad()
         
     }
+    
+    func tapBarSetting() {
+        
+    }
 }

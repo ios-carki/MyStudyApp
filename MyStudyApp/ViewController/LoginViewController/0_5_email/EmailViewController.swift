@@ -37,12 +37,17 @@ final class EmailViewController: UIViewController {
     @objc func nextButtonClicked() {
         guard let emailText = mainView.emailTextField.text else { return }
         
-        var email: User = User()
-        email.email = emailText
-        print("유저가 설정한 닉네임: ", email.email)
-        print("현재 유저 데이터 상태: ", email)
         
-        if isValidEmail(email: email.email) {
+        //UPDATE: 유저데이터 빠른 확인을위해 유저디폴트 사용 -> 나중에 삭제 후 구조체 직접 대입으로 바꾸기
+//        UserDefaults.standard.set(emailText, forKey: "email")
+//        print("저장된 이메일 데이터: ", UserDefaults.standard.string(forKey: "email"))
+        
+        let user = User.shared
+        user.email = emailText
+        print("유저 이메일", user.email)
+        
+        
+        if isValidEmail(email: emailText) {
             nextView()
         } else {
             view.makeToast("이메일 형식이 올바르지 않습니다.", position: .top)

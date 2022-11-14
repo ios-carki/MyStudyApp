@@ -44,10 +44,14 @@ final class PageViewController: UIViewController {
     }
     
     @objc func startButtonClicked() {
-        let vc = LoginViewController()
-        vc.modalPresentationStyle = .fullScreen //풀스크린 모달방식
+        let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+        let sceneDelegate = windowScene?.delegate as? SceneDelegate
         
-        self.present(vc, animated: true)
+        let vc = EmailViewController()
+        let nav = UINavigationController(rootViewController: vc)
+
+        sceneDelegate?.window?.rootViewController = nav
+        sceneDelegate?.window?.makeKeyAndVisible()
     }
     
 }

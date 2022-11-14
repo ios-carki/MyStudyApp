@@ -23,7 +23,7 @@ final class APIService {
 //        }
 //    }
     
-    func signup(phoneNum: String, FCMToken: String, nickName: String, birth: String, email: String, gender: Int, completionHandler: @escaping (Int) -> Void) {
+    func signup(phoneNum: String, FCMToken: String, nickName: String, birth: String, email: String, gender: String, completionHandler: @escaping (Int) -> Void) {
         let api = SeSACAPI.signup(phoneNumber: phoneNum, FCMtoken: FCMToken, nick: nickName, birth: birth, email: email, gender: gender)
         
         print("URL검사: ", api.url)

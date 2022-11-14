@@ -22,6 +22,11 @@ final class SecondLoginViewController: UIViewController {
         super.viewDidLoad()
         
         startButtonSetting()
+        verifyNumberTextFieldSetting()
+    }
+    
+    func verifyNumberTextFieldSetting() {
+        mainView.inputCertificationNumberTextField.delegate = self
     }
     
     func startButtonSetting() {
@@ -63,19 +68,19 @@ final class SecondLoginViewController: UIViewController {
     //MARK: -
     //ViewModel로 빼기
     func isOldUser() {
-        if UserDefaults.standard.bool(forKey: "numberVerifiedUser") {
+        //번호인증 한번이라도 했던 유저 -> numberVerifiedUser: TRUE
+        if UserDefaults.standard.bool(forKey: "numberVerifiedUser") { // 번호인증 한번이라도 한 유저
             let okButton = UIAlertAction(title: "확인", style: .default) { [weak self] action in
                 guard let self = self else { return }
-                UserDefaults.standard.set(true, forKey: "numberVerifiedUser")
-                self.isOldUser()
+                self.ifOldUser()
             }
             
             self.customAlert(alertTitle: "인증성공!", alertMessage: "유저 데이터가 확인되었습니다.", alertStyle: .alert, actions: okButton)
-        } else {
+        } else { // 번호인증 처음한 유저
             
             let okButton = UIAlertAction(title: "확인", style: .default) { [weak self] action in
                 guard let self = self else { return }
-                UserDefaults.standard.set(true, forKey: "numberVerifiedUser")
+                UserDefaults.standard.set(true, forKey: "numberVerifiedUser") // 이 로직 통과한 순간부터 번호인증 한 유저 = 데이터가 있는 유저
                 self.ifNewUser()
             }
             
@@ -93,5 +98,49 @@ final class SecondLoginViewController: UIViewController {
     func ifOldUser() {
         let vc = MainViewController()
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    //6자리 인증번호인지 검사
+    func isValidVeriNumber(verinum: String?) -> Bool {
+        guard verinum != nil else { return false }
+        let pattern = "([0-9]{6})"
+        let pred = NSPredicate(format: "SELF MATCHES %@", pattern)
+        
+        return pred.evaluate(with: verinum)
+    }
+}
+
+extension SecondLoginViewController: UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        if isValidVeriNumber(verinum: textField.text) {
+            mainView.certificationButton.backgroundColor = .colorGreen
+        } else {
+            mainView.certificationButton.backgroundColor = .colorGray6
+        }
+        
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if isValidVeriNumber(verinum: textField.text) {
+            mainView.certificationButton.backgroundColor = .colorGreen
+        } else {
+            mainView.certificationButton.backgroundColor = .colorGray6
+            view.makeToast("인증번호 형식이 올바르지 않습니다.", position: .top)
+        }
+        
+        return true
+    }
+    
+    //올바른 이메일 = 버튼 배경, 토스트 x
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if isValidVeriNumber(verinum: textField.text) {
+            mainView.certificationButton.backgroundColor = .colorGreen
+        } else {
+            mainView.certificationButton.backgroundColor = .colorGray6
+            view.makeToast("인증번호 형식이 올바르지 않습니다.", position: .top)
+        }
     }
 }

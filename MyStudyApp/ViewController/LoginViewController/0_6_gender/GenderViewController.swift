@@ -17,7 +17,6 @@ final class GenderViewController: UIViewController {
     
     let modelView = APIService()
     
-    var gender: User = User()
     
     //manView, womanView에 텝 제스쳐 줄것
     override func loadView() {
@@ -27,6 +26,8 @@ final class GenderViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let user = User.shared
+        print(user.email ?? "")
         backGroundViewSetting()
         viewSetting()
         nextButtonSetting()
@@ -49,7 +50,12 @@ final class GenderViewController: UIViewController {
     
     @objc func backGroundTapped() {
         print("백그라운드 탭됨")
-        gender.gender = -1
+        
+        //UPDATE: 유저데이터 빠른 확인을위해 유저디폴트 사용 -> 나중에 삭제 후 구조체 직접 대입으로 바꾸기
+//        UserDefaults.standard.set(-1, forKey: "gender")
+//        print("저장된 성별 데이터: ", UserDefaults.standard.integer(forKey: "gender"))
+        let user = User.shared
+        user.gender = -1
         
         mainView.manView.backgroundColor = .white
         mainView.womanView.backgroundColor = .white
@@ -69,13 +75,16 @@ final class GenderViewController: UIViewController {
     }
     
     @objc func nextButtonClicked() {
+        let user = User.shared
+        //var genderData = UserDefaults.standard.integer(forKey: "gender")
         
-        if gender.gender == 0 || gender.gender == 1 {
+        if user.gender == 0 || user.gender == 1 {
             print("성별데이터 있음")
             ///네트워크 통신 시작.
-            print("완성된 유저 데이터: ", gender)
+//            var userData = User(phoneNumber: UserDefaults.standard.string(forKey: "phoneNum") ?? "", FCMtoken: UserDefaults.standard.string(forKey: "firebaseToken") ?? "", nick: UserDefaults.standard.string(forKey: "nick") ?? "", birth: UserDefaults.standard.string(forKey: "birth") ?? "", email: UserDefaults.standard.string(forKey: "email") ?? "", gender: UserDefaults.standard.integer(forKey: "gender"))
+//            print("완성된 유저 데이터: ", userData)
             
-            modelView.signup(phoneNum: "+821043136060", FCMToken: UserDefaults.standard.string(forKey: "firebaseToken") ?? "", nickName: "노준혁", birth: "1994-03-01T09:23:44.054Z", email: "test@gmail.com", gender: 1) { statusCode in
+            modelView.signup(phoneNum: user.phoneNumber ?? "", FCMToken: UserDefaults.standard.string(forKey: "firebaseToken") ?? "", nickName: user.nick ?? "", birth: user.birth ?? "", email: user.email ?? "", gender: String(user.gender ?? -1)) { statusCode in
                 
                 if statusCode == 401 {
                     //갱신코드 -> 401 상태코드받을때로 옮겨야됨
@@ -127,9 +136,12 @@ final class GenderViewController: UIViewController {
         mainView.nextButton.backgroundColor = .colorGreen
         
         //var gender: User = User()
-        gender.gender = 1
-        print("유저가 설정한 성별: ", gender.gender)
-        print("현재 유저 데이터 상태: ", gender)
+        //UPDATE: 유저데이터 빠른 확인을위해 유저디폴트 사용 -> 나중에 삭제 후 구조체 직접 대입으로 바꾸기
+//        UserDefaults.standard.set(1, forKey: "gender")
+//        print("저장된 성별 데이터: ", UserDefaults.standard.integer(forKey: "gender"))
+        
+        let user = User.shared
+        user.gender = 1
     }
     
     @objc func womanViewTapped() {
@@ -138,8 +150,11 @@ final class GenderViewController: UIViewController {
         mainView.nextButton.backgroundColor = .colorGreen
         
         //var gender: User = User()
-        gender.gender = 0
-        print("유저가 설정한 성별: ", gender.gender)
-        print("현재 유저 데이터 상태: ", gender)
+        //UPDATE: 유저데이터 빠른 확인을위해 유저디폴트 사용 -> 나중에 삭제 후 구조체 직접 대입으로 바꾸기
+//        UserDefaults.standard.set(0, forKey: "gender")
+//        print("저장된 성별 데이터: ", UserDefaults.standard.integer(forKey: "gender"))
+        
+        let user = User.shared
+        user.gender = 0
     }
 }

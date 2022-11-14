@@ -23,6 +23,11 @@
 		C32C8240291FB6320070F387 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32C823F291FB6320070F387 /* API.swift */; };
 		C32C8244291FB7F50070F387 /* KEY.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32C8243291FB7F50070F387 /* KEY.swift */; };
 		C32C8246291FC4960070F387 /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32C8245291FC4960070F387 /* URL+Extension.swift */; };
+		C32C824B2922099D0070F387 /* MyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32C824A2922099D0070F387 /* MyInfoView.swift */; };
+		C32C824E292209C10070F387 /* MyInforViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32C824D292209C10070F387 /* MyInforViewController.swift */; };
+		C36907F629220DB2002B4C4D /* MyInfoCustomTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36907F529220DB2002B4C4D /* MyInfoCustomTableView.swift */; };
+		C36907FA29221E91002B4C4D /* SecondMyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36907F929221E91002B4C4D /* SecondMyInfoView.swift */; };
+		C36907FC29221E9F002B4C4D /* SecondMyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36907FB29221E9F002B4C4D /* SecondMyInfoViewController.swift */; };
 		C3B293762918D29F00F2D55D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B293752918D29F00F2D55D /* AppDelegate.swift */; };
 		C3B293782918D29F00F2D55D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B293772918D29F00F2D55D /* SceneDelegate.swift */; };
 		C3B2937A2918D29F00F2D55D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B293792918D29F00F2D55D /* ViewController.swift */; };
@@ -65,6 +70,11 @@
 		C32C823F291FB6320070F387 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		C32C8243291FB7F50070F387 /* KEY.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KEY.swift; sourceTree = "<group>"; };
 		C32C8245291FC4960070F387 /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
+		C32C824A2922099D0070F387 /* MyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoView.swift; sourceTree = "<group>"; };
+		C32C824D292209C10070F387 /* MyInforViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInforViewController.swift; sourceTree = "<group>"; };
+		C36907F529220DB2002B4C4D /* MyInfoCustomTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoCustomTableView.swift; sourceTree = "<group>"; };
+		C36907F929221E91002B4C4D /* SecondMyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondMyInfoView.swift; sourceTree = "<group>"; };
+		C36907FB29221E9F002B4C4D /* SecondMyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondMyInfoViewController.swift; sourceTree = "<group>"; };
 		C3B293722918D29F00F2D55D /* MyStudyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyStudyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3B293752918D29F00F2D55D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3B293772918D29F00F2D55D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -117,6 +127,9 @@
 		C32C821A291E5C2F0070F387 /* MainView */ = {
 			isa = PBXGroup;
 			children = (
+				C36907F829221E73002B4C4D /* 4_1_my_info */,
+				C32C82492922096D0070F387 /* 4_my_info */,
+				C32C824829213FB00070F387 /* 1_1_main_default */,
 				C32C821E291E5C4C0070F387 /* MainView.swift */,
 			);
 			path = MainView;
@@ -125,7 +138,9 @@
 		C32C821B291E5C370070F387 /* MainViewController */ = {
 			isa = PBXGroup;
 			children = (
-				C32C821C291E5C460070F387 /* MainViewController.swift */,
+				C36907F729221E66002B4C4D /* 4_1_my_info */,
+				C32C824C292209A30070F387 /* 4_my_info */,
+				C32C824729213F8C0070F387 /* 1_1_main_default */,
 			);
 			path = MainViewController;
 			sourceTree = "<group>";
@@ -269,6 +284,54 @@
 				C32C8243291FB7F50070F387 /* KEY.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		C32C824729213F8C0070F387 /* 1_1_main_default */ = {
+			isa = PBXGroup;
+			children = (
+				C32C821C291E5C460070F387 /* MainViewController.swift */,
+			);
+			path = 1_1_main_default;
+			sourceTree = "<group>";
+		};
+		C32C824829213FB00070F387 /* 1_1_main_default */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = 1_1_main_default;
+			sourceTree = "<group>";
+		};
+		C32C82492922096D0070F387 /* 4_my_info */ = {
+			isa = PBXGroup;
+			children = (
+				C32C824A2922099D0070F387 /* MyInfoView.swift */,
+				C36907F529220DB2002B4C4D /* MyInfoCustomTableView.swift */,
+			);
+			path = 4_my_info;
+			sourceTree = "<group>";
+		};
+		C32C824C292209A30070F387 /* 4_my_info */ = {
+			isa = PBXGroup;
+			children = (
+				C32C824D292209C10070F387 /* MyInforViewController.swift */,
+			);
+			path = 4_my_info;
+			sourceTree = "<group>";
+		};
+		C36907F729221E66002B4C4D /* 4_1_my_info */ = {
+			isa = PBXGroup;
+			children = (
+				C36907FB29221E9F002B4C4D /* SecondMyInfoViewController.swift */,
+			);
+			path = 4_1_my_info;
+			sourceTree = "<group>";
+		};
+		C36907F829221E73002B4C4D /* 4_1_my_info */ = {
+			isa = PBXGroup;
+			children = (
+				C36907F929221E91002B4C4D /* SecondMyInfoView.swift */,
+			);
+			path = 4_1_my_info;
 			sourceTree = "<group>";
 		};
 		C3B293692918D29F00F2D55D = {
@@ -448,10 +511,13 @@
 				C32C821D291E5C460070F387 /* MainViewController.swift in Sources */,
 				C32C8222291E609A0070F387 /* User.swift in Sources */,
 				C32C8246291FC4960070F387 /* URL+Extension.swift in Sources */,
+				C36907F629220DB2002B4C4D /* MyInfoCustomTableView.swift in Sources */,
+				C36907FA29221E91002B4C4D /* SecondMyInfoView.swift in Sources */,
 				C32C81D5291B78B60070F387 /* String+Extension.swift in Sources */,
 				C32C8219291E546D0070F387 /* Elert+Extension.swift in Sources */,
 				C3C22668291AA7A70042062A /* GenderViewController.swift in Sources */,
 				C32C8240291FB6320070F387 /* API.swift in Sources */,
+				C36907FC29221E9F002B4C4D /* SecondMyInfoViewController.swift in Sources */,
 				C3C22664291A62610042062A /* EmailViewController.swift in Sources */,
 				C3C22662291A62590042062A /* EmailView.swift in Sources */,
 				C3B293A529190DEF00F2D55D /* CustomPageCollectionView.swift in Sources */,
@@ -461,9 +527,11 @@
 				C3B293A32918F32700F2D55D /* PageView.swift in Sources */,
 				C3B2938E2918E1B300F2D55D /* PageViewController.swift in Sources */,
 				C3B2937A2918D29F00F2D55D /* ViewController.swift in Sources */,
+				C32C824E292209C10070F387 /* MyInforViewController.swift in Sources */,
 				C3B293762918D29F00F2D55D /* AppDelegate.swift in Sources */,
 				C3C2265E291A603F0042062A /* BirthView.swift in Sources */,
 				C3B293782918D29F00F2D55D /* SceneDelegate.swift in Sources */,
+				C32C824B2922099D0070F387 /* MyInfoView.swift in Sources */,
 				C3C22658291A50D50042062A /* SecondLoginView.swift in Sources */,
 				C3C2265C291A5CB50042062A /* NickNameViewController.swift in Sources */,
 				C3C22660291A604D0042062A /* BirthViewController.swift in Sources */,

@@ -14,22 +14,25 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
+//        guard let scene = (scene as? UIWindowScene) else { return }
+//        window = UIWindow(windowScene: scene)
+//
 //        if UserDefaults.standard.bool(forKey: "oldUser") {
 //            let vc = LoginViewController()
-//            
+//
 //            window?.rootViewController = vc
 //        } else {
 //            let vc = PageViewController()
 //            let nav = UINavigationController(rootViewController: vc)
-//            
+//
 //            window?.rootViewController = nav
 //        }
+//        window?.makeKeyAndVisible()
         
-        let rootVC = GenderViewController()
-        let nav = UINavigationController(rootViewController: rootVC)
+        let vc = MyInfoViewController()
+        let nav = UINavigationController(rootViewController: vc)
         
         window?.rootViewController = nav
-        
         window?.makeKeyAndVisible()
     }
 

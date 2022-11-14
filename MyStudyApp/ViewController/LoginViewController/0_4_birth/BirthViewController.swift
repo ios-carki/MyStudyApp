@@ -85,10 +85,15 @@ final class BirthViewController: UIViewController {
         
         if calculateUserAge(userPickedYear: userPickedYear, userPickedMonthDay: userPickedMonthDay) {
             
-            dateFormatter.dateFormat = "yyyy년 M월 d일"
-            var userBirth: User = User()
-            userBirth.birth = dateFormatter.string(from: pickedDate)
-            print("유저 생년월일: ", userBirth.birth)
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+            
+            //UPDATE: 유저데이터 빠른 확인을위해 유저디폴트 사용 -> 나중에 삭제 후 구조체 직접 대입으로 바꾸기
+//            UserDefaults.standard.set(dateFormatter.string(from: pickedDate), forKey: "birth")
+//            print("저장된 생일 데이터: ", UserDefaults.standard.string(forKey: "birth"))
+            
+            //생년월일 데이트
+            let user = User.shared
+            user.birth = dateFormatter.string(from: pickedDate)
             
             dateFormatter.dateFormat = "yyyy"
             mainView.yearButton.text = dateFormatter.string(from: pickedDate)

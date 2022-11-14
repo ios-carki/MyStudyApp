@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "SeSAC Study.png",
+      "filename" : "profile_img.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "SeSAC Study@2x.png",
+      "filename" : "profile_img@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "SeSAC Study@3x.png",
+      "filename" : "profile_img@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
