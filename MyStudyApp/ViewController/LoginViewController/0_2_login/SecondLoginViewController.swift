@@ -47,6 +47,20 @@ final class SecondLoginViewController: UIViewController {
         logIn(credential: credential)
     }
     
+    func getIdToken() {
+        
+        guard let currentUser = Auth.auth().currentUser else { return }
+        currentUser.getIDTokenForcingRefresh(true) { idToken, error in
+          if let error = error {
+            // Handle error
+            return;
+          }
+            print("갱신성공!❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️")
+            print("갱신 id토큰: ", idToken)
+            UserDefaults.standard.set(idToken!, forKey: "idtoken")
+        }
+    }
+    
     func logIn(credential: PhoneAuthCredential) {
         Auth.auth().signIn(with: credential) { authResult, error in
             if let error = error {
@@ -59,11 +73,15 @@ final class SecondLoginViewController: UIViewController {
             print("\(authResult!)")
             print("=======인증 성공! 회원정보 입력으로 전환========")
             
+            self.getIdToken()
+            
             //신규 유저 기존 유저 분기
             self.isOldUser()
             
         }
     }
+    
+    
     
     //MARK: -
     //ViewModel로 빼기

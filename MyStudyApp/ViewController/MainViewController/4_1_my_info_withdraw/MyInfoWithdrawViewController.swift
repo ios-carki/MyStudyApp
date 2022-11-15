@@ -18,10 +18,10 @@ final class MyInfoWithdrawViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        cancelButtonSetting()
+        buttonSetting()
     }
     
-    func cancelButtonSetting() {
+    func buttonSetting() {
         mainView.cancelButton.addTarget(self, action: #selector(cancelButtonClicked), for: .touchUpInside)
     }
     

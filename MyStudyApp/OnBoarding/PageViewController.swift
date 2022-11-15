@@ -47,7 +47,7 @@ final class PageViewController: UIViewController {
         let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
         let sceneDelegate = windowScene?.delegate as? SceneDelegate
         
-        let vc = EmailViewController()
+        let vc = LoginViewController()
         let nav = UINavigationController(rootViewController: vc)
 
         sceneDelegate?.window?.rootViewController = nav

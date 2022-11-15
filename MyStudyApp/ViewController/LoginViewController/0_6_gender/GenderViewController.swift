@@ -80,29 +80,10 @@ final class GenderViewController: UIViewController {
         
         if user.gender == 0 || user.gender == 1 {
             print("성별데이터 있음")
-            ///네트워크 통신 시작.
-//            var userData = User(phoneNumber: UserDefaults.standard.string(forKey: "phoneNum") ?? "", FCMtoken: UserDefaults.standard.string(forKey: "firebaseToken") ?? "", nick: UserDefaults.standard.string(forKey: "nick") ?? "", birth: UserDefaults.standard.string(forKey: "birth") ?? "", email: UserDefaults.standard.string(forKey: "email") ?? "", gender: UserDefaults.standard.integer(forKey: "gender"))
-//            print("완성된 유저 데이터: ", userData)
+            print("현재 idtoken: ", UserDefaults.standard.string(forKey: "idtoken"))
             
             modelView.signup(phoneNum: user.phoneNumber ?? "", FCMToken: UserDefaults.standard.string(forKey: "firebaseToken") ?? "", nickName: user.nick ?? "", birth: user.birth ?? "", email: user.email ?? "", gender: String(user.gender ?? -1)) { statusCode in
                 
-                if statusCode == 401 {
-                    //갱신코드 -> 401 상태코드받을때로 옮겨야됨
-                    let currentUser = Auth.auth().currentUser
-                    currentUser?.getIDTokenForcingRefresh(true) { idToken, error in
-                      if let error = error {
-                        // Handle error
-                          print("토큰갱신 에러")
-                        return;
-                      }
-                        print("토큰 갱신 성공")
-                        print("갱신된 파베 토큰: ", idToken)
-                        UserDefaults.standard.set(idToken, forKey: "firebaseToken")
-                        //UserDefaults.standard.set(firebaseToken, forKey: "firebaseToken")
-                      // Send token to your backend via HTTPS
-                      // ...
-                    }
-                }
                 
                 switch statusCode {
                 case 200:
