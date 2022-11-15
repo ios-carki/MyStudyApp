@@ -58,6 +58,10 @@
 		C3C22664291A62610042062A /* EmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C22663291A62610042062A /* EmailViewController.swift */; };
 		C3C22666291AA7A00042062A /* GenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C22665291AA7A00042062A /* GenderView.swift */; };
 		C3C22668291AA7A70042062A /* GenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C22667291AA7A70042062A /* GenderViewController.swift */; };
+		C3C688E12922C47D00B59D0C /* sesacTitleCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C688E02922C47D00B59D0C /* sesacTitleCollectionView.swift */; };
+		C3C688E32923903200B59D0C /* CardViewTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C688E22923903200B59D0C /* CardViewTableCell.swift */; };
+		C3C688E5292394B400B59D0C /* UserSettingTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C688E4292394B400B59D0C /* UserSettingTableCell.swift */; };
+		C3C688E72923953B00B59D0C /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C688E62923953B00B59D0C /* BaseTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -105,6 +109,10 @@
 		C3C22663291A62610042062A /* EmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailViewController.swift; sourceTree = "<group>"; };
 		C3C22665291AA7A00042062A /* GenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderView.swift; sourceTree = "<group>"; };
 		C3C22667291AA7A70042062A /* GenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderViewController.swift; sourceTree = "<group>"; };
+		C3C688E02922C47D00B59D0C /* sesacTitleCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sesacTitleCollectionView.swift; sourceTree = "<group>"; };
+		C3C688E22923903200B59D0C /* CardViewTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewTableCell.swift; sourceTree = "<group>"; };
+		C3C688E4292394B400B59D0C /* UserSettingTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingTableCell.swift; sourceTree = "<group>"; };
+		C3C688E62923953B00B59D0C /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -333,9 +341,12 @@
 		C36907F829221E73002B4C4D /* 4_1_my_info */ = {
 			isa = PBXGroup;
 			children = (
+				C3C688E4292394B400B59D0C /* UserSettingTableCell.swift */,
+				C3C688E22923903200B59D0C /* CardViewTableCell.swift */,
 				C36907F929221E91002B4C4D /* SecondMyInfoView.swift */,
 				C36907FD29223B9F002B4C4D /* SecondMyInfoDetailTableView.swift */,
 				C36907FF292251F2002B4C4D /* SecondMyInfoExpandTableView.swift */,
+				C3C688E02922C47D00B59D0C /* sesacTitleCollectionView.swift */,
 			);
 			path = 4_1_my_info;
 			sourceTree = "<group>";
@@ -375,6 +386,7 @@
 				C3B293832918D2A100F2D55D /* Info.plist */,
 				C3B2939E2918E24A00F2D55D /* BaseView.swift */,
 				C3C226532919EAF90042062A /* .gitignore */,
+				C3C688E62923953B00B59D0C /* BaseTableViewCell.swift */,
 			);
 			path = MyStudyApp;
 			sourceTree = "<group>";
@@ -519,6 +531,7 @@
 				C32C821D291E5C460070F387 /* MainViewController.swift in Sources */,
 				C32C8222291E609A0070F387 /* User.swift in Sources */,
 				C32C8246291FC4960070F387 /* URL+Extension.swift in Sources */,
+				C3C688E72923953B00B59D0C /* BaseTableViewCell.swift in Sources */,
 				C36907F629220DB2002B4C4D /* MyInfoCustomTableView.swift in Sources */,
 				C36907FA29221E91002B4C4D /* SecondMyInfoView.swift in Sources */,
 				C32C81D5291B78B60070F387 /* String+Extension.swift in Sources */,
@@ -528,7 +541,10 @@
 				C36907FC29221E9F002B4C4D /* SecondMyInfoViewController.swift in Sources */,
 				C3C22664291A62610042062A /* EmailViewController.swift in Sources */,
 				C3C22662291A62590042062A /* EmailView.swift in Sources */,
+				C3C688E5292394B400B59D0C /* UserSettingTableCell.swift in Sources */,
+				C3C688E32923903200B59D0C /* CardViewTableCell.swift in Sources */,
 				C3B293A529190DEF00F2D55D /* CustomPageCollectionView.swift in Sources */,
+				C3C688E12922C47D00B59D0C /* sesacTitleCollectionView.swift in Sources */,
 				C3C22666291AA7A00042062A /* GenderView.swift in Sources */,
 				C3B2939F2918E24A00F2D55D /* BaseView.swift in Sources */,
 				C3C2265A291A5CAF0042062A /* NickNameView.swift in Sources */,

@@ -11,11 +11,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
-//        guard let scene = (scene as? UIWindowScene) else { return }
-//        window = UIWindow(windowScene: scene)
+        guard let scene = (scene as? UIWindowScene) else { return }
+        window = UIWindow(windowScene: scene)
 //
 //        if UserDefaults.standard.bool(forKey: "oldUser") {
 //            let vc = LoginViewController()
@@ -34,7 +33,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window?.rootViewController = nav
         window?.makeKeyAndVisible()
-        print(#function)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

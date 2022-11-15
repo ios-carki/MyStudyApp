@@ -12,139 +12,10 @@ import SnapKit
 final class SecondMyInfoExpandTableView: UITableViewCell {
     static let identifier = "myInfoExpandCell"
     
-//    //MARK: 성별
-//    let genderView: UIView = {
-//        let view = UIView()
-//
-//        return view
-//    }()
-//
-//    let userGenderLabel: UILabel = {
-//        let view = UILabel()
-//        view.text = "내 성별"
-//        view.font = .systemFont(ofSize: 14)
-//        return view
-//    }()
-//
-//    let genderStackView: UIStackView = {
-//        let view = UIStackView()
-//        view.translatesAutoresizingMaskIntoConstraints = false
-//        view.axis = .horizontal
-//        view.alignment = .fill
-//        view.distribution = .fillEqually
-//        view.spacing = 16
-//        return view
-//    }()
-//
-//    let manView: UIView = {
-//        let view = UIView()
-//        view.layer.cornerRadius = 8
-//        view.layer.borderWidth = 1
-//        view.layer.borderColor = UIColor.colorGray3.cgColor // 바꿔야될수도있음
-//        return view
-//    }()
-//
-//    let selectMan: UILabel = {
-//        let view = UILabel()
-//        view.text = "남자"
-//        view.font = .systemFont(ofSize: 14)
-//        return view
-//    }()
-//
-//    let womanView: UIView = {
-//        let view = UIView()
-//        view.layer.cornerRadius = 8
-//        view.layer.borderWidth = 1
-//        view.layer.borderColor = UIColor.colorGray3.cgColor // 바꿔야될수도있음
-//        return view
-//    }()
-//
-//    let selectWoman: UILabel = {
-//        let view = UILabel()
-//        view.text = "여자"
-//        view.font = .systemFont(ofSize: 14)
-//        return view
-//    }()
-//
-//    //MARK: 자주하는 스터디
-//    let mainStudyView: UIView = {
-//        let view = UIView()
-//
-//        return view
-//    }()
-//
-//    let inputStudyTextField: UITextField = {
-//        let view = UITextField()
-//        view.placeholder = "스터디를 입력해 주세요"
-//        return view
-//    }()
-//
-//    let textFieldUnderline: UIView = {
-//        let view = UIView()
-//        view.layer.borderWidth = 1
-//        view.layer.borderColor = UIColor.colorGray3.cgColor
-//        return view
-//    }()
-//
-//    //MARK: 내 번호 검색 허용
-//    let searchPhoneNumView: UIView = {
-//        let view = UIView()
-//
-//        return view
-//    }()
-//
-//    let searchPhoneNumLabel: UILabel = {
-//        let view = UILabel()
-//        view.text = "내 번호 검색 허용"
-//        view.font = .systemFont(ofSize: 14)
-//        return view
-//    }()
-//
-//    let searchPhoneNumSwitch: UISwitch = {
-//        let view = UISwitch()
-//
-//        return view
-//    }()
-//
-//    //MARK: 상대방 연령대
-//    let userAgeGroupView: UIView = {
-//        let view = UIView()
-//
-//        return view
-//    }()
-//
-//    let userAgeGroupLabel: UILabel = {
-//        let view = UILabel()
-//        view.text = "상대방 연령대"
-//        view.font = .systemFont(ofSize: 14)
-//        return view
-//    }()
-//
-//    let exampleAgeGrouplabel: UILabel = {
-//        let view = UILabel()
-//        view.text = "테스트라인"
-//        view.textColor = .colorGreen
-//        view.font = .systemFont(ofSize: 14)
-//        return view
-//    }()
-//
-//    let userAgeGroupSlider: UISlider = {
-//        let view = UISlider()
-//
-//        return view
-//    }()
-//
-//    //MARK: 회원탈퇴
-//    let resignButton: UIButton = {
-//        let view = UIButton()
-//        view.setTitle("회원탈퇴", for: .normal)
-//        view.titleLabel?.font = .systemFont(ofSize: 14)
-//        return view
-//    }()
     //MARK: 새싹 타이틀
     let sesacTitleView: UIView = {
         let view = UIView()
-        
+        view.backgroundColor = .brown
         return view
     }()
     
@@ -157,23 +28,24 @@ final class SecondMyInfoExpandTableView: UITableViewCell {
     
     //MARK: 타이틀 컬랙션뷰
     let titleCollectionView: UICollectionView = {
-        func createLayout() -> UICollectionViewLayout {
-            let config = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
-            let layout = UICollectionViewCompositionalLayout.list(using: config)
+        func setLatout() -> UICollectionViewLayout {
+            let layout = UICollectionViewFlowLayout()
+            layout.sectionInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+            layout.minimumLineSpacing = 5
+            layout.minimumInteritemSpacing = 1
             
             return layout
         }
         
-        let view = UICollectionView(frame: .init(x: 0, y: 0, width: 100, height: 100), collectionViewLayout: createLayout())
-        view.translatesAutoresizingMaskIntoConstraints = true
-        
-        return view
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: setLatout())
+        cv.backgroundColor = .green
+        return cv
     }()
     
     //MARK: 새싹 리뷰
     let sesacReViewView: UIView = {
         let view = UIView()
-        
+        view.backgroundColor = .blue
         return view
     }()
     
@@ -214,8 +86,11 @@ final class SecondMyInfoExpandTableView: UITableViewCell {
         [sesacTitleView, sesacReViewView].forEach {
             contentView.addSubview($0)
         }
-        
+        self.backgroundColor = .systemCyan
         self.selectionStyle = .none
+        
+//        titleCollectionView.delegate = self
+//        titleCollectionView.dataSource = self
     }
     
     private func setConstraints() {
@@ -238,10 +113,9 @@ final class SecondMyInfoExpandTableView: UITableViewCell {
         
         //사이즈 수정 필요
         sesacReViewView.snp.makeConstraints { make in
-            make.top.equalTo(sesacTitleView.snp.bottom).offset(24)
+            make.top.equalTo(sesacTitleView.snp.bottom)
             make.horizontalEdges.equalTo(safeAreaLayoutGuide).inset(16)
             make.bottom.equalTo(safeAreaLayoutGuide).offset(-16)
-            make.height.equalTo(60)
         }
         
         sesacReviewLabel.snp.makeConstraints { make in
@@ -254,7 +128,20 @@ final class SecondMyInfoExpandTableView: UITableViewCell {
             make.top.equalTo(sesacReviewLabel.snp.bottom).offset(16)
             make.horizontalEdges.equalTo(sesacReViewView.safeAreaLayoutGuide)
             make.bottom.equalTo(sesacReViewView.safeAreaLayoutGuide)
+            make.height.equalTo(24)
         }
         
     }
 }
+
+//extension SecondMyInfoExpandTableView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        <#code#>
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        <#code#>
+//    }
+//
+//
+//}
