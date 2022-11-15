@@ -69,6 +69,7 @@ extension SecondMyInfoViewController: UITableViewDelegate, UITableViewDataSource
                 settingCell.userAgeGroupView.isHidden = false
             } else if indexPath.row == 5 {
                 settingCell.resignView.isHidden = false
+                settingCell.resignButton.addTarget(self, action: #selector(resignButtonClicked), for: .touchUpInside)
             }
             return settingCell
         }
@@ -84,6 +85,13 @@ extension SecondMyInfoViewController: UITableViewDelegate, UITableViewDataSource
         }
         
         return 64
+    }
+    
+    @objc func resignButtonClicked() {
+        let vc = MyInfoWithdrawViewController()
+        vc.modalPresentationStyle = .overCurrentContext
+        
+        self.present(vc, animated: false)
     }
     
     

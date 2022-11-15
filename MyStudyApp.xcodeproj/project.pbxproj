@@ -58,10 +58,11 @@
 		C3C22664291A62610042062A /* EmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C22663291A62610042062A /* EmailViewController.swift */; };
 		C3C22666291AA7A00042062A /* GenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C22665291AA7A00042062A /* GenderView.swift */; };
 		C3C22668291AA7A70042062A /* GenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C22667291AA7A70042062A /* GenderViewController.swift */; };
-		C3C688E12922C47D00B59D0C /* sesacTitleCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C688E02922C47D00B59D0C /* sesacTitleCollectionView.swift */; };
 		C3C688E32923903200B59D0C /* CardViewTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C688E22923903200B59D0C /* CardViewTableCell.swift */; };
 		C3C688E5292394B400B59D0C /* UserSettingTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C688E4292394B400B59D0C /* UserSettingTableCell.swift */; };
 		C3C688E72923953B00B59D0C /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C688E62923953B00B59D0C /* BaseTableViewCell.swift */; };
+		C3C688EB2923BA9500B59D0C /* MyInfoWithdrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C688EA2923BA9500B59D0C /* MyInfoWithdrawView.swift */; };
+		C3C688ED2923BA9E00B59D0C /* MyInfoWithdrawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C688EC2923BA9E00B59D0C /* MyInfoWithdrawViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -109,10 +110,11 @@
 		C3C22663291A62610042062A /* EmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailViewController.swift; sourceTree = "<group>"; };
 		C3C22665291AA7A00042062A /* GenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderView.swift; sourceTree = "<group>"; };
 		C3C22667291AA7A70042062A /* GenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderViewController.swift; sourceTree = "<group>"; };
-		C3C688E02922C47D00B59D0C /* sesacTitleCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sesacTitleCollectionView.swift; sourceTree = "<group>"; };
 		C3C688E22923903200B59D0C /* CardViewTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewTableCell.swift; sourceTree = "<group>"; };
 		C3C688E4292394B400B59D0C /* UserSettingTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingTableCell.swift; sourceTree = "<group>"; };
 		C3C688E62923953B00B59D0C /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		C3C688EA2923BA9500B59D0C /* MyInfoWithdrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoWithdrawView.swift; sourceTree = "<group>"; };
+		C3C688EC2923BA9E00B59D0C /* MyInfoWithdrawViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoWithdrawViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,10 +141,10 @@
 		C32C821A291E5C2F0070F387 /* MainView */ = {
 			isa = PBXGroup;
 			children = (
+				C3C688E82923BA4600B59D0C /* 4_1_my_info_withdraw */,
 				C36907F829221E73002B4C4D /* 4_1_my_info */,
 				C32C82492922096D0070F387 /* 4_my_info */,
 				C32C824829213FB00070F387 /* 1_1_main_default */,
-				C32C821E291E5C4C0070F387 /* MainView.swift */,
 			);
 			path = MainView;
 			sourceTree = "<group>";
@@ -150,6 +152,7 @@
 		C32C821B291E5C370070F387 /* MainViewController */ = {
 			isa = PBXGroup;
 			children = (
+				C3C688E92923BA6100B59D0C /* 4_1_my_info_withdraw */,
 				C36907F729221E66002B4C4D /* 4_1_my_info */,
 				C32C824C292209A30070F387 /* 4_my_info */,
 				C32C824729213F8C0070F387 /* 1_1_main_default */,
@@ -309,6 +312,7 @@
 		C32C824829213FB00070F387 /* 1_1_main_default */ = {
 			isa = PBXGroup;
 			children = (
+				C32C821E291E5C4C0070F387 /* MainView.swift */,
 			);
 			path = 1_1_main_default;
 			sourceTree = "<group>";
@@ -346,7 +350,6 @@
 				C36907F929221E91002B4C4D /* SecondMyInfoView.swift */,
 				C36907FD29223B9F002B4C4D /* SecondMyInfoDetailTableView.swift */,
 				C36907FF292251F2002B4C4D /* SecondMyInfoExpandTableView.swift */,
-				C3C688E02922C47D00B59D0C /* sesacTitleCollectionView.swift */,
 			);
 			path = 4_1_my_info;
 			sourceTree = "<group>";
@@ -428,6 +431,22 @@
 				C32C821B291E5C370070F387 /* MainViewController */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C3C688E82923BA4600B59D0C /* 4_1_my_info_withdraw */ = {
+			isa = PBXGroup;
+			children = (
+				C3C688EA2923BA9500B59D0C /* MyInfoWithdrawView.swift */,
+			);
+			path = 4_1_my_info_withdraw;
+			sourceTree = "<group>";
+		};
+		C3C688E92923BA6100B59D0C /* 4_1_my_info_withdraw */ = {
+			isa = PBXGroup;
+			children = (
+				C3C688EC2923BA9E00B59D0C /* MyInfoWithdrawViewController.swift */,
+			);
+			path = 4_1_my_info_withdraw;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -525,6 +544,7 @@
 			files = (
 				C36907FE29223B9F002B4C4D /* SecondMyInfoDetailTableView.swift in Sources */,
 				C3B293AB2919306E00F2D55D /* LoginViewController.swift in Sources */,
+				C3C688EB2923BA9500B59D0C /* MyInfoWithdrawView.swift in Sources */,
 				C32C8244291FB7F50070F387 /* KEY.swift in Sources */,
 				C3690800292251F2002B4C4D /* SecondMyInfoExpandTableView.swift in Sources */,
 				C32C821F291E5C4C0070F387 /* MainView.swift in Sources */,
@@ -544,12 +564,12 @@
 				C3C688E5292394B400B59D0C /* UserSettingTableCell.swift in Sources */,
 				C3C688E32923903200B59D0C /* CardViewTableCell.swift in Sources */,
 				C3B293A529190DEF00F2D55D /* CustomPageCollectionView.swift in Sources */,
-				C3C688E12922C47D00B59D0C /* sesacTitleCollectionView.swift in Sources */,
 				C3C22666291AA7A00042062A /* GenderView.swift in Sources */,
 				C3B2939F2918E24A00F2D55D /* BaseView.swift in Sources */,
 				C3C2265A291A5CAF0042062A /* NickNameView.swift in Sources */,
 				C3B293A32918F32700F2D55D /* PageView.swift in Sources */,
 				C3B2938E2918E1B300F2D55D /* PageViewController.swift in Sources */,
+				C3C688ED2923BA9E00B59D0C /* MyInfoWithdrawViewController.swift in Sources */,
 				C3B2937A2918D29F00F2D55D /* ViewController.swift in Sources */,
 				C32C824E292209C10070F387 /* MyInforViewController.swift in Sources */,
 				C3B293762918D29F00F2D55D /* AppDelegate.swift in Sources */,
