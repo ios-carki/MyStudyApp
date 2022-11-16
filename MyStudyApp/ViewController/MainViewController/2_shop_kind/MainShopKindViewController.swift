@@ -1,15 +1,15 @@
 //
-//  MainViewController.swift
+//  MainShopKindViewController.swift
 //  MyStudyApp
 //
-//  Created by Carki on 2022/11/11.
+//  Created by Carki on 2022/11/16.
 //
 
 import UIKit
 
-final class MainViewController: UIViewController {
+final class MainShopKindViewController: UIViewController {
     
-    let mainView = MainView()
+    private let mainView = MainShopKindView()
     
     override func loadView() {
         view = mainView
@@ -17,10 +17,6 @@ final class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-    }
-    
-    func tapBarSetting() {
         
     }
 }

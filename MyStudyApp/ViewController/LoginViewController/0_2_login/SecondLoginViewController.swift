@@ -114,7 +114,7 @@ final class SecondLoginViewController: UIViewController {
     
     //메인 지도뷰
     func ifOldUser() {
-        let vc = MainViewController()
+        let vc = MainMapViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
     

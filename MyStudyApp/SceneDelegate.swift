@@ -15,6 +15,29 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
+        
+//        let homeViewController = UINavigationController(rootViewController: MainMapViewController())
+//        let sesacShopViewController = UINavigationController(rootViewController: MainShopKindViewController())
+//        let sesacFriendViewController = UINavigationController(rootViewController: MainFriendsViewController())
+//        let myInfoViewController = UINavigationController(rootViewController: MyInfoViewController())
+//
+//        let tabBarController = UITabBarController()
+//        tabBarController.tabBar.tintColor = .colorGreen
+//        tabBarController.setViewControllers([homeViewController, sesacShopViewController, sesacFriendViewController, myInfoViewController], animated: true)
+//
+//        if let items = tabBarController.tabBar.items {
+//            items[0].image = UIImage(named: "ic-4")
+//            items[0].title = "홈"
+//
+//            items[1].image = UIImage(named: "ic-5")
+//            items[1].title = "새싹샵"
+//
+//            items[2].image = UIImage(named: "ic-6")
+//            items[2].title = "새싹친구"
+//
+//            items[3].image = UIImage(named: "ic-7")
+//            items[3].title = "내정보"
+//        }
 
 //        if UserDefaults.standard.bool(forKey: "oldUser") {
 //            let vc = LoginViewController()
@@ -28,11 +51,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        }
 //        window?.makeKeyAndVisible()
         
-        let vc = SecondMyInfoViewController()
+        let vc = MVVMFirstLoginViewController()
         let nav = UINavigationController(rootViewController: vc)
 
+        //window?.rootViewController = nav
         window?.rootViewController = nav
         window?.makeKeyAndVisible()
+        
+        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
