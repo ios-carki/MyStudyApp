@@ -34,7 +34,24 @@ final class MVVMFirstLoginViewController: UIViewController {
             .bind(to: viewModel.phoneNumText)
             .disposed(by: disposeBag)
         
+        mainView.inputPhoneNumberTextField.rx.controlEvent(.editingDidBegin)
+            .asObservable()
+            .subscribe(onNext: { [weak self] _ in
+                self?.mainView.borderLineView.layer.borderColor = UIColor.colorFocus.cgColor
+            })
+            .disposed(by: disposeBag)
+        
+        mainView.inputPhoneNumberTextField.rx.controlEvent(.editingDidEnd)
+            .asObservable()
+            .subscribe(onNext: { [weak self] _ in
+                self?.mainView.borderLineView.layer.borderColor = UIColor.colorGray3.cgColor
+            })
+            .disposed(by: disposeBag)
+        
+        
+        
         //output2: 폰넘버 체크 결과
+        //output1: button background color
         viewModel.isPhoneNumValid
         //bind(to:~) -> bool값밖에 못받음
             .bind{ value in
@@ -45,7 +62,7 @@ final class MVVMFirstLoginViewController: UIViewController {
                 }
             }
             .disposed(by: disposeBag)
-        //output1: button background color
+        
         
     }
 }

@@ -40,6 +40,8 @@ final class NickNameViewController: UIViewController {
     @objc func nextButtonClicked() {
         guard let nickNameText = mainView.inputNickNameTextField.text else { return }
         
+        UserDefaults.standard.set(nickNameText, forKey: "nick")
+        
         //UPDATE: 유저데이터 빠른 확인을위해 유저디폴트 사용 -> 나중에 삭제 후 구조체 직접 대입으로 바꾸기
 //        UserDefaults.standard.set(nickNameText, forKey: "nick")
 //        print("저장된 닉네임 데이터: ", UserDefaults.standard.string(forKey: "nick"))

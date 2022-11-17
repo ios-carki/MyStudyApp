@@ -9,19 +9,47 @@ import Foundation
 
 import Alamofire
 
+//로그인 Post해서 받은 형태 -> 토큰만 받았기 때문에 토큰 파라미터 하나만 생성
+struct Login: Codable {
+    let idtoken: String
+}
+
+//로그인 데이터 받고나서 진행할 데이터
+struct Profile: Codable {
+    let user: UserData
+}
+
+struct UserData: Codable {
+    let _id: String
+    let __v: Int
+    let uid: String
+    let phoneNumber: String
+    let email: String
+    let FCMtoken: String
+    let nick: String
+    let birth: String
+    let gender: Int
+    let study: String
+    let comment: [String]
+    let reputation: [Int]
+    let sesac: Int
+    let sesacCollection: [Int]
+    let background: Int
+    let backgroundCollection: [Int]
+    let purchaseToken: [String]
+    let transactionId: [String]
+    let reviewedBefore: [String]
+    let reportedNum: Int
+    let reportedUser: [String]
+    let dodgepenalty: Int
+    let dodgeNum: Int
+    let ageMin: Int
+    let ageMax: Int
+    let searchable: Int
+    let createdAt: String
+}
+
 final class APIService {
-    
-//    func signup(name: String, email: String, password: String, completionHandler: @escaping (Int) -> Void) {
-//        let api = SeSACAPI.signup(userName: name, email: email, password: password)
-//
-//        AF.request(api.url, method: .post, parameters: api.parameters, headers: api.headers).responseString { response in
-//
-//            completionHandler(response.response?.statusCode ?? 0)
-//            print(response)
-//            print(response.response?.statusCode)
-//
-//        }
-//    }
     
     func signup(phoneNum: String, FCMToken: String, nickName: String, birth: String, email: String, gender: String, completionHandler: @escaping (Int) -> Void) {
         let api = SeSACAPI.signup(phoneNumber: phoneNum, FCMtoken: FCMToken, nick: nickName, birth: birth, email: email, gender: gender)
@@ -39,6 +67,32 @@ final class APIService {
             completionHandler(response.response?.statusCode ?? 0)
             print("받은 메시지: ", response)
             print("에러코드: ", response.response?.statusCode ?? 0)
+        }
+        
+    }
+    
+    /*
+     헷갈리는 점
+     로그인 요청이 유저 데이터를 갖고오는건지
+     아니면
+     로그인 통신을 하고 다시 프로파일 통신을 해서
+     원하는 데이터를 갖고오는건지
+     */
+    
+    func login(completionHandler: @escaping (String) -> Void) {
+        let api = SeSACAPI.profile
+        
+        //로그인 후 받는 토큰 제이슨 데이터 디코딩
+        AF.request(api.url, method: .get, headers: api.headers).responseDecodable(of: UserData.self) { response in
+            
+            switch response.result {
+                
+            case .success(let data):
+                completionHandler(data.nick)
+            case .failure(_):
+                print(response.response?.statusCode)
+            }
+            
         }
         
     }

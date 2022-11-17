@@ -15,7 +15,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
-        
+
 //        let homeViewController = UINavigationController(rootViewController: MainMapViewController())
 //        let sesacShopViewController = UINavigationController(rootViewController: MainShopKindViewController())
 //        let sesacFriendViewController = UINavigationController(rootViewController: MainFriendsViewController())
@@ -38,9 +38,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //            items[3].image = UIImage(named: "ic-7")
 //            items[3].title = "내정보"
 //        }
-
+////
+////        let vc = MainMapViewController()
+////
+////        window?.rootViewController = tabBarController
+////        window?.makeKeyAndVisible()
+//
 //        if UserDefaults.standard.bool(forKey: "oldUser") {
-//            let vc = LoginViewController()
+//            let vc = tabBarController
 //
 //            window?.rootViewController = vc
 //        } else {
@@ -51,13 +56,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        }
 //        window?.makeKeyAndVisible()
         
-        let vc = MVVMFirstLoginViewController()
+        let vc = SplashViewController()
         let nav = UINavigationController(rootViewController: vc)
 
-        //window?.rootViewController = nav
         window?.rootViewController = nav
         window?.makeKeyAndVisible()
         
+//        let vc = MainMapViewController()
+//
+//        window?.rootViewController = tabBarController
+//        window?.makeKeyAndVisible()
         
     }
 

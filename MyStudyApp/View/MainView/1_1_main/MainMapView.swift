@@ -15,7 +15,7 @@ final class MainMapView: BaseView {
     
     let mainMapView: MKMapView = {
         let view = MKMapView()
-        
+        view.mapType = MKMapType.standard
         return view
     }()
     

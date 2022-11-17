@@ -11,8 +11,11 @@ final class MyInfoViewController: UIViewController {
     
     let mainView = MyInfoView()
     
-    let infoLableData: [String] = ["김새싹", "공지사항", "자주 묻는 질문", "1:1 문의", "알림 설정", "이용약관"]
+    let user = User.shared
+    
+    let infoLableData: [String] = [UserDefaults.standard.string(forKey: "nick") ?? "닉네임을 설정해주세요.", "공지사항", "자주 묻는 질문", "1:1 문의", "알림 설정", "이용약관"]
     let infoIconData: [String] = ["profile_img", "megaphone", "questionmark.circle", "ellipsis.bubble", "bell", "doc.text"]
+    
     
     override func loadView() {
         view = mainView

@@ -76,6 +76,8 @@
 		C3C6891C2924E7E300B59D0C /* MatchingStudyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C6891B2924E7E300B59D0C /* MatchingStudyViewController.swift */; };
 		C3C68920292518BB00B59D0C /* FristLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C6891F292518BB00B59D0C /* FristLoginViewModel.swift */; };
 		C3C689222925234800B59D0C /* MVVMFirstLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C689212925234800B59D0C /* MVVMFirstLoginViewController.swift */; };
+		C3C6892429266B6A00B59D0C /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C6892329266B6A00B59D0C /* SplashView.swift */; };
+		C3C6892629266B7700B59D0C /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C6892529266B7700B59D0C /* SplashViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -140,6 +142,8 @@
 		C3C6891B2924E7E300B59D0C /* MatchingStudyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingStudyViewController.swift; sourceTree = "<group>"; };
 		C3C6891F292518BB00B59D0C /* FristLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FristLoginViewModel.swift; sourceTree = "<group>"; };
 		C3C689212925234800B59D0C /* MVVMFirstLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVMFirstLoginViewController.swift; sourceTree = "<group>"; };
+		C3C6892329266B6A00B59D0C /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		C3C6892529266B7700B59D0C /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -432,6 +436,8 @@
 				C3B2938D2918E1B300F2D55D /* PageViewController.swift */,
 				C3B293A22918F32700F2D55D /* PageView.swift */,
 				C3B293A429190DEF00F2D55D /* CustomPageCollectionView.swift */,
+				C3C6892329266B6A00B59D0C /* SplashView.swift */,
+				C3C6892529266B7700B59D0C /* SplashViewController.swift */,
 			);
 			path = OnBoarding;
 			sourceTree = "<group>";
@@ -713,6 +719,7 @@
 				C3C688ED2923BA9E00B59D0C /* MyInfoWithdrawViewController.swift in Sources */,
 				C3B2937A2918D29F00F2D55D /* ViewController.swift in Sources */,
 				C32C824E292209C10070F387 /* MyInforViewController.swift in Sources */,
+				C3C6892429266B6A00B59D0C /* SplashView.swift in Sources */,
 				C3B293762918D29F00F2D55D /* AppDelegate.swift in Sources */,
 				C3C6891A2924E7DB00B59D0C /* MatchingStudyView.swift in Sources */,
 				C3C688FF2924CC8B00B59D0C /* MainShopKindView.swift in Sources */,
@@ -731,6 +738,7 @@
 				C3C6890F2924CE8A00B59D0C /* MainShopBackgroundViewController.swift in Sources */,
 				C3B293AD2919307400F2D55D /* LoginView.swift in Sources */,
 				C3B293A729192D0F00F2D55D /* Color+Extension.swift in Sources */,
+				C3C6892629266B7700B59D0C /* SplashViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

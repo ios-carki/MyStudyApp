@@ -87,7 +87,11 @@ final class GenderViewController: UIViewController {
                 
                 switch statusCode {
                 case 200:
-                    return self.customAlert(alertTitle: "회원가입 성공", alertMessage: "축하합니다", alertStyle: .alert)
+                    let nextViewAction = UIAlertAction(title: "시작하기", style: .default) { action in
+                        self.appStart()
+                    }
+                    self.oneButtonAlert(alertTitle: "회원가입 완료!", alertMessage: "이제부터 새싹 서비스를 이용할 수 있습니다.", alertStyle: .alert, actions: nextViewAction)
+                    return
                 case 201:
                     return self.customAlert(alertTitle: "회원가입 실패", alertMessage: "이미 가입한 유저입니다.", alertStyle: .alert)
                 case 202:
@@ -137,5 +141,33 @@ final class GenderViewController: UIViewController {
         
         let user = User.shared
         user.gender = 0
+    }
+    
+    func appStart() {
+        let homeViewController = UINavigationController(rootViewController: MainMapViewController())
+        let sesacShopViewController = UINavigationController(rootViewController: MainShopKindViewController())
+        let sesacFriendViewController = UINavigationController(rootViewController: MainFriendsViewController())
+        let myInfoViewController = UINavigationController(rootViewController: MyInfoViewController())
+
+        let tabBarController = UITabBarController()
+        tabBarController.tabBar.tintColor = .colorGreen
+        tabBarController.setViewControllers([homeViewController, sesacShopViewController, sesacFriendViewController, myInfoViewController], animated: true)
+
+        if let items = tabBarController.tabBar.items {
+            items[0].image = UIImage(named: "ic-4")
+            items[0].title = "홈"
+
+            items[1].image = UIImage(named: "ic-5")
+            items[1].title = "새싹샵"
+
+            items[2].image = UIImage(named: "ic-6")
+            items[2].title = "새싹친구"
+
+            items[3].image = UIImage(named: "ic-7")
+            items[3].title = "내정보"
+        }
+        
+        let vc = tabBarController
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
