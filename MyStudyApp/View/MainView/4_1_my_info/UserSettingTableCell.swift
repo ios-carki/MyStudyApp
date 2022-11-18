@@ -110,7 +110,7 @@ final class UserSettingTableCell: UITableViewCell {
     //MARK: 상대방 연령대
     let userAgeGroupView: UIView = {
         let view = UIView()
-
+        
         return view
     }()
 

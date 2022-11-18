@@ -7,6 +7,9 @@
 
 import UIKit
 
+import RxSwift
+import RxGesture
+
 //struct cellData {
 //    var selected = Bool()
 //    var expandCell = [UITableViewCell]()
@@ -15,10 +18,10 @@ import UIKit
 final class SecondMyInfoViewController: UIViewController {
     
     let mainView = SecondMyInfoView()
-    //    let collectionViewLocation = SecondMyInfoExpandTableView()
-    //
-    //    var tableViewData = [cellData]()
-    //    var hiddenSection = Set<Int>()
+    
+    let disposeBag = DisposeBag()
+    
+    var cardStatus = false
     
     override func loadView() {
         view = mainView
@@ -26,7 +29,7 @@ final class SecondMyInfoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print(cardStatus)
         tableSetting()
         //        collectionSetting()
     }
@@ -39,19 +42,52 @@ final class SecondMyInfoViewController: UIViewController {
         mainView.infoTableView.dataSource = self
     }
     
-    
 }
 
 extension SecondMyInfoViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        if section == 0 {
+            return 1
+        } else {
+            return 5
+        }
+        
+    }
+    
+    @objc func toggleBool() {
+        cardStatus = !cardStatus
+        mainView.infoTableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .none)
+        print(cardStatus)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if indexPath.row == 0 {
+        if indexPath.section == 0 {
             guard let cardCell = tableView.dequeueReusableCell(withIdentifier: CardViewTableCell.identifier, for: indexPath) as? CardViewTableCell else { return UITableViewCell() }
             cardCell.selectionStyle = .none
+            
+            //cardCell.nickNameView.tag = indexPath.row // 카드뷰 펼치는 뷰
+            let cardViewTabed = UITapGestureRecognizer(target: self, action: #selector(toggleBool))
+            cardCell.nickNameView.addGestureRecognizer(cardViewTabed)
+            
+            if cardStatus { //펼처짐
+                cardCell.expandImage.image = UIImage(named: "up_arrow")
+                cardCell.titleView.isHidden = false
+                cardCell.reviewView.isHidden = false
+            } else { //닫힘
+                cardCell.expandImage.image = UIImage(named: "down_arrow")
+                cardCell.titleView.isHidden = true
+                cardCell.reviewView.isHidden = true
+            }
+            
+            
+            cardCell.nickNameLabel.text = UserDefaults.standard.string(forKey: "nick") ?? ""
+            
             
             return cardCell
         } else {
@@ -59,15 +95,15 @@ extension SecondMyInfoViewController: UITableViewDelegate, UITableViewDataSource
             
             settingCell.selectionStyle = .none
             
-            if indexPath.row == 1 {
+            if indexPath.row == 0 {
                 settingCell.genderView.isHidden = false
-            } else if indexPath.row == 2 {
+            } else if indexPath.row == 1 {
                 settingCell.mainStudyView.isHidden = false
-            } else if indexPath.row == 3 {
+            } else if indexPath.row == 2 {
                 settingCell.searchPhoneNumView.isHidden = false
-            } else if indexPath.row == 4 {
+            } else if indexPath.row == 3 {
                 settingCell.userAgeGroupView.isHidden = false
-            } else if indexPath.row == 5 {
+            } else if indexPath.row == 4 {
                 settingCell.resignView.isHidden = false
                 settingCell.resignButton.addTarget(self, action: #selector(resignButtonClicked), for: .touchUpInside)
             }
@@ -78,13 +114,26 @@ extension SecondMyInfoViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 0 {
-            return 290
-        } else if indexPath.row == 4 {
-            return 80
+        if indexPath.section == 0 {
+            if cardStatus { //펼쳐짐
+                return 504
+            } else { //접힘
+                return 268//292
+            }
+            //return 292
+        } else {
+            if indexPath.row == 3 {
+                return 80
+            }
         }
-        
         return 64
+//        if indexPath.row == 0 {
+//            return 290
+//        } else if indexPath.row == 4 {
+//            return 80
+//        }
+//
+//        return 64
     }
     
     @objc func resignButtonClicked() {

@@ -26,8 +26,6 @@
 		C36907F629220DB2002B4C4D /* MyInfoCustomTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36907F529220DB2002B4C4D /* MyInfoCustomTableView.swift */; };
 		C36907FA29221E91002B4C4D /* SecondMyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36907F929221E91002B4C4D /* SecondMyInfoView.swift */; };
 		C36907FC29221E9F002B4C4D /* SecondMyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36907FB29221E9F002B4C4D /* SecondMyInfoViewController.swift */; };
-		C36907FE29223B9F002B4C4D /* SecondMyInfoDetailTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36907FD29223B9F002B4C4D /* SecondMyInfoDetailTableView.swift */; };
-		C3690800292251F2002B4C4D /* SecondMyInfoExpandTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36907FF292251F2002B4C4D /* SecondMyInfoExpandTableView.swift */; };
 		C3B293762918D29F00F2D55D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B293752918D29F00F2D55D /* AppDelegate.swift */; };
 		C3B293782918D29F00F2D55D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B293772918D29F00F2D55D /* SceneDelegate.swift */; };
 		C3B2937A2918D29F00F2D55D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B293792918D29F00F2D55D /* ViewController.swift */; };
@@ -43,8 +41,6 @@
 		C3B293AB2919306E00F2D55D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B293AA2919306E00F2D55D /* LoginViewController.swift */; };
 		C3B293AD2919307400F2D55D /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B293AC2919307400F2D55D /* LoginView.swift */; };
 		C3B293B02919424400F2D55D /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C3B293AF2919424400F2D55D /* IQKeyboardManagerSwift */; };
-		C3B293B3291942D100F2D55D /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = C3B293B2291942D100F2D55D /* RxCocoa */; };
-		C3B293B5291942D100F2D55D /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C3B293B4291942D100F2D55D /* RxSwift */; };
 		C3C226542919EAF90042062A /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = C3C226532919EAF90042062A /* .gitignore */; };
 		C3C22656291A50CA0042062A /* SecondLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C22655291A50CA0042062A /* SecondLoginViewController.swift */; };
 		C3C22658291A50D50042062A /* SecondLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C22657291A50D50042062A /* SecondLoginView.swift */; };
@@ -78,6 +74,10 @@
 		C3C689222925234800B59D0C /* MVVMFirstLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C689212925234800B59D0C /* MVVMFirstLoginViewController.swift */; };
 		C3C6892429266B6A00B59D0C /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C6892329266B6A00B59D0C /* SplashView.swift */; };
 		C3C6892629266B7700B59D0C /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C6892529266B7700B59D0C /* SplashViewController.swift */; };
+		C3C689292926C0E900B59D0C /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = C3C689282926C0E900B59D0C /* RxCocoa */; };
+		C3C6892B2926C0E900B59D0C /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C3C6892A2926C0E900B59D0C /* RxSwift */; };
+		C3C6892E2926C13C00B59D0C /* RxGesture in Frameworks */ = {isa = PBXBuildFile; productRef = C3C6892D2926C13C00B59D0C /* RxGesture */; };
+		C3C689502927DFDB00B59D0C /* SeSACTitleCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C6894F2927DFDB00B59D0C /* SeSACTitleCollectionCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,8 +95,6 @@
 		C36907F529220DB2002B4C4D /* MyInfoCustomTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoCustomTableView.swift; sourceTree = "<group>"; };
 		C36907F929221E91002B4C4D /* SecondMyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondMyInfoView.swift; sourceTree = "<group>"; };
 		C36907FB29221E9F002B4C4D /* SecondMyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondMyInfoViewController.swift; sourceTree = "<group>"; };
-		C36907FD29223B9F002B4C4D /* SecondMyInfoDetailTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondMyInfoDetailTableView.swift; sourceTree = "<group>"; };
-		C36907FF292251F2002B4C4D /* SecondMyInfoExpandTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondMyInfoExpandTableView.swift; sourceTree = "<group>"; };
 		C3B293722918D29F00F2D55D /* MyStudyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyStudyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3B293752918D29F00F2D55D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3B293772918D29F00F2D55D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -144,6 +142,7 @@
 		C3C689212925234800B59D0C /* MVVMFirstLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVMFirstLoginViewController.swift; sourceTree = "<group>"; };
 		C3C6892329266B6A00B59D0C /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		C3C6892529266B7700B59D0C /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		C3C6894F2927DFDB00B59D0C /* SeSACTitleCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSACTitleCollectionCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,16 +151,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				C32C8217291E508E0070F387 /* FirebaseMessaging in Frameworks */,
-				C3B293B3291942D100F2D55D /* RxCocoa in Frameworks */,
 				C3C689162924DEE100B59D0C /* JJFloatingActionButton in Frameworks */,
+				C3C689292926C0E900B59D0C /* RxCocoa in Frameworks */,
 				C32C8213291E508E0070F387 /* FirebaseAuth in Frameworks */,
 				C32C8237291E70B40070F387 /* Toast in Frameworks */,
 				C3B293972918E1FC00F2D55D /* SnapKit in Frameworks */,
 				C32C823A291FB2770070F387 /* Alamofire in Frameworks */,
-				C3B293B5291942D100F2D55D /* RxSwift in Frameworks */,
 				C32C8211291E508E0070F387 /* FirebaseAnalytics in Frameworks */,
 				C3B293B02919424400F2D55D /* IQKeyboardManagerSwift in Frameworks */,
 				C32C8215291E508E0070F387 /* FirebaseFirestore in Frameworks */,
+				C3C6892E2926C13C00B59D0C /* RxGesture in Frameworks */,
+				C3C6892B2926C0E900B59D0C /* RxSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,11 +369,10 @@
 		C36907F829221E73002B4C4D /* 4_1_my_info */ = {
 			isa = PBXGroup;
 			children = (
+				C3C6894F2927DFDB00B59D0C /* SeSACTitleCollectionCell.swift */,
 				C3C688E4292394B400B59D0C /* UserSettingTableCell.swift */,
 				C3C688E22923903200B59D0C /* CardViewTableCell.swift */,
 				C36907F929221E91002B4C4D /* SecondMyInfoView.swift */,
-				C36907FD29223B9F002B4C4D /* SecondMyInfoDetailTableView.swift */,
-				C36907FF292251F2002B4C4D /* SecondMyInfoExpandTableView.swift */,
 			);
 			path = 4_1_my_info;
 			sourceTree = "<group>";
@@ -608,8 +607,6 @@
 			packageProductDependencies = (
 				C3B293962918E1FC00F2D55D /* SnapKit */,
 				C3B293AF2919424400F2D55D /* IQKeyboardManagerSwift */,
-				C3B293B2291942D100F2D55D /* RxCocoa */,
-				C3B293B4291942D100F2D55D /* RxSwift */,
 				C32C8210291E508E0070F387 /* FirebaseAnalytics */,
 				C32C8212291E508E0070F387 /* FirebaseAuth */,
 				C32C8214291E508E0070F387 /* FirebaseFirestore */,
@@ -617,6 +614,9 @@
 				C32C8236291E70B40070F387 /* Toast */,
 				C32C8239291FB2770070F387 /* Alamofire */,
 				C3C689152924DEE100B59D0C /* JJFloatingActionButton */,
+				C3C689282926C0E900B59D0C /* RxCocoa */,
+				C3C6892A2926C0E900B59D0C /* RxSwift */,
+				C3C6892D2926C13C00B59D0C /* RxGesture */,
 			);
 			productName = MyStudyApp;
 			productReference = C3B293722918D29F00F2D55D /* MyStudyApp.app */;
@@ -649,11 +649,12 @@
 			packageReferences = (
 				C3B293952918E1FC00F2D55D /* XCRemoteSwiftPackageReference "SnapKit" */,
 				C3B293AE2919424400F2D55D /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
-				C3B293B1291942D100F2D55D /* XCRemoteSwiftPackageReference "RxSwift" */,
 				C32C820F291E508E0070F387 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				C32C8235291E70B40070F387 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 				C32C8238291FB2770070F387 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				C3C689142924DEE100B59D0C /* XCRemoteSwiftPackageReference "JJFloatingActionButton" */,
+				C3C689272926C0E900B59D0C /* XCRemoteSwiftPackageReference "RxSwift" */,
+				C3C6892C2926C13C00B59D0C /* XCRemoteSwiftPackageReference "RxGesture" */,
 			);
 			productRefGroup = C3B293732918D29F00F2D55D /* Products */;
 			projectDirPath = "";
@@ -684,18 +685,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C36907FE29223B9F002B4C4D /* SecondMyInfoDetailTableView.swift in Sources */,
 				C3C68920292518BB00B59D0C /* FristLoginViewModel.swift in Sources */,
 				C3B293AB2919306E00F2D55D /* LoginViewController.swift in Sources */,
 				C3C688EB2923BA9500B59D0C /* MyInfoWithdrawView.swift in Sources */,
 				C32C8244291FB7F50070F387 /* KEY.swift in Sources */,
-				C3690800292251F2002B4C4D /* SecondMyInfoExpandTableView.swift in Sources */,
 				C32C8222291E609A0070F387 /* User.swift in Sources */,
 				C32C8246291FC4960070F387 /* URL+Extension.swift in Sources */,
 				C3C688E72923953B00B59D0C /* BaseTableViewCell.swift in Sources */,
 				C36907F629220DB2002B4C4D /* MyInfoCustomTableView.swift in Sources */,
 				C36907FA29221E91002B4C4D /* SecondMyInfoView.swift in Sources */,
 				C32C81D5291B78B60070F387 /* String+Extension.swift in Sources */,
+				C3C689502927DFDB00B59D0C /* SeSACTitleCollectionCell.swift in Sources */,
 				C32C8219291E546D0070F387 /* Elert+Extension.swift in Sources */,
 				C3C22668291AA7A70042062A /* GenderViewController.swift in Sources */,
 				C32C8240291FB6320070F387 /* API.swift in Sources */,
@@ -1000,20 +1000,28 @@
 				version = 6.5.10;
 			};
 		};
-		C3B293B1291942D100F2D55D /* XCRemoteSwiftPackageReference "RxSwift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 6.5.0;
-			};
-		};
 		C3C689142924DEE100B59D0C /* XCRemoteSwiftPackageReference "JJFloatingActionButton" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jjochen/JJFloatingActionButton.git";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 2.0.0;
+			};
+		};
+		C3C689272926C0E900B59D0C /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+		C3C6892C2926C13C00B59D0C /* XCRemoteSwiftPackageReference "RxGesture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxGesture.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -1059,20 +1067,25 @@
 			package = C3B293AE2919424400F2D55D /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
 			productName = IQKeyboardManagerSwift;
 		};
-		C3B293B2291942D100F2D55D /* RxCocoa */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C3B293B1291942D100F2D55D /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxCocoa;
-		};
-		C3B293B4291942D100F2D55D /* RxSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C3B293B1291942D100F2D55D /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxSwift;
-		};
 		C3C689152924DEE100B59D0C /* JJFloatingActionButton */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C3C689142924DEE100B59D0C /* XCRemoteSwiftPackageReference "JJFloatingActionButton" */;
 			productName = JJFloatingActionButton;
+		};
+		C3C689282926C0E900B59D0C /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C3C689272926C0E900B59D0C /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		C3C6892A2926C0E900B59D0C /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C3C689272926C0E900B59D0C /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		C3C6892D2926C13C00B59D0C /* RxGesture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C3C6892C2926C13C00B59D0C /* XCRemoteSwiftPackageReference "RxGesture" */;
+			productName = RxGesture;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
