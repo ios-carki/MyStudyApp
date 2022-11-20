@@ -21,6 +21,7 @@ final class NickNameView: BaseView {
     
     let inputNickNameTextField: UITextField = {
         let view = UITextField()
+        view.textColor = .black
         view.placeholder = "10자 이내로 입력"
         return view
     }()

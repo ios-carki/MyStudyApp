@@ -30,6 +30,7 @@ final class EmailView: BaseView {
     
     let emailTextField: UITextField = {
         let view = UITextField()
+        view.textColor = .black
         view.placeholder = "SeSAC@email.com"
         return view
     }()

@@ -79,7 +79,7 @@ final class APIService {
      원하는 데이터를 갖고오는건지
      */
     
-    func login(completionHandler: @escaping (String) -> Void) {
+    func login(completionHandler: @escaping (String?, Int?) -> Void) {
         let api = SeSACAPI.profile
         
         //로그인 후 받는 토큰 제이슨 데이터 디코딩
@@ -88,12 +88,35 @@ final class APIService {
             switch response.result {
                 
             case .success(let data):
-                completionHandler(data.nick)
+                completionHandler(data.nick, nil)
             case .failure(_):
                 print(response.response?.statusCode)
+                completionHandler(nil, response.response?.statusCode)
             }
             
         }
         
+    }
+    
+    //MARK: 새싹 찾기 요청
+    func requestSearchSeSAC(latitude: String, longitude: String, stydyList: [String], completionHandler: @escaping () -> ()) {
+        let api = SeSACAPI.requestSearchSeSAC(lat: latitude, long: longitude, studylist: stydyList)
+        
+        AF.request(api.url, method: .post, parameters: api.parameters, headers: api.headers).responseString { response in
+            
+            
+        }
+    }
+    
+    //MARK: 새싹 검색
+    func searchSeSAC(latitude: String, longitude: String, completionHandler: @escaping (Int) -> Void) {
+        let api = SeSACAPI.searchSeSAC(lat: latitude, long: longitude)
+        
+        AF.request(api.url, method: .post, parameters: api.parameters, headers: api.headers).responseString { response in
+            
+            completionHandler(response.response?.statusCode ?? 0)
+            print("에러코드: ", response.response?.statusCode ?? 0)
+            
+        }
     }
 }

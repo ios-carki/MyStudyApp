@@ -14,6 +14,8 @@ final class MainMapViewController: UIViewController {
     
     private let mainView = MainMapView()
     
+    let modelView = APIService()
+    
     //about location
     var locationManager: CLLocationManager = CLLocationManager()
     var currentLocation: CLLocation!
@@ -60,6 +62,9 @@ final class MainMapViewController: UIViewController {
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         locationManager.startMonitoringSignificantLocationChanges()
+        
+        //MARK: 커스텀 어노테이션 등록
+        mainView.mainMapView.register(CustomAnnotationView.self, forAnnotationViewWithReuseIdentifier: CustomAnnotationView.identifier)
     }
     
     func userNowLocationButtonSetting() {
@@ -80,7 +85,7 @@ final class MainMapViewController: UIViewController {
         mainView.mainMapView.setRegion(pRegion, animated: true)
     }
     
-    //위치 검색 & 찾기 할때
+    //MARK: 위치 검색 & 찾기 할때
     func findUserLocation(lat: CLLocationDegrees, long: CLLocationDegrees) {
         let findLocation = CLLocation(latitude: lat, longitude: long)
         let geoCoder = CLGeocoder()
@@ -100,8 +105,15 @@ final class MainMapViewController: UIViewController {
         }
     }
     
+    //MARK: 새싹 이미지 어노테이션
+    func addCustomPin(sesacImage: Int, coordinate: CLLocationCoordinate2D) {
+        let pin = CustomAnnotation(sesacImage: sesacImage, coordinate: coordinate)
+        mainView.mainMapView.addAnnotation(pin)
+    }
+    
 }
 
+//MARK: 지도관련
 extension MainMapViewController: CLLocationManagerDelegate, MKMapViewDelegate {
     
     //MARK: 나중에 이 코드 로그인 후로 옮기던가, 앱 시작할때로 옮기기
@@ -135,6 +147,7 @@ extension MainMapViewController: CLLocationManagerDelegate, MKMapViewDelegate {
     
     //이거 위치
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
         locationManager = manager
         if locationManager.authorizationStatus == .authorizedWhenInUse { // CLLocationManager.authorizationStatus() -> iOS 14부터 디플
             currentLocation = locationManager.location
@@ -143,7 +156,32 @@ extension MainMapViewController: CLLocationManagerDelegate, MKMapViewDelegate {
         if let location = locations.first {
             print("위도: \(location.coordinate.latitude)")
             print("경도: \(location.coordinate.longitude)")
+            
+            modelView.searchSeSAC(latitude: String(location.coordinate.latitude), longitude: String(location.coordinate.longitude)) { statusCode in
+                
+                switch statusCode {
+                case 200:
+                    print("새싹 검색 성공")
+                    
+                case 401:
+                    print("FireBase Token Error 토큰 갱신 ㄱ ㄱ")
+                    
+                case 406:
+                    print("미가입 회원")
+                    
+                case 500:
+                    print("서버 에러 - FCMtoken 확인")
+                    
+                case 501:
+                    print("클라이언트 에러 - 얼럿 띄워야 되나?")
+                default:
+                    print("기본")
+                }
+            }
         }
+        
+        
+        
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
@@ -182,5 +220,48 @@ extension MainMapViewController: CLLocationManagerDelegate, MKMapViewDelegate {
         mainView.mainMapView.addAnnotation(annotation)
     }
     
+        
+    //MARK: 어노테션 관련
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        guard let annotation = annotation as? CustomAnnotation else { return nil }
+        
+        var annotationView = self.mainView.mainMapView.dequeueReusableAnnotationView(withIdentifier: CustomAnnotationView.identifier)
+        
+        if annotationView == nil {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: CustomAnnotationView.identifier)
+            annotationView?.canShowCallout = false
+            annotationView?.contentMode = .scaleAspectFit
+        } else {
+            annotationView?.annotation = annotation
+        }
+        
+        let sesacImage: UIImage!
+        let size = CGSize(width: 85, height: 85)
+        UIGraphicsBeginImageContext(size)
+        
+        switch annotation.sesacImage {
+        case 0:
+            sesacImage = UIImage(named: "sesac_face_1")
+        case 1:
+            sesacImage = UIImage(named: "sesac_face_2")
+        case 2:
+            sesacImage = UIImage(named: "sesac_face_3")
+        case 3:
+            sesacImage = UIImage(named: "sesac_face_4")
+        case 4:
+            sesacImage = UIImage(named: "sesac_face_5")
+        default:
+            sesacImage = UIImage(named: "sesac_face_1")
+        }
+        
+        sesacImage.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
+        let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
+        annotationView?.image = resizedImage
+        
+        return annotationView
+    }
+
     
 }
+

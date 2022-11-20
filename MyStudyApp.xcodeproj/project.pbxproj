@@ -78,6 +78,9 @@
 		C3C6892B2926C0E900B59D0C /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C3C6892A2926C0E900B59D0C /* RxSwift */; };
 		C3C6892E2926C13C00B59D0C /* RxGesture in Frameworks */ = {isa = PBXBuildFile; productRef = C3C6892D2926C13C00B59D0C /* RxGesture */; };
 		C3C689502927DFDB00B59D0C /* SeSACTitleCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C6894F2927DFDB00B59D0C /* SeSACTitleCollectionCell.swift */; };
+		C3C68954292A146C00B59D0C /* NearUserEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C68953292A146C00B59D0C /* NearUserEmptyView.swift */; };
+		C3C68956292A147600B59D0C /* NearUserEmptyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C68955292A147600B59D0C /* NearUserEmptyViewController.swift */; };
+		C3C68958292A2DCF00B59D0C /* CustomAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C68957292A2DCF00B59D0C /* CustomAnnotationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -143,6 +146,9 @@
 		C3C6892329266B6A00B59D0C /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		C3C6892529266B7700B59D0C /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		C3C6894F2927DFDB00B59D0C /* SeSACTitleCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSACTitleCollectionCell.swift; sourceTree = "<group>"; };
+		C3C68953292A146C00B59D0C /* NearUserEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearUserEmptyView.swift; sourceTree = "<group>"; };
+		C3C68955292A147600B59D0C /* NearUserEmptyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearUserEmptyViewController.swift; sourceTree = "<group>"; };
+		C3C68957292A2DCF00B59D0C /* CustomAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +177,7 @@
 		C32C821A291E5C2F0070F387 /* MainView */ = {
 			isa = PBXGroup;
 			children = (
+				C3C68951292A143B00B59D0C /* 1_3_near_user */,
 				C3C689172924E7AE00B59D0C /* 1_2_study */,
 				C3C689072924CD2C00B59D0C /* 1_1_main */,
 				C3C688FB2924CC2F00B59D0C /* 3_plus_friends */,
@@ -187,6 +194,7 @@
 		C32C821B291E5C370070F387 /* MainViewController */ = {
 			isa = PBXGroup;
 			children = (
+				C3C68952292A145700B59D0C /* 1_3_near_user */,
 				C3C689182924E7BC00B59D0C /* 1_2_study */,
 				C3C689062924CD0A00B59D0C /* 1_1_main */,
 				C3C688FD2924CC5300B59D0C /* 3_plus_friends */,
@@ -551,6 +559,7 @@
 			isa = PBXGroup;
 			children = (
 				C3C6890A2924CD6800B59D0C /* MainMapView.swift */,
+				C3C68957292A2DCF00B59D0C /* CustomAnnotationView.swift */,
 			);
 			path = 1_1_main;
 			sourceTree = "<group>";
@@ -586,6 +595,22 @@
 				C3C689212925234800B59D0C /* MVVMFirstLoginViewController.swift */,
 			);
 			path = 0_1_login;
+			sourceTree = "<group>";
+		};
+		C3C68951292A143B00B59D0C /* 1_3_near_user */ = {
+			isa = PBXGroup;
+			children = (
+				C3C68953292A146C00B59D0C /* NearUserEmptyView.swift */,
+			);
+			path = 1_3_near_user;
+			sourceTree = "<group>";
+		};
+		C3C68952292A145700B59D0C /* 1_3_near_user */ = {
+			isa = PBXGroup;
+			children = (
+				C3C68955292A147600B59D0C /* NearUserEmptyViewController.swift */,
+			);
+			path = 1_3_near_user;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -707,11 +732,13 @@
 				C3C22664291A62610042062A /* EmailViewController.swift in Sources */,
 				C3C22662291A62590042062A /* EmailView.swift in Sources */,
 				C3C688E5292394B400B59D0C /* UserSettingTableCell.swift in Sources */,
+				C3C68954292A146C00B59D0C /* NearUserEmptyView.swift in Sources */,
 				C3C688E32923903200B59D0C /* CardViewTableCell.swift in Sources */,
 				C3B293A529190DEF00F2D55D /* CustomPageCollectionView.swift in Sources */,
 				C3C22666291AA7A00042062A /* GenderView.swift in Sources */,
 				C3B2939F2918E24A00F2D55D /* BaseView.swift in Sources */,
 				C3C2265A291A5CAF0042062A /* NickNameView.swift in Sources */,
+				C3C68958292A2DCF00B59D0C /* CustomAnnotationView.swift in Sources */,
 				C3B293A32918F32700F2D55D /* PageView.swift in Sources */,
 				C3B2938E2918E1B300F2D55D /* PageViewController.swift in Sources */,
 				C3C6891C2924E7E300B59D0C /* MatchingStudyViewController.swift in Sources */,
@@ -729,6 +756,7 @@
 				C32C824B2922099D0070F387 /* MyInfoView.swift in Sources */,
 				C3C22658291A50D50042062A /* SecondLoginView.swift in Sources */,
 				C3C689132924CEA300B59D0C /* MainPlusFriendsViewController.swift in Sources */,
+				C3C68956292A147600B59D0C /* NearUserEmptyViewController.swift in Sources */,
 				C3C2265C291A5CB50042062A /* NickNameViewController.swift in Sources */,
 				C3C22660291A604D0042062A /* BirthViewController.swift in Sources */,
 				C32C823D291FB2E40070F387 /* APIService.swift in Sources */,

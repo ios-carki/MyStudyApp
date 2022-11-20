@@ -28,6 +28,11 @@ final class MVVMFirstLoginViewController: UIViewController {
     
     private func bindUI() {
         
+        let validation = mainView.inputPhoneNumberTextField.rx.text
+            .orEmpty
+            .map { $0.count > 9 }
+            .share()
+        
         //input 1: phoneNum TextField
         mainView.inputPhoneNumberTextField.rx.text
             .orEmpty
@@ -56,9 +61,10 @@ final class MVVMFirstLoginViewController: UIViewController {
         //bind(to:~) -> bool값밖에 못받음
             .bind{ value in
                 if value {
+                    
                     self.mainView.getCertificationNumberButton.backgroundColor = .colorGreen
                 } else {
-                    self.mainView.getCertificationNumberButton.backgroundColor = .colorGray3
+                    self.mainView.getCertificationNumberButton.backgroundColor = .colorGray6
                 }
             }
             .disposed(by: disposeBag)

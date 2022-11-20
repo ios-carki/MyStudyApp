@@ -39,7 +39,7 @@ final class LoginView: BaseView {
     let getCertificationNumberButton: UIButton = {
         let view = UIButton()
         view.setTitle("인증 문자 받기", for: .normal)
-        view.setTitleColor(.colorGray3, for: .normal)
+        view.setTitleColor(.white, for: .normal)
         view.isEnabled = true
         view.titleLabel?.font = .systemFont(ofSize: 14)
         view.layer.cornerRadius = 8

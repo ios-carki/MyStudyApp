@@ -19,6 +19,7 @@ final class MatchingStudyViewController: UIViewController {
         super.viewDidLoad()
         
         naviSetting()
+        searchSesacButtonSetting()
     }
     
     func naviSetting() {
@@ -34,6 +35,16 @@ final class MatchingStudyViewController: UIViewController {
         backBarButtonItem.tintColor = .black
         navigationItem.hidesBackButton = true
         self.navigationItem.leftBarButtonItem = backBarButtonItem
+    }
+    
+    func searchSesacButtonSetting() {
+        mainView.searchSesacButton.addTarget(self, action: #selector(searchSesacButtonClicked), for: .touchUpInside)
+    }
+    
+    @objc func searchSesacButtonClicked() {
+        let vc = NearUserEmptyViewController()
+        
+        navigationController?.pushViewController(vc, animated: true)
     }
     
 }

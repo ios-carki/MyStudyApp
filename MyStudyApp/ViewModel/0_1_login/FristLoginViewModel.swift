@@ -28,11 +28,26 @@ final class FristLoginViewModel {
         _ = phoneNumText.distinctUntilChanged()
             .map(checkPhoneNumValid)
             .bind(to: isPhoneNumValid)
+        
     }
     
+    //정규식 감지
     private func checkPhoneNumValid(_ phoneNumber: String) -> Bool {
-        return phoneNumber.count > 9
+        guard phoneNumber != nil else { return false }
+        
+        //가운데 3자리
+        let phoneRegEx = "^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$"
+        
+
+        return NSPredicate(format:"SELF MATCHES %@", phoneRegEx).evaluate(with: phoneNumber)
     }
+    
+    
+    //번호는 10자리 이상
+//    private func checkPhoneNumCountValid(_ phoneNumber: String) -> Bool {
+//
+//        return phoneNumber.count > 9
+//    }
     
     
 }

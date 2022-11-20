@@ -11,15 +11,53 @@ import SnapKit
 
 final class MatchingStudyView: BaseView {
     
-    let keywordCollectionView: UICollectionView = {
-        let view = UICollectionViewFlowLayout()
-        let cv = UICollectionView(frame: .zero, collectionViewLayout: view)
-        cv.isPagingEnabled = true
-        view.minimumLineSpacing = 0
-        cv.showsHorizontalScrollIndicator = false
-        view.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        view.scrollDirection = .horizontal
+    let arroundView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .gray
+        return view
+    }()
+    
+    let arroundLabel: UILabel = {
+        let view = UILabel()
+        view.text = "지금 주변에는"
+        view.font = .systemFont(ofSize: 12)
+        return view
+    }()
+    
+    let arroundCollectionView: UICollectionView = {
+        var layout = UICollectionViewFlowLayout()
         
+        layout.minimumLineSpacing = 8
+        layout.scrollDirection = .vertical
+        layout.sectionInset = .zero
+        
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        cv.backgroundColor = .white
+        return cv
+    }()
+    
+    let userWantView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .blue
+        return view
+    }()
+    
+    let userWantLabel: UILabel = {
+        let view = UILabel()
+        view.text = "내가 하고 싶은"
+        view.font = .systemFont(ofSize: 12)
+        return view
+    }()
+    
+    let userWantCollectionView: UICollectionView = {
+        var layout = UICollectionViewFlowLayout()
+        
+        layout.minimumLineSpacing = 8
+        layout.scrollDirection = .vertical
+        layout.sectionInset = .zero
+        
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        cv.backgroundColor = .white
         return cv
     }()
     
@@ -33,23 +71,48 @@ final class MatchingStudyView: BaseView {
     }()
     
     override func configureUI() {
-        [keywordCollectionView, searchSesacButton].forEach {
-            self.addSubview($0)
+        [arroundLabel, arroundCollectionView].forEach {
+            arroundView.addSubview($0)
+        }
+        
+        [userWantLabel, userWantCollectionView].forEach {
+            userWantView.addSubview($0)
         }
         self.backgroundColor = .white
     }
     
     override func setConstraints() {
-        keywordCollectionView.snp.makeConstraints { make in
-            make.top.equalTo(safeAreaLayoutGuide)
-            make.horizontalEdges.equalToSuperview()
+        
+        arroundView.snp.makeConstraints { make in
+            make.top.equalTo(safeAreaLayoutGuide).offset(32)
+            make.horizontalEdges.equalTo(safeAreaLayoutGuide).offset(16)
+            make.height.equalTo(146)
         }
         
-        searchSesacButton.snp.makeConstraints { make in
-            make.top.equalTo(keywordCollectionView.snp.bottom)
-            make.horizontalEdges.equalToSuperview().inset(16)
-            make.bottom.equalTo(safeAreaLayoutGuide).offset(-16)
-            make.height.equalTo(48)
+        arroundLabel.snp.makeConstraints { make in
+            make.top.horizontalEdges.equalTo(arroundView.safeAreaLayoutGuide)
+            make.height.equalTo(18)
+        }
+        
+        arroundCollectionView.snp.makeConstraints { make in
+            make.top.equalTo(arroundLabel.snp.bottom)
+            make.horizontalEdges.bottom.equalTo(arroundView.safeAreaLayoutGuide)
+        }
+        
+        userWantView.snp.makeConstraints { make in
+            make.top.equalTo(arroundView.snp.bottom)
+            make.horizontalEdges.equalTo(safeAreaLayoutGuide)
+            make.height.equalTo(146)
+        }
+        
+        userWantLabel.snp.makeConstraints { make in
+            make.top.horizontalEdges.equalTo(userWantView.safeAreaLayoutGuide)
+            make.height.equalTo(18)
+        }
+        
+        userWantCollectionView.snp.makeConstraints { make in
+            make.top.equalTo(userWantLabel.snp.bottom)
+            make.horizontalEdges.bottom.equalTo(userWantView.safeAreaLayoutGuide)
         }
     }
 }
