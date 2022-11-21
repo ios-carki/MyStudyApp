@@ -79,7 +79,7 @@ final class APIService {
      원하는 데이터를 갖고오는건지
      */
     
-    func login(completionHandler: @escaping (String?, Int?) -> Void) {
+    func login(completionHandler: @escaping (String, Int) -> Void) {
         let api = SeSACAPI.profile
         
         //로그인 후 받는 토큰 제이슨 데이터 디코딩
@@ -88,10 +88,9 @@ final class APIService {
             switch response.result {
                 
             case .success(let data):
-                completionHandler(data.nick, nil)
+                completionHandler(data.nick, response.response?.statusCode ?? 0)
             case .failure(_):
                 print(response.response?.statusCode)
-                completionHandler(nil, response.response?.statusCode)
             }
             
         }

@@ -183,6 +183,7 @@ extension MainMapViewController: CLLocationManagerDelegate, MKMapViewDelegate {
         
         
     }
+    //regionDidChange
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("위치 받아오기 에러:", error)
