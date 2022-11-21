@@ -95,9 +95,8 @@ final class SplashViewController: UIViewController {
             case 200:
                 print("상태코드: ", statusCode)
                 print("로그인 성공")
-                //                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
-                //                    self.splashControl()
-                //                }
+                print("idtoken: ", UserDefaults.standard.string(forKey: "idtoken"))
+                
                 DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
                     self.oldUserSplashControl()
                 }

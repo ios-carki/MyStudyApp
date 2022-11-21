@@ -8,6 +8,9 @@
 import Foundation
 
 import Alamofire
+import FirebaseAuth
+import FirebaseCore
+
 
 //로그인 Post해서 받은 형태 -> 토큰만 받았기 때문에 토큰 파라미터 하나만 생성
 struct Login: Codable {
@@ -49,6 +52,28 @@ struct UserData: Codable {
     let createdAt: String
 }
 
+//검색 후 받은 데이터
+struct SearchUserData: Codable {
+    let fromQueueDB: [SearchUserDataFromQueueDB]
+    let fromQueueDBRequested: [SearchUserDataFromQueueDB]
+    let fromRecommend: [String]
+}
+
+//fromQueueDB, fromQueueDBRequested
+struct SearchUserDataFromQueueDB: Codable {
+    let studylist: [String]
+    let reviews: [String]
+    let reputation: [Int]
+    let uid: String
+    let nick: String
+    let gender: Int
+    let type: Int
+    let sesac: Int
+    let background: Int
+    let long: Double
+    let lat: Double
+}
+
 final class APIService {
     
     func signup(phoneNum: String, FCMToken: String, nickName: String, birth: String, email: String, gender: String, completionHandler: @escaping (Int) -> Void) {
@@ -79,18 +104,27 @@ final class APIService {
      원하는 데이터를 갖고오는건지
      */
     
-    func login(completionHandler: @escaping (String, Int) -> Void) {
+    func login(completionHandler: @escaping (String?, Int) -> Void) {
         let api = SeSACAPI.profile
+        
+        let test: String?
+        
         
         //로그인 후 받는 토큰 제이슨 데이터 디코딩
         AF.request(api.url, method: .get, headers: api.headers).responseDecodable(of: UserData.self) { response in
+            
             
             switch response.result {
                 
             case .success(let data):
                 completionHandler(data.nick, response.response?.statusCode ?? 0)
             case .failure(_):
-                print(response.response?.statusCode)
+                print("로그인 통신 자체 오류 ❌❌❌❌❌❌❌❌❌")
+                print(response.response?.statusCode ?? 0)
+                self.getIdToken()
+                
+                completionHandler(nil, response.response?.statusCode ?? 0)
+                
             }
             
         }
@@ -107,14 +141,39 @@ final class APIService {
         }
     }
     
-    //MARK: 새싹 검색
-    func searchSeSAC(latitude: String, longitude: String, completionHandler: @escaping (Int) -> Void) {
+    //MARK: 새싹 검색 -> 어노테이션 관련 / 필요한 데이터 -> 좌표값(lat, long), 성별, 캐릭터이미지(sesac)
+    //handler: (상태코드 Int, 좌표값 - 위도 Double, 좌표값 - 경도 Double, 성별 Int, 캐릭터 이미지 Int)
+    func searchSeSAC(latitude: String, longitude: String, completionHandler: @escaping (Int, [SearchUserDataFromQueueDB]) -> Void) {
         let api = SeSACAPI.searchSeSAC(lat: latitude, long: longitude)
         
-        AF.request(api.url, method: .post, parameters: api.parameters, headers: api.headers).responseString { response in
+        AF.request(api.url, method: .post, parameters: api.parameters, headers: api.headers).responseDecodable(of: SearchUserData.self) { response in
             
-            completionHandler(response.response?.statusCode ?? 0)
+            switch response.result {
+            case .success(let data):
+                print("검색 성공: ")
+                completionHandler(response.response?.statusCode ?? 0, data.fromQueueDB)
+            case .failure(_):
+                print("에러코드: ", response.response?.statusCode ?? 0)
+            }
+//            completionHandler(response.response?.statusCode ?? 0, response.result.lat)
             print("에러코드: ", response.response?.statusCode ?? 0)
+            
+        }
+    }
+    
+    func getIdToken() {
+        
+        guard let currentUser = Auth.auth().currentUser else { return }
+        currentUser.getIDTokenForcingRefresh(true) { idToken, error in
+          if let error = error {
+            // Handle error
+            return;
+          }
+            print("갱신성공!❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️")
+            print("갱신 id토큰: ", idToken)
+            UserDefaults.standard.set(idToken!, forKey: "idtoken")
+            
+            print("갱신된 id토큰으로 재 로그인 시도")
             
         }
     }

@@ -16,9 +16,13 @@ final class MainMapViewController: UIViewController {
     
     let modelView = APIService()
     
+    //꺼내쓸 searchUserData
+    var receivedUserData: [SearchUserDataFromQueueDB] = []
+    
     //about location
     var locationManager: CLLocationManager = CLLocationManager()
     var currentLocation: CLLocation!
+    let span: MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
     
     override func loadView() {
         view = mainView
@@ -29,6 +33,7 @@ final class MainMapViewController: UIViewController {
         floatingButtonSetting()
         mapViewSetting()
         userNowLocationButtonSetting()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,6 +57,7 @@ final class MainMapViewController: UIViewController {
     }
     
     func mapViewSetting() {
+        mainView.mainMapView.delegate = self
         mainView.mainMapView.showsUserLocation = true
         mainView.mainMapView.setUserTrackingMode(.follow, animated: true)
         
@@ -68,17 +74,19 @@ final class MainMapViewController: UIViewController {
     }
     
     func userNowLocationButtonSetting() {
+        //Revise: 위치권한 허용이 안되어있을때 얼럿 띄우기
         mainView.nowLocationButton.addTarget(self, action: #selector(userNowLocationButtonClicked), for: .touchUpInside)
     }
     
     @objc func userNowLocationButtonClicked() {
         mainView.mainMapView.showsUserLocation = true
         mainView.mainMapView.setUserTrackingMode(.follow, animated: true)
+        
+        let location = MKCoordinateRegion(center: currentLocation.coordinate, span: span)
+        mainView.mainMapView.setRegion(location, animated: true)
     }
     
     func moveLocation(latitudeValue: CLLocationDegrees, longtudeValue: CLLocationDegrees, delta span: Double) {
-        
-        
         let pLocation = CLLocationCoordinate2DMake(latitudeValue, longtudeValue)
         let pSpanValue = MKCoordinateSpan(latitudeDelta: span, longitudeDelta: span)
         let pRegion = MKCoordinateRegion(center: pLocation, span: pSpanValue)
@@ -140,9 +148,8 @@ extension MainMapViewController: CLLocationManagerDelegate, MKMapViewDelegate {
     
     //시작시 유저 위치 중심으로 확대
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
-        let location = MKCoordinateRegion(center: userLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
+        let location = MKCoordinateRegion(center: currentLocation.coordinate, span: span)
         mapView.setRegion(location, animated: true)
-        
     }
     
     //이거 위치
@@ -157,12 +164,13 @@ extension MainMapViewController: CLLocationManagerDelegate, MKMapViewDelegate {
             print("위도: \(location.coordinate.latitude)")
             print("경도: \(location.coordinate.longitude)")
             
-            modelView.searchSeSAC(latitude: String(location.coordinate.latitude), longitude: String(location.coordinate.longitude)) { statusCode in
+            modelView.searchSeSAC(latitude: String(location.coordinate.latitude), longitude: String(location.coordinate.longitude)) { (statusCode, data) in
                 
                 switch statusCode {
                 case 200:
                     print("새싹 검색 성공")
-                    
+                    //서버 데이터 받아오기
+                    self.receivedUserData = data
                 case 401:
                     print("FireBase Token Error 토큰 갱신 ㄱ ㄱ")
                     
@@ -183,7 +191,11 @@ extension MainMapViewController: CLLocationManagerDelegate, MKMapViewDelegate {
         
         
     }
-    //regionDidChange
+    
+    //지도 움질일때 마다 호출됨
+    func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
+        print("맵 센터: ", mapView.centerCoordinate)
+    }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("위치 받아오기 에러:", error)
