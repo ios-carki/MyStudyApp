@@ -82,6 +82,7 @@ final class SplashViewController: UIViewController {
           }
             print("갱신성공!❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️")
             print("갱신 id토큰: ", idToken)
+            self.loginFunc()
             UserDefaults.standard.set(idToken!, forKey: "idtoken")
             
             print("갱신된 id토큰으로 재 로그인 시도")
@@ -104,8 +105,7 @@ final class SplashViewController: UIViewController {
                 print("에러코드: ", statusCode)
                 print("로그인 실패, idtoken 갱신필요")
                 self.getIdToken()
-                self.loginFunc()
-                //self.getIdToken()
+                
             case 406:
                 print("에러코드: ", statusCode)
                 print("로그인 실패, 미가입유저")

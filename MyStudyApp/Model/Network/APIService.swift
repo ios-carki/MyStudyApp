@@ -121,7 +121,7 @@ final class APIService {
             case .failure(_):
                 print("로그인 통신 자체 오류 ❌❌❌❌❌❌❌❌❌")
                 print(response.response?.statusCode ?? 0)
-                self.getIdToken()
+                //self.getIdToken()
                 
                 completionHandler(nil, response.response?.statusCode ?? 0)
                 

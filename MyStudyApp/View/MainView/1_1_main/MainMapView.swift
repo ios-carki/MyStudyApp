@@ -19,6 +19,13 @@ final class MainMapView: BaseView {
         return view
     }()
     
+    let centerIcon: UIImageView = {
+        let view = UIImageView()
+        view.image = UIImage(named: "map_marker")
+        view.contentMode = .scaleAspectFit
+        return view
+    }()
+    
     let floationButton: JJFloatingActionButton = {
         let view = JJFloatingActionButton()
         view.buttonImage = UIImage(named: "search")
@@ -76,7 +83,7 @@ final class MainMapView: BaseView {
         [allGenderButton, manGenderButton, womanGenderButton].forEach {
             genderStackView.addArrangedSubview($0)
         }
-        [mainMapView, floationButton, genderStackView, nowLocationButton].forEach {
+        [mainMapView, centerIcon, floationButton, genderStackView, nowLocationButton].forEach {
             self.addSubview($0)
         }
         self.backgroundColor = .white
@@ -86,6 +93,11 @@ final class MainMapView: BaseView {
         mainMapView.snp.makeConstraints { make in
             make.top.leading.trailing.equalToSuperview()
             make.bottom.equalTo(safeAreaLayoutGuide)
+        }
+        
+        centerIcon.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.size.equalTo(48)
         }
         
         floationButton.snp.makeConstraints { make in

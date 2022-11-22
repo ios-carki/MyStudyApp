@@ -22,6 +22,7 @@ final class MainMapViewController: UIViewController {
     //about location
     var locationManager: CLLocationManager = CLLocationManager()
     var currentLocation: CLLocation!
+    
     let span: MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
     
     override func loadView() {
@@ -30,10 +31,11 @@ final class MainMapViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        naviSetting()
         floatingButtonSetting()
         mapViewSetting()
         userNowLocationButtonSetting()
-        
+        genderButtonSetting()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,6 +46,10 @@ final class MainMapViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    func naviSetting() {
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
     }
     
     func floatingButtonSetting() {
@@ -73,6 +79,7 @@ final class MainMapViewController: UIViewController {
         mainView.mainMapView.register(CustomAnnotationView.self, forAnnotationViewWithReuseIdentifier: CustomAnnotationView.identifier)
     }
     
+    //MARK: GPS버튼
     func userNowLocationButtonSetting() {
         //Revise: 위치권한 허용이 안되어있을때 얼럿 띄우기
         mainView.nowLocationButton.addTarget(self, action: #selector(userNowLocationButtonClicked), for: .touchUpInside)
@@ -84,8 +91,31 @@ final class MainMapViewController: UIViewController {
         
         let location = MKCoordinateRegion(center: currentLocation.coordinate, span: span)
         mainView.mainMapView.setRegion(location, animated: true)
+        
+        self.searchAPI(lat: String(currentLocation.coordinate.latitude), long: String(currentLocation.coordinate.longitude))
     }
     
+    //MARK: 성별 버튼 전체 - 남 - 여
+    //성별버튼 클릭
+    func genderButtonSetting() {
+        mainView.allGenderButton.addTarget(self, action: #selector(allGenderButtonClicked), for: .touchUpInside)
+        mainView.manGenderButton.addTarget(self, action: #selector(manGenderButtonClicked), for: .touchUpInside)
+        mainView.womanGenderButton.addTarget(self, action: #selector(womanGenderButtonClicked), for: .touchUpInside)
+    }
+    
+    @objc func allGenderButtonClicked() {
+        
+    }
+    
+    @objc func manGenderButtonClicked() {
+        
+    }
+    
+    @objc func womanGenderButtonClicked() {
+        
+    }
+    
+    //MARK: 이건뭐지
     func moveLocation(latitudeValue: CLLocationDegrees, longtudeValue: CLLocationDegrees, delta span: Double) {
         let pLocation = CLLocationCoordinate2DMake(latitudeValue, longtudeValue)
         let pSpanValue = MKCoordinateSpan(latitudeDelta: span, longitudeDelta: span)
@@ -119,6 +149,35 @@ final class MainMapViewController: UIViewController {
         mainView.mainMapView.addAnnotation(pin)
     }
     
+    //새싹 검색 API
+    func searchAPI(lat: String, long: String) {
+        modelView.searchSeSAC(latitude: lat, longitude: long) { (statusCode, data) in
+            
+            switch statusCode {
+            case 200:
+                print("새싹 검색 성공")
+                //서버 데이터 받아오기
+                self.receivedUserData = data
+                for i in 0..<self.receivedUserData.count {
+                    self.addCustomPin(sesacImage: self.receivedUserData[i].sesac, coordinate: CLLocationCoordinate2D(latitude: self.receivedUserData[i].lat, longitude: self.receivedUserData[i].long))
+                }
+            case 401:
+                print("FireBase Token Error 토큰 갱신 ㄱ ㄱ")
+                self.modelView.getIdToken()
+            case 406:
+                print("미가입 회원")
+                
+            case 500:
+                print("서버 에러 - FCMtoken 확인")
+                
+            case 501:
+                print("클라이언트 에러 - 얼럿 띄워야 되나?")
+            default:
+                print("기본")
+            }
+        }
+    }
+    
 }
 
 //MARK: 지도관련
@@ -148,12 +207,14 @@ extension MainMapViewController: CLLocationManagerDelegate, MKMapViewDelegate {
     
     //시작시 유저 위치 중심으로 확대
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
+        print("이거 호출 시점", #function)
         let location = MKCoordinateRegion(center: currentLocation.coordinate, span: span)
         mapView.setRegion(location, animated: true)
     }
     
     //이거 위치
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print("didUpdateLocations 메서드 실행됨! ✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅")
         
         locationManager = manager
         if locationManager.authorizationStatus == .authorizedWhenInUse { // CLLocationManager.authorizationStatus() -> iOS 14부터 디플
@@ -164,37 +225,34 @@ extension MainMapViewController: CLLocationManagerDelegate, MKMapViewDelegate {
             print("위도: \(location.coordinate.latitude)")
             print("경도: \(location.coordinate.longitude)")
             
-            modelView.searchSeSAC(latitude: String(location.coordinate.latitude), longitude: String(location.coordinate.longitude)) { (statusCode, data) in
-                
-                switch statusCode {
-                case 200:
-                    print("새싹 검색 성공")
-                    //서버 데이터 받아오기
-                    self.receivedUserData = data
-                case 401:
-                    print("FireBase Token Error 토큰 갱신 ㄱ ㄱ")
-                    
-                case 406:
-                    print("미가입 회원")
-                    
-                case 500:
-                    print("서버 에러 - FCMtoken 확인")
-                    
-                case 501:
-                    print("클라이언트 에러 - 얼럿 띄워야 되나?")
-                default:
-                    print("기본")
-                }
-            }
+            currentLocation = CLLocation(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+            
+            self.searchAPI(lat: String(currentLocation.coordinate.latitude), long: String(currentLocation.coordinate.longitude))
+            
         }
-        
-        
         
     }
     
     //지도 움질일때 마다 호출됨
     func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
         print("맵 센터: ", mapView.centerCoordinate)
+        
+        currentLocation = CLLocation(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude)
+        
+//        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) {
+//            print("검색API실행====Delay 0.5초====")
+//            self.searchAPI(lat: String(searchLocation.latitude), long: String(searchLocation.longitude))
+//        }
+    }
+    func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
+        print("❌❌❌❌❌어노테이션 삭제❌❌❌❌❌❌❌")
+        mainView.mainMapView.removeAnnotations(mainView.mainMapView.annotations)
+    }
+    
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) {
+            self.searchAPI(lat: String(self.currentLocation.coordinate.latitude), long: String(self.currentLocation.coordinate.longitude))
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

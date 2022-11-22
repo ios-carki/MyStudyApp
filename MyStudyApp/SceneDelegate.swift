@@ -16,70 +16,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
         
+        //원래 코드
         let vc = SplashViewController()
         let nav = UINavigationController(rootViewController: vc)
-        
+
         window?.rootViewController = nav
         window?.makeKeyAndVisible()
         
-
-//        let homeViewController = UINavigationController(rootViewController: MainMapViewController())
-//        let sesacShopViewController = UINavigationController(rootViewController: MainShopKindViewController())
-//        let sesacFriendViewController = UINavigationController(rootViewController: MainFriendsViewController())
-//        let myInfoViewController = UINavigationController(rootViewController: MyInfoViewController())
-//
-//        let tabBarController = UITabBarController()
-//        tabBarController.tabBar.tintColor = .colorGreen
-//        tabBarController.setViewControllers([homeViewController, sesacShopViewController, sesacFriendViewController, myInfoViewController], animated: true)
-//
-//        if let items = tabBarController.tabBar.items {
-//            items[0].image = UIImage(named: "ic-4")
-//            items[0].title = "홈"
-//
-//            items[1].image = UIImage(named: "ic-5")
-//            items[1].title = "새싹샵"
-//
-//            items[2].image = UIImage(named: "ic-6")
-//            items[2].title = "새싹친구"
-//
-//            items[3].image = UIImage(named: "ic-7")
-//            items[3].title = "내정보"
-//        }
-////
-////        let vc = MainMapViewController()
-////
-////        window?.rootViewController = tabBarController
-////        window?.makeKeyAndVisible()
-
-        //MARK: 메인 시작
-//        if UserDefaults.standard.bool(forKey: "oldUser") {
-//            let vc = tabBarController
-//
-//            window?.rootViewController = vc
-//        } else {
-//            let vc = SplashViewController()
-//            let nav = UINavigationController(rootViewController: vc)
-//
-//            window?.rootViewController = nav
-//        }
-//        window?.makeKeyAndVisible()
-//
-//        let vc = SplashViewController()
+//        let vc = ChattingViewController()
 //        let nav = UINavigationController(rootViewController: vc)
-//
+//        
 //        window?.rootViewController = nav
 //        window?.makeKeyAndVisible()
-        
-        //let vc = MainMapViewController()
-        
-        
-        //MARK: 뷰별로 테스트
-        
-//        let vc = tabBarController
-//        //let nav = UINavigationController(rootViewController: vc)
-//
-//        window?.rootViewController = vc
-//        window?.makeKeyAndVisible()
+
         
     }
 

@@ -26,6 +26,8 @@
 		C36907F629220DB2002B4C4D /* MyInfoCustomTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36907F529220DB2002B4C4D /* MyInfoCustomTableView.swift */; };
 		C36907FA29221E91002B4C4D /* SecondMyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36907F929221E91002B4C4D /* SecondMyInfoView.swift */; };
 		C36907FC29221E9F002B4C4D /* SecondMyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36907FB29221E9F002B4C4D /* SecondMyInfoViewController.swift */; };
+		C3B28AA8292CA83800B284BB /* ChattingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B28AA7292CA83800B284BB /* ChattingViewController.swift */; };
+		C3B28AAA292CA83D00B284BB /* ChattingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B28AA9292CA83D00B284BB /* ChattingView.swift */; };
 		C3B293762918D29F00F2D55D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B293752918D29F00F2D55D /* AppDelegate.swift */; };
 		C3B293782918D29F00F2D55D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B293772918D29F00F2D55D /* SceneDelegate.swift */; };
 		C3B2937A2918D29F00F2D55D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B293792918D29F00F2D55D /* ViewController.swift */; };
@@ -98,6 +100,8 @@
 		C36907F529220DB2002B4C4D /* MyInfoCustomTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoCustomTableView.swift; sourceTree = "<group>"; };
 		C36907F929221E91002B4C4D /* SecondMyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondMyInfoView.swift; sourceTree = "<group>"; };
 		C36907FB29221E9F002B4C4D /* SecondMyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondMyInfoViewController.swift; sourceTree = "<group>"; };
+		C3B28AA7292CA83800B284BB /* ChattingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingViewController.swift; sourceTree = "<group>"; };
+		C3B28AA9292CA83D00B284BB /* ChattingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingView.swift; sourceTree = "<group>"; };
 		C3B293722918D29F00F2D55D /* MyStudyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyStudyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3B293752918D29F00F2D55D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3B293772918D29F00F2D55D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -177,6 +181,7 @@
 		C32C821A291E5C2F0070F387 /* MainView */ = {
 			isa = PBXGroup;
 			children = (
+				C3B28AA5292CA81200B284BB /* 1_5_chatting */,
 				C3C68951292A143B00B59D0C /* 1_3_near_user */,
 				C3C689172924E7AE00B59D0C /* 1_2_study */,
 				C3C689072924CD2C00B59D0C /* 1_1_main */,
@@ -194,6 +199,7 @@
 		C32C821B291E5C370070F387 /* MainViewController */ = {
 			isa = PBXGroup;
 			children = (
+				C3B28AA6292CA82200B284BB /* 1_5_chatting */,
 				C3C68952292A145700B59D0C /* 1_3_near_user */,
 				C3C689182924E7BC00B59D0C /* 1_2_study */,
 				C3C689062924CD0A00B59D0C /* 1_1_main */,
@@ -383,6 +389,22 @@
 				C36907F929221E91002B4C4D /* SecondMyInfoView.swift */,
 			);
 			path = 4_1_my_info;
+			sourceTree = "<group>";
+		};
+		C3B28AA5292CA81200B284BB /* 1_5_chatting */ = {
+			isa = PBXGroup;
+			children = (
+				C3B28AA9292CA83D00B284BB /* ChattingView.swift */,
+			);
+			path = 1_5_chatting;
+			sourceTree = "<group>";
+		};
+		C3B28AA6292CA82200B284BB /* 1_5_chatting */ = {
+			isa = PBXGroup;
+			children = (
+				C3B28AA7292CA83800B284BB /* ChattingViewController.swift */,
+			);
+			path = 1_5_chatting;
 			sourceTree = "<group>";
 		};
 		C3B293692918D29F00F2D55D = {
@@ -720,6 +742,7 @@
 				C36907F629220DB2002B4C4D /* MyInfoCustomTableView.swift in Sources */,
 				C36907FA29221E91002B4C4D /* SecondMyInfoView.swift in Sources */,
 				C32C81D5291B78B60070F387 /* String+Extension.swift in Sources */,
+				C3B28AAA292CA83D00B284BB /* ChattingView.swift in Sources */,
 				C3C689502927DFDB00B59D0C /* SeSACTitleCollectionCell.swift in Sources */,
 				C32C8219291E546D0070F387 /* Elert+Extension.swift in Sources */,
 				C3C22668291AA7A70042062A /* GenderViewController.swift in Sources */,
@@ -746,6 +769,7 @@
 				C3C688ED2923BA9E00B59D0C /* MyInfoWithdrawViewController.swift in Sources */,
 				C3B2937A2918D29F00F2D55D /* ViewController.swift in Sources */,
 				C32C824E292209C10070F387 /* MyInforViewController.swift in Sources */,
+				C3B28AA8292CA83800B284BB /* ChattingViewController.swift in Sources */,
 				C3C6892429266B6A00B59D0C /* SplashView.swift in Sources */,
 				C3B293762918D29F00F2D55D /* AppDelegate.swift in Sources */,
 				C3C6891A2924E7DB00B59D0C /* MatchingStudyView.swift in Sources */,
