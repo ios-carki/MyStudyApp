@@ -22,6 +22,7 @@ final class MyInfoCustomTableView: UITableViewCell {
     let infoLabel: UILabel = {
         let view = UILabel()
         view.font = .systemFont(ofSize: 16)
+        view.textColor = .black
         return view
     }()
     

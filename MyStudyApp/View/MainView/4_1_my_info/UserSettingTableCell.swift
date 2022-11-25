@@ -22,6 +22,7 @@ final class UserSettingTableCell: UITableViewCell {
     let userGenderLabel: UILabel = {
         let view = UILabel()
         view.text = "내 성별"
+        view.textColor = .black
         view.font = .systemFont(ofSize: 14)
         return view
     }()
@@ -70,6 +71,7 @@ final class UserSettingTableCell: UITableViewCell {
     let mainStudyLabel: UILabel = {
         let view = UILabel()
         view.text = "자주 하는 스터디"
+        view.textColor = .black
         view.font = .systemFont(ofSize: 14)
         return view
     }()
@@ -77,6 +79,7 @@ final class UserSettingTableCell: UITableViewCell {
     let inputStudyTextField: UITextField = {
         let view = UITextField()
         view.placeholder = "스터디를 입력해 주세요"
+        view.textColor = .black
         return view
     }()
 
@@ -97,6 +100,7 @@ final class UserSettingTableCell: UITableViewCell {
     let searchPhoneNumLabel: UILabel = {
         let view = UILabel()
         view.text = "내 번호 검색 허용"
+        view.textColor = .black
         view.font = .systemFont(ofSize: 14)
         return view
     }()
@@ -117,6 +121,7 @@ final class UserSettingTableCell: UITableViewCell {
     let userAgeGroupLabel: UILabel = {
         let view = UILabel()
         view.text = "상대방 연령대"
+        view.textColor = .black
         view.font = .systemFont(ofSize: 14)
         return view
     }()
@@ -124,6 +129,7 @@ final class UserSettingTableCell: UITableViewCell {
     let exampleAgeGrouplabel: UILabel = {
         let view = UILabel()
         view.text = "테스트라인"
+        view.textColor = .black
         view.textColor = .colorGreen
         view.font = .systemFont(ofSize: 14)
         return view

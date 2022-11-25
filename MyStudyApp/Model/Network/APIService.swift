@@ -96,19 +96,8 @@ final class APIService {
         
     }
     
-    /*
-     헷갈리는 점
-     로그인 요청이 유저 데이터를 갖고오는건지
-     아니면
-     로그인 통신을 하고 다시 프로파일 통신을 해서
-     원하는 데이터를 갖고오는건지
-     */
-    
     func login(completionHandler: @escaping (String?, Int) -> Void) {
         let api = SeSACAPI.profile
-        
-        let test: String?
-        
         
         //로그인 후 받는 토큰 제이슨 데이터 디코딩
         AF.request(api.url, method: .get, headers: api.headers).responseDecodable(of: UserData.self) { response in

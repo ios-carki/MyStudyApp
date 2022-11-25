@@ -13,6 +13,7 @@ final class MyInfoView: BaseView {
     
     let infoTableView: UITableView = {
         let view = UITableView()
+        view.backgroundColor = .white
         return view
     }()
     

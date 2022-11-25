@@ -23,6 +23,8 @@ final class MainMapViewController: UIViewController {
     var locationManager: CLLocationManager = CLLocationManager()
     var currentLocation: CLLocation!
     
+    var runTimeInterval: TimeInterval?
+    
     let span: MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
     
     override func loadView() {
@@ -36,6 +38,9 @@ final class MainMapViewController: UIViewController {
         mapViewSetting()
         userNowLocationButtonSetting()
         genderButtonSetting()
+        
+        let location = MKCoordinateRegion(center: currentLocation.coordinate, span: span)
+        mainView.mainMapView.setRegion(location, animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,14 +63,15 @@ final class MainMapViewController: UIViewController {
     
     @objc func floatingSearchClicked() {
         let vc = MatchingStudyViewController()
-        
+        vc.receivedLocation = currentLocation
+        vc.arroundUserData = receivedUserData
         navigationController?.pushViewController(vc, animated: true)
     }
     
     func mapViewSetting() {
         mainView.mainMapView.delegate = self
-        mainView.mainMapView.showsUserLocation = true
-        mainView.mainMapView.setUserTrackingMode(.follow, animated: true)
+//        mainView.mainMapView.showsUserLocation = true
+//        mainView.mainMapView.setUserTrackingMode(.follow, animated: true)
         
         self.currentLocation = locationManager.location
         
@@ -157,6 +163,7 @@ final class MainMapViewController: UIViewController {
             case 200:
                 print("새싹 검색 성공")
                 //서버 데이터 받아오기
+                
                 self.receivedUserData = data
                 for i in 0..<self.receivedUserData.count {
                     self.addCustomPin(sesacImage: self.receivedUserData[i].sesac, coordinate: CLLocationCoordinate2D(latitude: self.receivedUserData[i].lat, longitude: self.receivedUserData[i].long))
@@ -206,11 +213,11 @@ extension MainMapViewController: CLLocationManagerDelegate, MKMapViewDelegate {
     }
     
     //시작시 유저 위치 중심으로 확대
-    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
-        print("이거 호출 시점", #function)
-        let location = MKCoordinateRegion(center: currentLocation.coordinate, span: span)
-        mapView.setRegion(location, animated: true)
-    }
+//    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
+//        print("이거 호출 시점", #function)
+//        let location = MKCoordinateRegion(center: currentLocation.coordinate, span: span)
+//        mapView.setRegion(location, animated: true)
+//    }
     
     //이거 위치
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -227,15 +234,14 @@ extension MainMapViewController: CLLocationManagerDelegate, MKMapViewDelegate {
             
             currentLocation = CLLocation(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
             
-            self.searchAPI(lat: String(currentLocation.coordinate.latitude), long: String(currentLocation.coordinate.longitude))
-            
         }
-        
     }
     
     //지도 움질일때 마다 호출됨
     func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
+        runTimeInterval = Date().timeIntervalSinceReferenceDate
         print("맵 센터: ", mapView.centerCoordinate)
+        
         
         currentLocation = CLLocation(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude)
         

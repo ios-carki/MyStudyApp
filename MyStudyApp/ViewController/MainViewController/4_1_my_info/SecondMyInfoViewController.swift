@@ -70,6 +70,7 @@ extension SecondMyInfoViewController: UITableViewDelegate, UITableViewDataSource
         if indexPath.section == 0 {
             guard let cardCell = tableView.dequeueReusableCell(withIdentifier: CardViewTableCell.identifier, for: indexPath) as? CardViewTableCell else { return UITableViewCell() }
             cardCell.selectionStyle = .none
+            cardCell.backgroundColor = .white
             
             //cardCell.nickNameView.tag = indexPath.row // 카드뷰 펼치는 뷰
             let cardViewTabed = UITapGestureRecognizer(target: self, action: #selector(toggleBool))
@@ -94,6 +95,7 @@ extension SecondMyInfoViewController: UITableViewDelegate, UITableViewDataSource
             guard let settingCell = tableView.dequeueReusableCell(withIdentifier: UserSettingTableCell.identifier, for: indexPath) as? UserSettingTableCell else { return UITableViewCell() }
             
             settingCell.selectionStyle = .none
+            settingCell.backgroundColor = .white
             
             if indexPath.row == 0 {
                 settingCell.genderView.isHidden = false

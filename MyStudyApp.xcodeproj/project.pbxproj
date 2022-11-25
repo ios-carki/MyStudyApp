@@ -28,6 +28,10 @@
 		C36907FC29221E9F002B4C4D /* SecondMyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36907FB29221E9F002B4C4D /* SecondMyInfoViewController.swift */; };
 		C3B28AA8292CA83800B284BB /* ChattingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B28AA7292CA83800B284BB /* ChattingViewController.swift */; };
 		C3B28AAA292CA83D00B284BB /* ChattingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B28AA9292CA83D00B284BB /* ChattingView.swift */; };
+		C3B28AAE292DF2C600B284BB /* StudyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B28AAD292DF2C600B284BB /* StudyCollectionViewCell.swift */; };
+		C3B28AB0292DF52C00B284BB /* AroundStudyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B28AAF292DF52C00B284BB /* AroundStudyCollectionViewCell.swift */; };
+		C3B28AB2292FA06E00B284BB /* Memo.txt in Resources */ = {isa = PBXBuildFile; fileRef = C3B28AB1292FA06E00B284BB /* Memo.txt */; };
+		C3B28AD6292FAF9C00B284BB /* StudyHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B28AD5292FAF9C00B284BB /* StudyHeaderView.swift */; };
 		C3B293762918D29F00F2D55D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B293752918D29F00F2D55D /* AppDelegate.swift */; };
 		C3B293782918D29F00F2D55D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B293772918D29F00F2D55D /* SceneDelegate.swift */; };
 		C3B2937A2918D29F00F2D55D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B293792918D29F00F2D55D /* ViewController.swift */; };
@@ -102,6 +106,10 @@
 		C36907FB29221E9F002B4C4D /* SecondMyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondMyInfoViewController.swift; sourceTree = "<group>"; };
 		C3B28AA7292CA83800B284BB /* ChattingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingViewController.swift; sourceTree = "<group>"; };
 		C3B28AA9292CA83D00B284BB /* ChattingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingView.swift; sourceTree = "<group>"; };
+		C3B28AAD292DF2C600B284BB /* StudyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyCollectionViewCell.swift; sourceTree = "<group>"; };
+		C3B28AAF292DF52C00B284BB /* AroundStudyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AroundStudyCollectionViewCell.swift; sourceTree = "<group>"; };
+		C3B28AB1292FA06E00B284BB /* Memo.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Memo.txt; sourceTree = "<group>"; };
+		C3B28AD5292FAF9C00B284BB /* StudyHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyHeaderView.swift; sourceTree = "<group>"; };
 		C3B293722918D29F00F2D55D /* MyStudyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyStudyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3B293752918D29F00F2D55D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3B293772918D29F00F2D55D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -444,6 +452,7 @@
 				C3B2939E2918E24A00F2D55D /* BaseView.swift */,
 				C3C226532919EAF90042062A /* .gitignore */,
 				C3C688E62923953B00B59D0C /* BaseTableViewCell.swift */,
+				C3B28AB1292FA06E00B284BB /* Memo.txt */,
 			);
 			path = MyStudyApp;
 			sourceTree = "<group>";
@@ -590,6 +599,9 @@
 			isa = PBXGroup;
 			children = (
 				C3C689192924E7DB00B59D0C /* MatchingStudyView.swift */,
+				C3B28AAD292DF2C600B284BB /* StudyCollectionViewCell.swift */,
+				C3B28AAF292DF52C00B284BB /* AroundStudyCollectionViewCell.swift */,
+				C3B28AD5292FAF9C00B284BB /* StudyHeaderView.swift */,
 			);
 			path = 1_2_study;
 			sourceTree = "<group>";
@@ -719,6 +731,7 @@
 			files = (
 				C3C226542919EAF90042062A /* .gitignore in Resources */,
 				C3B293822918D2A100F2D55D /* LaunchScreen.storyboard in Resources */,
+				C3B28AB2292FA06E00B284BB /* Memo.txt in Resources */,
 				C32C820E291D0EE00070F387 /* GoogleService-Info.plist in Resources */,
 				C3B2937F2918D2A100F2D55D /* Assets.xcassets in Resources */,
 				C3B2937D2918D29F00F2D55D /* Main.storyboard in Resources */,
@@ -736,6 +749,7 @@
 				C3B293AB2919306E00F2D55D /* LoginViewController.swift in Sources */,
 				C3C688EB2923BA9500B59D0C /* MyInfoWithdrawView.swift in Sources */,
 				C32C8244291FB7F50070F387 /* KEY.swift in Sources */,
+				C3B28AAE292DF2C600B284BB /* StudyCollectionViewCell.swift in Sources */,
 				C32C8222291E609A0070F387 /* User.swift in Sources */,
 				C32C8246291FC4960070F387 /* URL+Extension.swift in Sources */,
 				C3C688E72923953B00B59D0C /* BaseTableViewCell.swift in Sources */,
@@ -752,6 +766,7 @@
 				C3C689092924CD5E00B59D0C /* MainMapViewController.swift in Sources */,
 				C3C6890D2924CE7E00B59D0C /* MainShopKindViewController.swift in Sources */,
 				C3C689052924CCC200B59D0C /* MainPlusFriendsView.swift in Sources */,
+				C3B28AD6292FAF9C00B284BB /* StudyHeaderView.swift in Sources */,
 				C3C22664291A62610042062A /* EmailViewController.swift in Sources */,
 				C3C22662291A62590042062A /* EmailView.swift in Sources */,
 				C3C688E5292394B400B59D0C /* UserSettingTableCell.swift in Sources */,
@@ -783,6 +798,7 @@
 				C3C68956292A147600B59D0C /* NearUserEmptyViewController.swift in Sources */,
 				C3C2265C291A5CB50042062A /* NickNameViewController.swift in Sources */,
 				C3C22660291A604D0042062A /* BirthViewController.swift in Sources */,
+				C3B28AB0292DF52C00B284BB /* AroundStudyCollectionViewCell.swift in Sources */,
 				C32C823D291FB2E40070F387 /* APIService.swift in Sources */,
 				C3C6890B2924CD6800B59D0C /* MainMapView.swift in Sources */,
 				C3C22656291A50CA0042062A /* SecondLoginViewController.swift in Sources */,

@@ -48,6 +48,7 @@ extension MyInfoViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MyInfoCustomTableView.identifier, for: indexPath) as? MyInfoCustomTableView else { return UITableViewCell()
         }
+        cell.backgroundColor = .white
         
         if indexPath.row > 0 {
             cell.iconImage.image = UIImage(systemName: infoIconData[indexPath.row])

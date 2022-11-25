@@ -14,6 +14,7 @@ final class SecondMyInfoView: BaseView {
     let infoTableView: UITableView = {
         let view = UITableView()
         view.separatorStyle = .none
+        view.backgroundColor = .white
         return view
     }()
     
