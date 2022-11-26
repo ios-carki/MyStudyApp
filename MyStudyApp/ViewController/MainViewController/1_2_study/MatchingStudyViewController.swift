@@ -22,6 +22,10 @@ final class MatchingStudyViewController: UIViewController {
     
     var receivedLocation: CLLocation!
     
+    var searchBarIsFiltering: Bool = false
+    var tempArr: [String] = []
+    var filterdText: [String] = []
+    
     override func loadView() {
         view = mainView
     }
@@ -64,7 +68,7 @@ final class MatchingStudyViewController: UIViewController {
         
         //셀
         mainView.studyCollectionView.register(AroundStudyCollectionViewCell.self, forCellWithReuseIdentifier: AroundStudyCollectionViewCell.identifier)
-//        mainView.studyCollectionView.register(StudyCollectionViewCell.self, forCellWithReuseIdentifier: StudyCollectionViewCell.identifier)
+        mainView.studyCollectionView.register(StudyCollectionViewCell.self, forCellWithReuseIdentifier: StudyCollectionViewCell.identifier)
         
         mainView.studyCollectionView.delegate = self
         mainView.studyCollectionView.dataSource = self
@@ -127,18 +131,26 @@ extension MatchingStudyViewController: UICollectionViewDelegate, UICollectionVie
         if section == 0 {
             return studyList.count
         } else {
-
+            return filterdText.count
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AroundStudyCollectionViewCell.identifier, for: indexPath) as? AroundStudyCollectionViewCell else { return UICollectionViewCell() }
+        if indexPath.section == 0 {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AroundStudyCollectionViewCell.identifier, for: indexPath) as? AroundStudyCollectionViewCell else { return UICollectionViewCell() }
+            
+            cell.studyText.text = studyList[indexPath.item]
+            
+            return cell
+        } else {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StudyCollectionViewCell.identifier, for: indexPath) as? StudyCollectionViewCell else { return UICollectionViewCell() }
+            
+            cell.studyText.text = filterdText[indexPath.item]
+            
+            return cell
+        }
         
-        
-        cell.studyText.text = studyList[indexPath.item]
-        
-        
-        return cell
+        return UICollectionViewCell()
     }
     
     
@@ -149,13 +161,24 @@ extension MatchingStudyViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
         if kind == UICollectionView.elementKindSectionHeader {
-            let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: StudyHeaderView.identifier, for: indexPath) as! StudyHeaderView
+            if indexPath.section == 0 {
+                let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: StudyHeaderView.identifier, for: indexPath) as! StudyHeaderView
+                
+                header.headerLabel.text = "지금 주변에는"
+                
+                header.backgroundColor = .white
+                
+                return header
+            } else {
+                let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: StudyHeaderView.identifier, for: indexPath) as! StudyHeaderView
+                
+                header.headerLabel.text = "내가 하고 싶은"
+                
+                header.backgroundColor = .white
+                
+                return header
+            }
             
-            header.headerLabel.text = "지금 주변에는"
-            
-            header.backgroundColor = .gray
-            
-            return header
         } else {
             return UICollectionReusableView()
         }
@@ -166,24 +189,56 @@ extension MatchingStudyViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-//extension MatchingStudyViewController: UISearchBarDelegate {
-//
-//    //MARK: 검색 버튼 눌렀을 때
-//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-//        dismissKeyboard()
-//
-//        guard let text = mainView.searchBar.text?.lowercased() else { return }
-//    }
-//
-//    //MARK: 서치바에서 취소버튼 눌렀을때
-//
-//    //MARK: 서치바 검색 끝
-//    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-//        mainView.studyCollectionView.reloadData()
-//    }
-//
-//    //MARK: 키보드 내리기
-//    func dismissKeyboard() {
-//        mainView.searchBar.resignFirstResponder()
-//    }
-//}
+extension MatchingStudyViewController: UISearchBarDelegate {
+    
+    //MARK: 서치바 검색 시작
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        self.searchBarIsFiltering = true
+        //Revise: 취소버튼 생기면 어떻게 될까
+        searchBar.showsCancelButton = true
+        mainView.studyCollectionView.reloadData()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard let text = searchBar.text?.lowercased() else { return }
+        //여기서부터
+    }
+
+    //MARK: 검색 버튼 눌렀을 때
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        dismissKeyboard()
+
+        guard let text = searchBar.text?.lowercased() else { return }
+        let filterTxt = text.components(separatedBy: ["~", "!", "@", ",", " "])
+        tempArr.append(contentsOf: filterTxt.filter { $0 != ""})
+        filterdText = tempArr.removeDuplicates()
+        mainView.studyCollectionView.reloadData()
+        //추가와 동시에 중복 제거
+    }
+
+    //MARK: 서치바에서 취소버튼 눌렀을때
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        searchBar.resignFirstResponder()
+        self.searchBarIsFiltering = false
+        mainView.studyCollectionView.reloadData()
+    }
+
+    //MARK: 서치바 검색 끝
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        mainView.studyCollectionView.reloadData()
+    }
+
+    //MARK: 키보드 내리기
+    func dismissKeyboard() {
+        mainView.searchBar.resignFirstResponder()
+    }
+}
+
+//MARK: 배열 중복 제거
+extension Array where Element: Hashable {
+    func removeDuplicates() -> [Element] {
+        var set = [Element: Bool]()
+        return filter { set.updateValue(true, forKey: $0) == nil }
+    }
+}
