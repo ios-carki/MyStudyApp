@@ -63,8 +63,13 @@ final class MainMapViewController: UIViewController {
     
     @objc func floatingSearchClicked() {
         let vc = MatchingStudyViewController()
+        
         vc.receivedLocation = currentLocation
         vc.arroundUserData = receivedUserData
+        
+        UserDefaults.standard.set(String(currentLocation.coordinate.latitude), forKey: "currentLocationLat")
+        UserDefaults.standard.set(String(currentLocation.coordinate.longitude), forKey: "currentLocationLong")
+        
         navigationController?.pushViewController(vc, animated: true)
     }
     

@@ -146,6 +146,7 @@ final class CardViewTableCell: UITableViewCell {
         [cardView, detailView].forEach {
             contentView.addSubview($0)
         }
+        contentView.backgroundColor = .white
         
         titleView.isHidden = true
         reviewView.isHidden = true

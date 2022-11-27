@@ -1,14 +1,15 @@
 //
-//  ReceiveViewController.swift
+//  ReceivedSeSACViewController.swift
 //  MyStudyApp
 //
-//  Created by Carki on 2022/11/26.
+//  Created by Carki on 2022/11/27.
 //
 
 import UIKit
 
-final class ReceiveViewController: UIViewController {
-    private let mainView = ReceiveView()
+final class RequestSeSACViewController: UIViewController {
+    
+    private let mainView = RequestSeSACView()
     
     override func loadView() {
         view = mainView

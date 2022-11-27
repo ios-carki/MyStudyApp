@@ -80,8 +80,8 @@ final class MatchingStudyViewController: UIViewController {
     }
     
     @objc func searchSesacButtonClicked() {
-        let vc = NearUserEmptyViewController()
-        
+        let vc = TabManViewController()
+    
         navigationController?.pushViewController(vc, animated: true)
     }
     
