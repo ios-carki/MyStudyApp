@@ -26,6 +26,8 @@
 		C36907F629220DB2002B4C4D /* MyInfoCustomTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36907F529220DB2002B4C4D /* MyInfoCustomTableView.swift */; };
 		C36907FA29221E91002B4C4D /* SecondMyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36907F929221E91002B4C4D /* SecondMyInfoView.swift */; };
 		C36907FC29221E9F002B4C4D /* SecondMyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36907FB29221E9F002B4C4D /* SecondMyInfoViewController.swift */; };
+		C372E9272931FB3500B0462D /* NearSeSACView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C372E9262931FB3500B0462D /* NearSeSACView.swift */; };
+		C372E9292931FB4300B0462D /* ReceiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C372E9282931FB4300B0462D /* ReceiveView.swift */; };
 		C3B28AA8292CA83800B284BB /* ChattingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B28AA7292CA83800B284BB /* ChattingViewController.swift */; };
 		C3B28AAA292CA83D00B284BB /* ChattingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B28AA9292CA83D00B284BB /* ChattingView.swift */; };
 		C3B28AAE292DF2C600B284BB /* StudyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B28AAD292DF2C600B284BB /* StudyCollectionViewCell.swift */; };
@@ -60,7 +62,6 @@
 		C3C22668291AA7A70042062A /* GenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C22667291AA7A70042062A /* GenderViewController.swift */; };
 		C3C688E32923903200B59D0C /* CardViewTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C688E22923903200B59D0C /* CardViewTableCell.swift */; };
 		C3C688E5292394B400B59D0C /* UserSettingTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C688E4292394B400B59D0C /* UserSettingTableCell.swift */; };
-		C3C688E72923953B00B59D0C /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C688E62923953B00B59D0C /* BaseTableViewCell.swift */; };
 		C3C688EB2923BA9500B59D0C /* MyInfoWithdrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C688EA2923BA9500B59D0C /* MyInfoWithdrawView.swift */; };
 		C3C688ED2923BA9E00B59D0C /* MyInfoWithdrawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C688EC2923BA9E00B59D0C /* MyInfoWithdrawViewController.swift */; };
 		C3C688FF2924CC8B00B59D0C /* MainShopKindView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C688FE2924CC8B00B59D0C /* MainShopKindView.swift */; };
@@ -87,6 +88,14 @@
 		C3C68954292A146C00B59D0C /* NearUserEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C68953292A146C00B59D0C /* NearUserEmptyView.swift */; };
 		C3C68956292A147600B59D0C /* NearUserEmptyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C68955292A147600B59D0C /* NearUserEmptyViewController.swift */; };
 		C3C68958292A2DCF00B59D0C /* CustomAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C68957292A2DCF00B59D0C /* CustomAnnotationView.swift */; };
+		C3DC02222931E466006DD705 /* NearUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DC02212931E466006DD705 /* NearUserView.swift */; };
+		C3DC02242931E470006DD705 /* NearUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DC02232931E470006DD705 /* NearUserViewController.swift */; };
+		C3DC02262931E9DD006DD705 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DC02252931E9DD006DD705 /* MenuCell.swift */; };
+		C3DC02282931E9E4006DD705 /* PagerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DC02272931E9E4006DD705 /* PagerCell.swift */; };
+		C3DC022B2931EAA2006DD705 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DC022A2931EAA2006DD705 /* BaseCollectionViewCell.swift */; };
+		C3DC022D2931F0FC006DD705 /* MenuCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DC022C2931F0FC006DD705 /* MenuCollection.swift */; };
+		C3DC02312931F587006DD705 /* NearSeSACViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DC02302931F587006DD705 /* NearSeSACViewController.swift */; };
+		C3DC02332931F595006DD705 /* ReceiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DC02322931F595006DD705 /* ReceiveViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -104,6 +113,8 @@
 		C36907F529220DB2002B4C4D /* MyInfoCustomTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoCustomTableView.swift; sourceTree = "<group>"; };
 		C36907F929221E91002B4C4D /* SecondMyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondMyInfoView.swift; sourceTree = "<group>"; };
 		C36907FB29221E9F002B4C4D /* SecondMyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondMyInfoViewController.swift; sourceTree = "<group>"; };
+		C372E9262931FB3500B0462D /* NearSeSACView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearSeSACView.swift; sourceTree = "<group>"; };
+		C372E9282931FB4300B0462D /* ReceiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveView.swift; sourceTree = "<group>"; };
 		C3B28AA7292CA83800B284BB /* ChattingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingViewController.swift; sourceTree = "<group>"; };
 		C3B28AA9292CA83D00B284BB /* ChattingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingView.swift; sourceTree = "<group>"; };
 		C3B28AAD292DF2C600B284BB /* StudyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -138,7 +149,6 @@
 		C3C22667291AA7A70042062A /* GenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderViewController.swift; sourceTree = "<group>"; };
 		C3C688E22923903200B59D0C /* CardViewTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewTableCell.swift; sourceTree = "<group>"; };
 		C3C688E4292394B400B59D0C /* UserSettingTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingTableCell.swift; sourceTree = "<group>"; };
-		C3C688E62923953B00B59D0C /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		C3C688EA2923BA9500B59D0C /* MyInfoWithdrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoWithdrawView.swift; sourceTree = "<group>"; };
 		C3C688EC2923BA9E00B59D0C /* MyInfoWithdrawViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoWithdrawViewController.swift; sourceTree = "<group>"; };
 		C3C688FE2924CC8B00B59D0C /* MainShopKindView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainShopKindView.swift; sourceTree = "<group>"; };
@@ -161,6 +171,14 @@
 		C3C68953292A146C00B59D0C /* NearUserEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearUserEmptyView.swift; sourceTree = "<group>"; };
 		C3C68955292A147600B59D0C /* NearUserEmptyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearUserEmptyViewController.swift; sourceTree = "<group>"; };
 		C3C68957292A2DCF00B59D0C /* CustomAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotationView.swift; sourceTree = "<group>"; };
+		C3DC02212931E466006DD705 /* NearUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearUserView.swift; sourceTree = "<group>"; };
+		C3DC02232931E470006DD705 /* NearUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearUserViewController.swift; sourceTree = "<group>"; };
+		C3DC02252931E9DD006DD705 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
+		C3DC02272931E9E4006DD705 /* PagerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerCell.swift; sourceTree = "<group>"; };
+		C3DC022A2931EAA2006DD705 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		C3DC022C2931F0FC006DD705 /* MenuCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCollection.swift; sourceTree = "<group>"; };
+		C3DC02302931F587006DD705 /* NearSeSACViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearSeSACViewController.swift; sourceTree = "<group>"; };
+		C3DC02322931F595006DD705 /* ReceiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -434,6 +452,7 @@
 		C3B293742918D29F00F2D55D /* MyStudyApp */ = {
 			isa = PBXGroup;
 			children = (
+				C3DC02292931EA8F006DD705 /* ViewBase */,
 				C3C6891D2925189100B59D0C /* ViewModel */,
 				C32C8220291E608E0070F387 /* Model */,
 				C32C820D291D0EE00070F387 /* GoogleService-Info.plist */,
@@ -449,9 +468,7 @@
 				C3B2937E2918D2A100F2D55D /* Assets.xcassets */,
 				C3B293802918D2A100F2D55D /* LaunchScreen.storyboard */,
 				C3B293832918D2A100F2D55D /* Info.plist */,
-				C3B2939E2918E24A00F2D55D /* BaseView.swift */,
 				C3C226532919EAF90042062A /* .gitignore */,
-				C3C688E62923953B00B59D0C /* BaseTableViewCell.swift */,
 				C3B28AB1292FA06E00B284BB /* Memo.txt */,
 			);
 			path = MyStudyApp;
@@ -635,6 +652,11 @@
 			isa = PBXGroup;
 			children = (
 				C3C68953292A146C00B59D0C /* NearUserEmptyView.swift */,
+				C3DC02212931E466006DD705 /* NearUserView.swift */,
+				C3DC02252931E9DD006DD705 /* MenuCell.swift */,
+				C3DC02272931E9E4006DD705 /* PagerCell.swift */,
+				C372E9262931FB3500B0462D /* NearSeSACView.swift */,
+				C372E9282931FB4300B0462D /* ReceiveView.swift */,
 			);
 			path = 1_3_near_user;
 			sourceTree = "<group>";
@@ -643,8 +665,21 @@
 			isa = PBXGroup;
 			children = (
 				C3C68955292A147600B59D0C /* NearUserEmptyViewController.swift */,
+				C3DC02232931E470006DD705 /* NearUserViewController.swift */,
+				C3DC022C2931F0FC006DD705 /* MenuCollection.swift */,
+				C3DC02302931F587006DD705 /* NearSeSACViewController.swift */,
+				C3DC02322931F595006DD705 /* ReceiveViewController.swift */,
 			);
 			path = 1_3_near_user;
+			sourceTree = "<group>";
+		};
+		C3DC02292931EA8F006DD705 /* ViewBase */ = {
+			isa = PBXGroup;
+			children = (
+				C3B2939E2918E24A00F2D55D /* BaseView.swift */,
+				C3DC022A2931EAA2006DD705 /* BaseCollectionViewCell.swift */,
+			);
+			path = ViewBase;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -750,12 +785,14 @@
 				C3C688EB2923BA9500B59D0C /* MyInfoWithdrawView.swift in Sources */,
 				C32C8244291FB7F50070F387 /* KEY.swift in Sources */,
 				C3B28AAE292DF2C600B284BB /* StudyCollectionViewCell.swift in Sources */,
+				C3DC02282931E9E4006DD705 /* PagerCell.swift in Sources */,
 				C32C8222291E609A0070F387 /* User.swift in Sources */,
 				C32C8246291FC4960070F387 /* URL+Extension.swift in Sources */,
-				C3C688E72923953B00B59D0C /* BaseTableViewCell.swift in Sources */,
 				C36907F629220DB2002B4C4D /* MyInfoCustomTableView.swift in Sources */,
 				C36907FA29221E91002B4C4D /* SecondMyInfoView.swift in Sources */,
 				C32C81D5291B78B60070F387 /* String+Extension.swift in Sources */,
+				C3DC022D2931F0FC006DD705 /* MenuCollection.swift in Sources */,
+				C3DC02262931E9DD006DD705 /* MenuCell.swift in Sources */,
 				C3B28AAA292CA83D00B284BB /* ChattingView.swift in Sources */,
 				C3C689502927DFDB00B59D0C /* SeSACTitleCollectionCell.swift in Sources */,
 				C32C8219291E546D0070F387 /* Elert+Extension.swift in Sources */,
@@ -772,8 +809,13 @@
 				C3C688E5292394B400B59D0C /* UserSettingTableCell.swift in Sources */,
 				C3C68954292A146C00B59D0C /* NearUserEmptyView.swift in Sources */,
 				C3C688E32923903200B59D0C /* CardViewTableCell.swift in Sources */,
+				C3DC02242931E470006DD705 /* NearUserViewController.swift in Sources */,
 				C3B293A529190DEF00F2D55D /* CustomPageCollectionView.swift in Sources */,
+				C372E9292931FB4300B0462D /* ReceiveView.swift in Sources */,
+				C3DC02332931F595006DD705 /* ReceiveViewController.swift in Sources */,
+				C3DC022B2931EAA2006DD705 /* BaseCollectionViewCell.swift in Sources */,
 				C3C22666291AA7A00042062A /* GenderView.swift in Sources */,
+				C372E9272931FB3500B0462D /* NearSeSACView.swift in Sources */,
 				C3B2939F2918E24A00F2D55D /* BaseView.swift in Sources */,
 				C3C2265A291A5CAF0042062A /* NickNameView.swift in Sources */,
 				C3C68958292A2DCF00B59D0C /* CustomAnnotationView.swift in Sources */,
@@ -785,6 +827,7 @@
 				C3B2937A2918D29F00F2D55D /* ViewController.swift in Sources */,
 				C32C824E292209C10070F387 /* MyInforViewController.swift in Sources */,
 				C3B28AA8292CA83800B284BB /* ChattingViewController.swift in Sources */,
+				C3DC02222931E466006DD705 /* NearUserView.swift in Sources */,
 				C3C6892429266B6A00B59D0C /* SplashView.swift in Sources */,
 				C3B293762918D29F00F2D55D /* AppDelegate.swift in Sources */,
 				C3C6891A2924E7DB00B59D0C /* MatchingStudyView.swift in Sources */,
@@ -800,6 +843,7 @@
 				C3C22660291A604D0042062A /* BirthViewController.swift in Sources */,
 				C3B28AB0292DF52C00B284BB /* AroundStudyCollectionViewCell.swift in Sources */,
 				C32C823D291FB2E40070F387 /* APIService.swift in Sources */,
+				C3DC02312931F587006DD705 /* NearSeSACViewController.swift in Sources */,
 				C3C6890B2924CD6800B59D0C /* MainMapView.swift in Sources */,
 				C3C22656291A50CA0042062A /* SecondLoginViewController.swift in Sources */,
 				C3C689012924CC9600B59D0C /* MainShopBackgroundView.swift in Sources */,

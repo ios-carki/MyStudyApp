@@ -1,13 +1,14 @@
 //
-//  BaseView.swift
+//  BaseCollectionViewCell.swift
 //  MyStudyApp
 //
-//  Created by Carki on 2022/11/07.
+//  Created by Carki on 2022/11/26.
 //
 
 import UIKit
 
-class BaseView: UIView {
+class BaseCollectionViewCell: UICollectionViewCell {
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -20,11 +21,8 @@ class BaseView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configureUI() {
-        
-    }
+    func configureUI() { }
     
-    func setConstraints() {
-        
-    }
+    func setConstraints() { }
+    
 }
