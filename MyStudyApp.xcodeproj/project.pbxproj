@@ -28,6 +28,7 @@
 		C36907FC29221E9F002B4C4D /* SecondMyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36907FB29221E9F002B4C4D /* SecondMyInfoViewController.swift */; };
 		C372E9272931FB3500B0462D /* NearSeSACView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C372E9262931FB3500B0462D /* NearSeSACView.swift */; };
 		C372E9292931FB4300B0462D /* ReceiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C372E9282931FB4300B0462D /* ReceiveView.swift */; };
+		C372E92C2933253700B0462D /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = C372E92B2933253700B0462D /* Tabman */; };
 		C3B28AA8292CA83800B284BB /* ChattingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B28AA7292CA83800B284BB /* ChattingViewController.swift */; };
 		C3B28AAA292CA83D00B284BB /* ChattingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B28AA9292CA83D00B284BB /* ChattingView.swift */; };
 		C3B28AAE292DF2C600B284BB /* StudyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B28AAD292DF2C600B284BB /* StudyCollectionViewCell.swift */; };
@@ -186,6 +187,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C372E92C2933253700B0462D /* Tabman in Frameworks */,
 				C32C8217291E508E0070F387 /* FirebaseMessaging in Frameworks */,
 				C3C689162924DEE100B59D0C /* JJFloatingActionButton in Frameworks */,
 				C3C689292926C0E900B59D0C /* RxCocoa in Frameworks */,
@@ -711,6 +713,7 @@
 				C3C689282926C0E900B59D0C /* RxCocoa */,
 				C3C6892A2926C0E900B59D0C /* RxSwift */,
 				C3C6892D2926C13C00B59D0C /* RxGesture */,
+				C372E92B2933253700B0462D /* Tabman */,
 			);
 			productName = MyStudyApp;
 			productReference = C3B293722918D29F00F2D55D /* MyStudyApp.app */;
@@ -749,6 +752,7 @@
 				C3C689142924DEE100B59D0C /* XCRemoteSwiftPackageReference "JJFloatingActionButton" */,
 				C3C689272926C0E900B59D0C /* XCRemoteSwiftPackageReference "RxSwift" */,
 				C3C6892C2926C13C00B59D0C /* XCRemoteSwiftPackageReference "RxGesture" */,
+				C372E92A2933253700B0462D /* XCRemoteSwiftPackageReference "Tabman" */,
 			);
 			productRefGroup = C3B293732918D29F00F2D55D /* Products */;
 			projectDirPath = "";
@@ -1102,6 +1106,14 @@
 				minimumVersion = 5.5.0;
 			};
 		};
+		C372E92A2933253700B0462D /* XCRemoteSwiftPackageReference "Tabman" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/uias/Tabman.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 		C3B293952918E1FC00F2D55D /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -1174,6 +1186,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C32C8238291FB2770070F387 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		C372E92B2933253700B0462D /* Tabman */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C372E92A2933253700B0462D /* XCRemoteSwiftPackageReference "Tabman" */;
+			productName = Tabman;
 		};
 		C3B293962918E1FC00F2D55D /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
