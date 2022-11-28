@@ -18,7 +18,14 @@ final class MyInfoWithdrawViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        viewSetting()
         buttonSetting()
+    }
+    
+    func viewSetting() {
+        mainView.signLabel.text = "정말 탈퇴하시겠습니까?"
+        mainView.messageLabel.text = "탈퇴하시면 새싹 스터디를 이용할 수 없어요ㅠ"
+        mainView.messageLabel.textColor = .black
     }
     
     func buttonSetting() {

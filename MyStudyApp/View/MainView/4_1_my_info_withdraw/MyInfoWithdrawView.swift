@@ -27,7 +27,6 @@ final class MyInfoWithdrawView: BaseView {
     
     let signLabel: UILabel = {
         let view = UILabel()
-        view.text = "정말 탈퇴하시겠습니까?"
         view.textColor = .black
         view.textAlignment = .center
         view.font = .systemFont(ofSize: 16)
@@ -36,9 +35,8 @@ final class MyInfoWithdrawView: BaseView {
     
     let messageLabel: UILabel = {
         let view = UILabel()
-        view.text = "탈퇴하시면 새싹 스터디를 이용할 수 없어요ㅠ"
-        view.textColor = .black
         view.textAlignment = .center
+        view.numberOfLines = 0
         view.font = .systemFont(ofSize: 14)
         return view
     }()

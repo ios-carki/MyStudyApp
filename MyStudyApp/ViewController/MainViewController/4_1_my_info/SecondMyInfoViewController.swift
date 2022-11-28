@@ -69,6 +69,7 @@ extension SecondMyInfoViewController: UITableViewDelegate, UITableViewDataSource
         
         if indexPath.section == 0 {
             guard let cardCell = tableView.dequeueReusableCell(withIdentifier: CardViewTableCell.identifier, for: indexPath) as? CardViewTableCell else { return UITableViewCell() }
+            cardCell.requestButtonView.isHidden = true
             cardCell.selectionStyle = .none
             cardCell.backgroundColor = .white
             

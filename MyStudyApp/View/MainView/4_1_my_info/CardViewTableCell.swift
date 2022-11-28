@@ -36,6 +36,21 @@ final class CardViewTableCell: UITableViewCell {
         return view
     }()
     
+    let requestButtonView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .colorError
+        view.layer.cornerRadius = 8
+        return view
+    }()
+    
+    let requestButton: UILabel = {
+        let view = UILabel()
+        view.text = "요청하기"
+        view.textColor = .white
+        view.font = .systemFont(ofSize: 14)
+        return view
+    }()
+    
     let detailView: UIView = {
         let view = UIView()
         view.layer.borderColor = UIColor.colorGray2.cgColor
@@ -124,7 +139,9 @@ final class CardViewTableCell: UITableViewCell {
     }
     
     private func configure() {
-        [cardBackgroundImage, cardCharImage].forEach {
+        requestButtonView.addSubview(requestButton)
+        
+        [cardBackgroundImage, cardCharImage, requestButtonView].forEach {
             cardView.addSubview($0)
         }
         
@@ -166,6 +183,18 @@ final class CardViewTableCell: UITableViewCell {
             make.centerX.equalTo(cardView.safeAreaLayoutGuide)
             make.top.equalTo(cardView.safeAreaLayoutGuide).offset(20)
             make.bottom.equalTo(cardView.safeAreaLayoutGuide).offset(8)
+        }
+        
+        requestButtonView.snp.makeConstraints { make in
+            make.top.equalTo(cardView.safeAreaLayoutGuide).offset(12)
+            make.trailing.equalTo(cardView.safeAreaLayoutGuide).offset(-12)
+            make.height.equalTo(40)
+            make.width.equalTo(80)
+        }
+        
+        requestButton.snp.makeConstraints { make in
+            make.center.equalTo(requestButtonView.safeAreaLayoutGuide)
+            make.height.equalTo(22)
         }
 
         cardView.snp.makeConstraints { make in

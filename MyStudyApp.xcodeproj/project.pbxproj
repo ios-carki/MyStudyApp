@@ -32,6 +32,7 @@
 		C372E932293336D700B0462D /* NearSeSACViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C372E931293336D700B0462D /* NearSeSACViewController.swift */; };
 		C372E934293336EC00B0462D /* NearSeSACView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C372E933293336EC00B0462D /* NearSeSACView.swift */; };
 		C372E95E2933963400B0462D /* Image+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C372E95D2933963400B0462D /* Image+Extension.swift */; };
+		C372E98329357DDD00B0462D /* NearUserPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C372E98229357DDD00B0462D /* NearUserPopupViewController.swift */; };
 		C3B28AA8292CA83800B284BB /* ChattingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B28AA7292CA83800B284BB /* ChattingViewController.swift */; };
 		C3B28AAA292CA83D00B284BB /* ChattingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B28AA9292CA83D00B284BB /* ChattingView.swift */; };
 		C3B28AAE292DF2C600B284BB /* StudyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B28AAD292DF2C600B284BB /* StudyCollectionViewCell.swift */; };
@@ -115,6 +116,7 @@
 		C372E931293336D700B0462D /* NearSeSACViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearSeSACViewController.swift; sourceTree = "<group>"; };
 		C372E933293336EC00B0462D /* NearSeSACView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearSeSACView.swift; sourceTree = "<group>"; };
 		C372E95D2933963400B0462D /* Image+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Extension.swift"; sourceTree = "<group>"; };
+		C372E98229357DDD00B0462D /* NearUserPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearUserPopupViewController.swift; sourceTree = "<group>"; };
 		C3B28AA7292CA83800B284BB /* ChattingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingViewController.swift; sourceTree = "<group>"; };
 		C3B28AA9292CA83D00B284BB /* ChattingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingView.swift; sourceTree = "<group>"; };
 		C3B28AAD292DF2C600B284BB /* StudyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -659,6 +661,7 @@
 				C3C68955292A147600B59D0C /* TabManViewController.swift */,
 				C372E931293336D700B0462D /* NearSeSACViewController.swift */,
 				C372E92F2933344400B0462D /* RequestSeSACViewController.swift */,
+				C372E98229357DDD00B0462D /* NearUserPopupViewController.swift */,
 			);
 			path = 1_3_near_user;
 			sourceTree = "<group>";
@@ -792,6 +795,7 @@
 				C36907FC29221E9F002B4C4D /* SecondMyInfoViewController.swift in Sources */,
 				C3C689092924CD5E00B59D0C /* MainMapViewController.swift in Sources */,
 				C3C6890D2924CE7E00B59D0C /* MainShopKindViewController.swift in Sources */,
+				C372E98329357DDD00B0462D /* NearUserPopupViewController.swift in Sources */,
 				C372E9302933344400B0462D /* RequestSeSACViewController.swift in Sources */,
 				C3C689052924CCC200B59D0C /* MainPlusFriendsView.swift in Sources */,
 				C3B28AD6292FAF9C00B284BB /* StudyHeaderView.swift in Sources */,
