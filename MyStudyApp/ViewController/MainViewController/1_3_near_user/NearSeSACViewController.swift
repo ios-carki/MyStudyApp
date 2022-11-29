@@ -21,6 +21,7 @@ final class NearSeSACViewController: UIViewController {
     var userNickName: [String] = []
     var userBackgroundImage: [Int] = []
     var userSeSACImage: [Int] = []
+    var userUID: [String] = []
     
     var cardStatus: [Bool] = []
     
@@ -58,6 +59,7 @@ final class NearSeSACViewController: UIViewController {
                     self.userNickName.append(data[i].nick)
                     self.userSeSACImage.append(data[i].sesac)
                     self.userBackgroundImage.append(data[i].background)
+                    self.userUID.append(data[i].uid)
                     
                     //카드뷰 상태
                     self.cardStatus.append(false)
@@ -65,17 +67,25 @@ final class NearSeSACViewController: UIViewController {
                     
                 }
                 print("데이터 목록: 🦍🦍🦍🦍🦍🦍🦍🦍", data)
+                
+                return
             case 401:
                 print("FireBase Token Error 토큰 갱신 ㄱ ㄱ")
                 self.modelView.getIdToken()
+                
+                return
             case 406:
                 print("미가입 회원")
                 
+                return
             case 500:
                 print("서버 에러 - FCMtoken 확인")
                 
+                return
             case 501:
                 print("클라이언트 에러 - 얼럿 띄워야 되나?")
+                
+                return
             default:
                 print("기본")
             }
@@ -94,6 +104,7 @@ extension NearSeSACViewController: UITableViewDelegate, UITableViewDataSource {
     //MARK: 요청하기 버튼
     @objc func requestButtonClikced(gesture: CustomTapGestureRecognizer) {
         let vc = NearUserPopupViewController()
+        vc.userUID = userUID[gesture.targetView?.tag ?? 0]
         vc.modalPresentationStyle = .overCurrentContext
         
         self.present(vc, animated: false)

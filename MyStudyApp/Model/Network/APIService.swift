@@ -74,6 +74,14 @@ struct SearchUserDataFromQueueDB: Codable {
     let lat: Double
 }
 
+struct MyQueueState: Codable {
+    let dodged: Int
+    let matched: Int
+    let reviewed: Int
+    let matchedNick: String
+    let matchedUid: String
+}
+
 final class APIService {
     
     func signup(phoneNum: String, FCMToken: String, nickName: String, birth: String, email: String, gender: String, completionHandler: @escaping (Int) -> Void) {
@@ -107,6 +115,8 @@ final class APIService {
                 
             case .success(let data):
                 completionHandler(data.nick, response.response?.statusCode ?? 0)
+                
+                return
             case .failure(_):
                 print("로그인 통신 자체 오류 ❌❌❌❌❌❌❌❌❌")
                 print(response.response?.statusCode ?? 0)
@@ -114,21 +124,13 @@ final class APIService {
                 
                 completionHandler(nil, response.response?.statusCode ?? 0)
                 
+                return
             }
             
         }
         
     }
     
-    //MARK: 새싹 찾기 요청
-    func requestSearchSeSAC(latitude: String, longitude: String, stydyList: [String], completionHandler: @escaping () -> ()) {
-        let api = SeSACAPI.requestSearchSeSAC(lat: latitude, long: longitude, studylist: stydyList)
-        
-        AF.request(api.url, method: .post, parameters: api.parameters, headers: api.headers).responseString { response in
-            
-            
-        }
-    }
     
     //MARK: 새싹 검색 -> 어노테이션 관련 / 필요한 데이터 -> 좌표값(lat, long), 성별, 캐릭터이미지(sesac)
     //handler: (상태코드 Int, 좌표값 - 위도 Double, 좌표값 - 경도 Double, 성별 Int, 캐릭터 이미지 Int)
@@ -141,12 +143,83 @@ final class APIService {
             case .success(let data):
                 print("검색 성공: ")
                 completionHandler(response.response?.statusCode ?? 0, data.fromQueueDB)
+                
+                return
             case .failure(_):
                 print("에러코드: ", response.response?.statusCode ?? 0)
+                
+                return
             }
-//            completionHandler(response.response?.statusCode ?? 0, response.result.lat)
-            print("에러코드: ", response.response?.statusCode ?? 0)
+        }
+    }
+    
+    //MARK: 스터디 요청
+    func requestStudy(otherUID: String, completionHandler: @escaping (Int) -> Void) {
+        let api = SeSACAPI.requestStudy(otheruid: otherUID)
+        
+        AF.request(api.url, method: .post, parameters: api.parameters, headers: api.headers).responseString { response in
             
+            switch response.result {
+            case .success:
+                completionHandler(response.response?.statusCode ?? 0)
+                
+                return
+            case .failure(_):
+                print("스터디요청 에러")
+                
+                return
+            }
+        }
+    }
+    
+    //MARK: 스터디 수락
+    func acceptStudy(otherUID: String, completionHandler: @escaping (Int) -> Void) {
+        let api = SeSACAPI.acceptStudy(otheruid: otherUID)
+        
+        AF.request(api.url, method: .post, parameters: api.parameters, headers: api.headers).responseString { response in
+            
+            switch response.result {
+            case .success:
+                completionHandler(response.response?.statusCode ?? 0)
+                
+                return
+            case .failure(_):
+                print("스터디요청 에러")
+                
+                return
+            }
+        }
+    }
+    
+    /*
+     //로그인 후 받는 토큰 제이슨 데이터 디코딩
+     AF.request(api.url, method: .get, headers: api.headers).responseDecodable(of: UserData.self) { response in
+         
+     switch response.result {
+         
+     case .success(let data):
+         completionHandler(data.nick, response.response?.statusCode ?? 0)
+         
+         return
+     case .failure(_):
+         print("로그인 통신 자체 오류 ❌❌❌❌❌❌❌❌❌")
+         print(response.resp
+     */
+    //MARK: 사용자의 매칭상태 확인
+    func myQueueState(completionHandler: @escaping (MyQueueState, Int) -> Void) {
+        let api = SeSACAPI.userQueueState
+        
+        AF.request(api.url, method: .get, headers: api.headers).responseDecodable(of: MyQueueState.self) { response in
+            
+            switch response.result {
+            case .success(let data):
+                completionHandler(data, response.response?.statusCode ?? 0)
+                return
+            case .failure(_):
+                print("내 상태 확인 에러")
+                
+                return
+            }
         }
     }
     
