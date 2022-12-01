@@ -98,6 +98,10 @@ final class SplashViewController: UIViewController {
                 print("로그인 성공")
                 print("idtoken: ", UserDefaults.standard.string(forKey: "idtoken"))
                 
+                // ⭐️⭐️⭐️ Revise ⭐️⭐️⭐️ 이거 테스트를 위해서 여기다가 해놨음 밑에 유저디폴트
+                // 원래 로직대로라면 회원가입 이후에 젠더뷰에서 설정해 놨으니 나중에 완성하면 이부분은 지워야됨
+                UserDefaults.standard.set(0, forKey: "matchingStatus")
+                
                 DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
                     self.oldUserSplashControl()
                 }

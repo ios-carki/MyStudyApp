@@ -131,6 +131,25 @@ final class APIService {
         
     }
     
+    //MARK: 스터디 함께할 새싹 찾기 요청
+    func userQueue(latitude: String, longitude: String, studyList: [String], completionHandler: @escaping (Int) -> Void) {
+        let api = SeSACAPI.requestSearchSeSAC(lat: latitude, long: longitude, studylist: studyList)
+        
+        AF.request(api.url, method: .post, parameters: api.parameters, headers: api.headers).responseData { response in
+            
+            switch response.result {
+            case .success(_):
+                print("userQueue 요청 성공")
+                completionHandler(response.response?.statusCode ?? 0)
+                return
+            case .failure(_):
+                print("userQueue 요청 실패", #function)
+                
+                return
+            }
+        }
+    }
+    
     
     //MARK: 새싹 검색 -> 어노테이션 관련 / 필요한 데이터 -> 좌표값(lat, long), 성별, 캐릭터이미지(sesac)
     //handler: (상태코드 Int, 좌표값 - 위도 Double, 좌표값 - 경도 Double, 성별 Int, 캐릭터 이미지 Int)
@@ -191,22 +210,8 @@ final class APIService {
         }
     }
     
-    /*
-     //로그인 후 받는 토큰 제이슨 데이터 디코딩
-     AF.request(api.url, method: .get, headers: api.headers).responseDecodable(of: UserData.self) { response in
-         
-     switch response.result {
-         
-     case .success(let data):
-         completionHandler(data.nick, response.response?.statusCode ?? 0)
-         
-         return
-     case .failure(_):
-         print("로그인 통신 자체 오류 ❌❌❌❌❌❌❌❌❌")
-         print(response.resp
-     */
     //MARK: 사용자의 매칭상태 확인
-    func myQueueState(completionHandler: @escaping (MyQueueState, Int) -> Void) {
+    func myQueueState(completionHandler: @escaping (MyQueueState?, Int) -> Void) {
         let api = SeSACAPI.userQueueState
         
         AF.request(api.url, method: .get, headers: api.headers).responseDecodable(of: MyQueueState.self) { response in
@@ -216,6 +221,7 @@ final class APIService {
                 completionHandler(data, response.response?.statusCode ?? 0)
                 return
             case .failure(_):
+                completionHandler(nil, response.response?.statusCode ?? 0)
                 print("내 상태 확인 에러")
                 
                 return

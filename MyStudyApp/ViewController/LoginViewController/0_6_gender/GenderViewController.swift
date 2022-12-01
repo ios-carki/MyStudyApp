@@ -168,6 +168,8 @@ final class GenderViewController: UIViewController {
         }
         
         let vc = tabBarController
+        // ⭐️⭐️⭐️ Revise ⭐️⭐️⭐️ 이거 테스트를 위해서 스플래쉬 뷰컨에도 있음 스플레쉬 뷰컨에 있는거 지워야됨
+        UserDefaults.standard.set(0, forKey: "matchingStatus")
         navigationController?.pushViewController(vc, animated: true)
     }
 }

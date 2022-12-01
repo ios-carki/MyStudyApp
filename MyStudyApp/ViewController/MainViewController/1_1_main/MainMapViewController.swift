@@ -19,6 +19,9 @@ final class MainMapViewController: UIViewController {
     //꺼내쓸 searchUserData
     var receivedUserData: [SearchUserDataFromQueueDB] = []
     
+    //유저 매칭 상태 확인
+    var userState: Int?
+    
     //about location
     var locationManager: CLLocationManager = CLLocationManager()
     var currentLocation: CLLocation!
@@ -45,6 +48,8 @@ final class MainMapViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        userQueueState()
+        floatingButtonImage()
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
@@ -62,21 +67,74 @@ final class MainMapViewController: UIViewController {
     }
     
     @objc func floatingSearchClicked() {
+        print("유저 매칭상태 확인2222222: ", userState)
         let vc = MatchingStudyViewController()
         
-        vc.receivedLocation = currentLocation
+        var currentLat = String(format: "%.4f", currentLocation.coordinate.latitude)
+        var currentLong = String(format: "%.4f", currentLocation.coordinate.longitude)
+        print("소수점 줄인 위치값: ", currentLat, currentLong)
+        
         vc.arroundUserData = receivedUserData
         
-        UserDefaults.standard.set(String(currentLocation.coordinate.latitude), forKey: "currentLocationLat")
-        UserDefaults.standard.set(String(currentLocation.coordinate.longitude), forKey: "currentLocationLong")
+        UserDefaults.standard.set(currentLat, forKey: "currentLocationLat")
+        UserDefaults.standard.set(currentLong, forKey: "currentLocationLong")
         
         navigationController?.pushViewController(vc, animated: true)
     }
     
+    func floatingButtonImage() {
+        
+        if userState == 0 { // 매칭 대기중
+            mainView.floationButton.buttonImage = UIImage(named: "antenna")
+        } else if userState == 1 { // 매칭됨
+            mainView.floationButton.buttonImage = UIImage(named: "message")
+        } else {
+            mainView.floationButton.buttonImage = UIImage(named: "search")
+        }
+    }
+    
+    //MARK: 현재 유저 매칭 상태
+    func userQueueState() {
+        
+        modelView.myQueueState { data, statusCode in
+            switch statusCode {
+            case 200:
+                print("200 데이터 확인: ", data)
+                self.userState = data?.matched
+                
+                return
+            case 201:
+                print("201 데이터 확인: ", data)
+                self.userState = 2
+                
+                return
+            case 401:
+                print("401출력")
+                
+                return
+            case 406:
+                print("미가입 회원")
+                
+                return
+            case 500:
+                print("sever error")
+                
+                return
+            case 501:
+                print("client error")
+                
+                return
+            default:
+                print("디폴트 출력됨")
+                return
+            }
+        }
+        print("현재 유저 매칭 상태 확인: ", userState)
+        
+    }
+    
     func mapViewSetting() {
         mainView.mainMapView.delegate = self
-//        mainView.mainMapView.showsUserLocation = true
-//        mainView.mainMapView.setUserTrackingMode(.follow, animated: true)
         
         self.currentLocation = locationManager.location
         
@@ -173,6 +231,7 @@ final class MainMapViewController: UIViewController {
                 for i in 0..<self.receivedUserData.count {
                     self.addCustomPin(sesacImage: self.receivedUserData[i].sesac, coordinate: CLLocationCoordinate2D(latitude: self.receivedUserData[i].lat, longitude: self.receivedUserData[i].long))
                 }
+                
             case 401:
                 print("FireBase Token Error 토큰 갱신 ㄱ ㄱ")
                 self.modelView.getIdToken()

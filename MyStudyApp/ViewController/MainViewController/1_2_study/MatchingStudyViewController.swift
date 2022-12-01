@@ -16,11 +16,8 @@ final class MatchingStudyViewController: UIViewController {
     
     let modelView = APIService()
     
-    
     var arroundUserData: [SearchUserDataFromQueueDB] = []
     var studyList: [String] = []
-    
-    var receivedLocation: CLLocation!
     
     var searchBarIsFiltering: Bool = false
     var tempArr: [String] = []
@@ -37,10 +34,10 @@ final class MatchingStudyViewController: UIViewController {
         searchSesacButtonSetting()
         collectionViewSetting()
         
-        searchAPI(lat: String((receivedLocation?.coordinate.latitude)!), long: String((receivedLocation?.coordinate.longitude)!))
+        searchAPI(lat: UserDefaults.standard.string(forKey: "currentLocationLat")!, long: UserDefaults.standard.string(forKey: "currentLocationLong")!)
         
         print("유저 데이터 카운팅: 🦍🦍🦍🦍🦍🦍🦍🦍🦍", arroundUserData.count)
-        print("받은 좌표: 🤢🤢🤢🤢🤢🤢🤢🤢", String((receivedLocation?.coordinate.latitude)!), String((receivedLocation?.coordinate.longitude)!))
+        print("받은 좌표: 🤢🤢🤢🤢🤢🤢🤢🤢", UserDefaults.standard.string(forKey: "currentLocationLat")!, UserDefaults.standard.string(forKey: "currentLocationLong")!)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -83,6 +80,39 @@ final class MatchingStudyViewController: UIViewController {
         let vc = TabManViewController()
     
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    //여기서부터 하면 됨 -> API명세서 queue
+    func myQueueAPI(lat: String, long: String, studyList: String...) -> Bool {
+        var queueValidation = false
+        
+        modelView.userQueue(latitude: lat, longitude: long, studyList: studyList) { statusCode in
+            
+            switch statusCode {
+            case 200:
+                return
+            case 201:
+                return
+            case 203:
+                return
+            case 204:
+                return
+            case 205:
+                return
+            case 401:
+                return
+            case 406:
+                return
+            case 500:
+                return
+            case 501:
+                return
+            default:
+                return
+            }
+        }
+        
+        return queueValidation
     }
     
     //Revise: static으로 관리하기

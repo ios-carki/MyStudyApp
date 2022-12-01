@@ -12,6 +12,7 @@ final class NearUserPopupViewController: UIViewController {
     private let mainView = MyInfoWithdrawView()
     private let modelView = APIService()
     
+    //상대방 uid
     var userUID: String? = nil
     
     override func loadView() {
@@ -34,7 +35,7 @@ final class NearUserPopupViewController: UIViewController {
     func buttonSetting() {
         mainView.cancelButton.addTarget(self, action: #selector(cancelButtonClicked), for: .touchUpInside)
         
-        mainView.okButton.addTarget(self, action: #selector(method), for: .touchUpInside)
+        mainView.okButton.addTarget(self, action: #selector(okButtonClikced), for: .touchUpInside)
     }
     
     @objc func cancelButtonClicked() {
@@ -53,7 +54,8 @@ final class NearUserPopupViewController: UIViewController {
             switch statusCode {
             case 200:
                 print("스터디 요청 성공 ✅✅✅✅✅")
-                self.view.makeToast("스터디 요청을 보냈습니다", position: .bottom)
+                self.dismiss(animated: false)
+                NearSeSACViewController().view.makeToast("스터디 요청을 보냈습니다", position: .bottom)
                 
                 return
             case 201:
@@ -94,18 +96,28 @@ final class NearUserPopupViewController: UIViewController {
             switch statusCode {
             case 200:
                 print("스터디 수락 성공 ✅✅✅✅✅")
-                let vc = ChattingViewController()
+                //사용자 현재 상태를 매칭상태로 변경 후 팝업 Dismiss
+                UserDefaults.standard.set(1, forKey: "matchingStatus")
                 
-                self.navigationController?.pushViewController(vc, animated: true)
+                self.dismiss(animated: false)
+                //Revise: 화면이 내려가고 NearSeSACViewController에서 토스트 메시지
+                NearSeSACViewController().view.makeToast("상대방도 스터디를 요청하여 매칭되었습니다.\n잠시 후 채팅방으로 이동합니다.")
+                //잠시후 채팅방으로 화면전환 로직 구현은?
                 
                 return
             case 201:
-                print("상대방이 이미 나에게 스터디 요청 ✅✅✅✅✅")
-                self.view.makeToast("상대방이 이미 다른 새싹과 스터디를 함께 하는 중입니다.", position: .top)
+                print("상대방이 이미 다른 사용자와 매칭된 상태 ✅✅✅✅✅")
+//                self.view.makeToast("상대방이 이미 다른 새싹과 스터디를 함께 하는 중입니다.", position: .top)
+                self.dismiss(animated: false)
+                //Revise: 화면이 내려가고 NearSeSACViewController에서 토스트 메시지
+                NearSeSACViewController().view.makeToast("상대방이 이미 다른 새싹과 스터디를 함께 하는 중입니다.")
+                //잠시후 채팅방으로 화면전환 로직 구현은?
                 
                 return
             case 202:
                 print("상대방이 새싹 찾기를 중단한 상태 ⛔️⛔️⛔️⛔️⛔️")
+                
+                self.dismiss(animated: false)
                 self.view.makeToast("상대방이 스터디 찾기를 그만두었습니다.", position: .top)
                 
                 return
@@ -113,8 +125,8 @@ final class NearUserPopupViewController: UIViewController {
                 print("내가 이미 다른 사용자와 매칭된 상태 ⛔️⛔️⛔️⛔️⛔️")
                 self.view.makeToast("앗! 누군가가 나의 스터디를 수락하였어요!", position: .top)
                 
-                //마이큐 스테이트 호출
-                
+                //마이큐 스테이트 호출 -> 그 다음은?
+                self.userQueueState()
             case 401:
                 print("idToken에러 ❌❌❌❌❌")
                 
@@ -141,6 +153,7 @@ final class NearUserPopupViewController: UIViewController {
         modelView.myQueueState { (data, statusCode) in
             switch statusCode {
             case 200:
+                
                 
                 return
             case 201:

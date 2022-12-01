@@ -28,7 +28,7 @@ final class MainMapView: BaseView {
     
     let floationButton: JJFloatingActionButton = {
         let view = JJFloatingActionButton()
-        view.buttonImage = UIImage(named: "search")
+        //view.buttonImage = UIImage(named: "search")
         view.buttonColor = .black
         return view
     }()
