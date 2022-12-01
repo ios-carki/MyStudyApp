@@ -84,9 +84,16 @@ final class MainMapViewController: UIViewController {
     
     func floatingButtonImage() {
         
-        if userState == 0 { // 매칭 대기중
+//        if userState == 0 { // 매칭 대기중
+//            mainView.floationButton.buttonImage = UIImage(named: "antenna")
+//        } else if userState == 1 { // 매칭됨
+//            mainView.floationButton.buttonImage = UIImage(named: "message")
+//        } else {
+//            mainView.floationButton.buttonImage = UIImage(named: "search")
+//        }UserDefaults.standard.integer(forKey: "matchingStatus")
+        if UserDefaults.standard.integer(forKey: "matchingStatus") == 0 { // 매칭 대기중
             mainView.floationButton.buttonImage = UIImage(named: "antenna")
-        } else if userState == 1 { // 매칭됨
+        } else if UserDefaults.standard.integer(forKey: "matchingStatus") == 1 { // 매칭됨
             mainView.floationButton.buttonImage = UIImage(named: "message")
         } else {
             mainView.floationButton.buttonImage = UIImage(named: "search")
@@ -100,12 +107,11 @@ final class MainMapViewController: UIViewController {
             switch statusCode {
             case 200:
                 print("200 데이터 확인: ", data)
-                self.userState = data?.matched
-                
+                UserDefaults.standard.set(data?.matched, forKey: "matchingStatus")
                 return
             case 201:
                 print("201 데이터 확인: ", data)
-                self.userState = 2
+                UserDefaults.standard.set(2, forKey: "matchingStatus")
                 
                 return
             case 401:

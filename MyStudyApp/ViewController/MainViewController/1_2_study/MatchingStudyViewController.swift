@@ -77,27 +77,49 @@ final class MatchingStudyViewController: UIViewController {
     }
     
     @objc func searchSesacButtonClicked() {
-        let vc = TabManViewController()
-    
-        navigationController?.pushViewController(vc, animated: true)
+        if filterdText.count == 0 {
+            myQueueAPI(lat: UserDefaults.standard.string(forKey: "currentLocationLat")!, long: UserDefaults.standard.string(forKey: "currentLocationLong")!, studyList: "anything")
+        } else {
+            myQueueAPI(lat: UserDefaults.standard.string(forKey: "currentLocationLat")!, long: UserDefaults.standard.string(forKey: "currentLocationLong")!, studyList: arrayToString(list: filterdText))
+        }
+        
     }
     
-    //여기서부터 하면 됨 -> API명세서 queue
-    func myQueueAPI(lat: String, long: String, studyList: String...) -> Bool {
+    func arrayToString(list: [String]) -> String {
+        let itemStr = list.joined(separator: "\", \"")
+        return "[" + "\"" + itemStr + "\"" + "]"
+    }
+
+    
+    func myQueueAPI(lat: String, long: String, studyList: String) -> Bool {
         var queueValidation = false
         
         modelView.userQueue(latitude: lat, longitude: long, studyList: studyList) { statusCode in
-            
+            print("유저큐 메서드 상태코드: ", statusCode)
             switch statusCode {
             case 200:
+                let vc = TabManViewController()
+                
+                //매칭 대기중으로 변경
+                UserDefaults.standard.set(0, forKey: "matchingStatus")
+                
+                self.navigationController?.pushViewController(vc, animated: true)
                 return
             case 201:
+                self.view.makeToast("신고가 누적되어 이용하실 수 없습니다.", position: .top)
+                
                 return
             case 203:
+                self.view.makeToast("스터디 취소 패널티로, 1분동안 이용하실 수 없습니다.", position: .top)
+                
                 return
             case 204:
+                self.view.makeToast("스터디 취소 패널티로, 2분동안 이용하실 수 없습니다.", position: .top)
+                
                 return
             case 205:
+                self.view.makeToast("스터디 취소 패널티로, 3분동안 이용하실 수 없습니다.", position: .top)
+                
                 return
             case 401:
                 return

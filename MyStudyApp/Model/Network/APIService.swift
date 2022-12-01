@@ -132,7 +132,7 @@ final class APIService {
     }
     
     //MARK: 스터디 함께할 새싹 찾기 요청
-    func userQueue(latitude: String, longitude: String, studyList: [String], completionHandler: @escaping (Int) -> Void) {
+    func userQueue(latitude: String, longitude: String, studyList: String, completionHandler: @escaping (Int) -> Void) {
         let api = SeSACAPI.requestSearchSeSAC(lat: latitude, long: longitude, studylist: studyList)
         
         AF.request(api.url, method: .post, parameters: api.parameters, headers: api.headers).responseData { response in
