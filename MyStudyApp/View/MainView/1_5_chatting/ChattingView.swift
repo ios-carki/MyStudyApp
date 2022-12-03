@@ -11,63 +11,8 @@ import SnapKit
 
 final class ChattingView: BaseView {
     
-    let dateView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .colorGray7
-        view.layer.cornerRadius = 14 //Revise: 사이즈 조정 필요함
-        view.clipsToBounds = true
-        return view
-    }()
-    
-    let dateLabel: UILabel = {
-        let view = UILabel()
-        view.text = "1월 1일 월요일"
-        view.textAlignment = .center
-        view.textColor = .white
-        view.font = .systemFont(ofSize: 12)
-        return view
-    }()
-    
-    let noticeView: UIView = {
-        let view = UIView()
-        
-        return view
-    }()
-    
-    let titleView: UIView = {
-        let view = UIView()
-        
-        return view
-    }()
-    
-    let bellImage: UIImageView = {
-        let view = UIImageView()
-        view.image = UIImage(named: "bell")
-        view.contentMode = .scaleAspectFit
-        return view
-    }()
-    
-    let noticeMatchingLabel: UILabel = {
-        let view = UILabel()
-        view.text = "???님과 매칭되었습니다"
-        view.textColor = .colorGray7
-        view.font = .systemFont(ofSize: 14)
-        view.textAlignment = .center
-        return view
-    }()
-    
-    let subtitleLabel: UILabel = {
-        let view = UILabel()
-        view.text = "채팅을 통해 약속을 정해보세요 :)"
-        view.textColor = .colorGray6
-        view.textAlignment = .center
-        view.font = .systemFont(ofSize: 14)
-        return view
-    }()
-    
     let messageTableView: UITableView = {
         let view = UITableView()
-        view.backgroundColor = .brown
         return view
     }()
     
@@ -80,6 +25,7 @@ final class ChattingView: BaseView {
     
     let userTextView: UITextView = {
         let view = UITextView()
+        view.backgroundColor = .colorGray1
         view.textColor = .black
         view.textAlignment = .left
         return view
@@ -92,112 +38,31 @@ final class ChattingView: BaseView {
         return view
     }()
     
-    /* 이거 테이블뷰 셀에 들어가면 됨
-    let msgReceiverView: UIView = {
-        let view = UIView()
-        
-        return view
-    }()
-    
-    let chatBubbleView: UIView = {
-        let view = UIView()
-        view.layer.cornerRadius = 8
-        view.layer.borderColor = UIColor.colorGray4.cgColor
-        view.layer.borderWidth = 1
-        return view
-    }()
-    
-    let chatTextLabel: UILabel = {
-        let view = UILabel()
-        view.textAlignment = .left
-        view.textColor = .black
-        view.font = .systemFont(ofSize: 14)
-        view.numberOfLines = 0
-        return view
-    }()
-    
-    let timeLabel: UILabel = {
-        let view = UILabel()
-        view.font = .systemFont(ofSize: 12)
-        view.textColor = .colorGray6
-        return view
-    }()
-     */
-    
     override func configureUI() {
-        
-        dateView.addSubview(dateLabel)
-        
-        [bellImage, noticeMatchingLabel].forEach {
-            titleView.addSubview($0)
-        }
-        
-        [titleView, subtitleLabel].forEach {
-            noticeView.addSubview($0)
-        }
         
         [userTextView, sendButton].forEach {
             textAreaView.addSubview($0)
         }
         
-        [dateView, noticeView, messageTableView, textAreaView].forEach {
+        [messageTableView, textAreaView].forEach {
             self.addSubview($0)
         }
+        
         self.backgroundColor = .white
     }
     
     override func setConstraints() {
         
-        dateView.snp.makeConstraints { make in
-            make.top.equalTo(safeAreaLayoutGuide).offset(16)
-            make.centerX.equalToSuperview()
-            make.height.equalTo(28)
-        }
-        
-        dateLabel.snp.makeConstraints { make in
-            make.center.equalTo(dateView.safeAreaLayoutGuide)
-            make.horizontalEdges.equalTo(dateView.safeAreaLayoutGuide).inset(16)
-            make.height.equalTo(18)
-        }
-        
-        noticeView.snp.makeConstraints { make in
-            make.top.equalTo(dateView.snp.bottom)
-            make.centerX.equalToSuperview()
-        }
-        
-        titleView.snp.makeConstraints { make in
-            make.top.equalTo(noticeView.safeAreaLayoutGuide).offset(12)
-            make.centerX.equalTo(noticeView.safeAreaLayoutGuide)
-            make.height.equalTo(22)
-        }
-        
-        bellImage.snp.makeConstraints { make in
-            make.leading.equalTo(titleView.safeAreaLayoutGuide)
-            make.centerY.equalTo(titleView.safeAreaLayoutGuide)
-            make.size.equalTo(16)
-        }
-        
-        noticeMatchingLabel.snp.makeConstraints { make in
-            make.top.trailing.bottom.equalTo(titleView.safeAreaLayoutGuide)
-            make.leading.equalTo(bellImage.snp.trailing)
-            make.height.equalTo(22)
-        }
-        
-        subtitleLabel.snp.makeConstraints { make in
-            make.top.equalTo(titleView.snp.bottom).offset(2)
-            make.centerX.equalTo(noticeView.safeAreaLayoutGuide)
-            make.height.equalTo(22)
-        }
         
         messageTableView.snp.makeConstraints { make in
-            make.top.equalTo(noticeView.snp.bottom).offset(12)
-            make.horizontalEdges.equalToSuperview()
-            make.bottom.equalTo(textAreaView.snp.top)
+            make.top.equalTo(safeAreaLayoutGuide)
+            make.horizontalEdges.equalTo(safeAreaLayoutGuide)
         }
         
         textAreaView.snp.makeConstraints { make in
+            make.top.equalTo(messageTableView.snp.bottom)
             make.horizontalEdges.equalToSuperview().inset(16)
-            make.bottom.equalTo(safeAreaLayoutGuide)
+            make.bottom.equalTo(safeAreaLayoutGuide).offset(-16)
             make.height.equalTo(50)
         }
         

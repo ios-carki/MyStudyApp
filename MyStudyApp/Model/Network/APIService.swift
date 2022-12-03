@@ -246,6 +246,16 @@ final class APIService {
         }
     }
     
+    //MARK: Chat
+    func postChat(text: String, userUID: String, completionHandler: @escaping (Int) -> Void) {
+        let api = SeSACAPI.postChat(chatText: text)
+        
+        AF.request(api.url, method: .post, parameters: api.parameters, headers: api.headers).responseString { data in
+            print("POST CHAT SUCCEED", data)
+        }
+    }
+    
+    
     func getIdToken() {
         
         guard let currentUser = Auth.auth().currentUser else { return }

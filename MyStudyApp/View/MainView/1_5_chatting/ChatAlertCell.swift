@@ -11,23 +11,6 @@ final class ChatAlertCell: UITableViewCell {
     
     static let identifier = "chatAlertCell"
     
-    let dateView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .colorGray7
-        view.layer.cornerRadius = 14 //Revise: 사이즈 조정 필요함
-        view.clipsToBounds = true
-        return view
-    }()
-    
-    let dateLabel: UILabel = {
-        let view = UILabel()
-        view.text = "1월 1일 월요일"
-        view.textAlignment = .center
-        view.textColor = .white
-        view.font = .systemFont(ofSize: 12)
-        return view
-    }()
-    
     let noticeView: UIView = {
         let view = UIView()
         
@@ -65,33 +48,6 @@ final class ChatAlertCell: UITableViewCell {
         return view
     }()
     
-    let messageTableView: UITableView = {
-        let view = UITableView()
-        view.backgroundColor = .brown
-        return view
-    }()
-    
-    let textAreaView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .colorGray1
-        view.layer.cornerRadius = 8
-        return view
-    }()
-    
-    let userTextView: UITextView = {
-        let view = UITextView()
-        view.textColor = .black
-        view.textAlignment = .left
-        return view
-    }()
-    
-    let sendButton: UIButton = {
-        let view = UIButton()
-        view.setImage(UIImage(named: "sendInact"), for: .normal)
-        view.contentMode = .scaleAspectFit
-        return view
-    }()
-    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -106,8 +62,6 @@ final class ChatAlertCell: UITableViewCell {
     
     private func configureUI() {
         
-        dateView.addSubview(dateLabel)
-        
         [bellImage, noticeMatchingLabel].forEach {
             titleView.addSubview($0)
         }
@@ -116,33 +70,16 @@ final class ChatAlertCell: UITableViewCell {
             noticeView.addSubview($0)
         }
         
-        [userTextView, sendButton].forEach {
-            textAreaView.addSubview($0)
-        }
+        contentView.addSubview(noticeView)
         
-        [dateView, noticeView, messageTableView, textAreaView].forEach {
-            self.addSubview($0)
-        }
         self.backgroundColor = .white
     }
     
     private func setConstraints() {
-        
-        dateView.snp.makeConstraints { make in
-            make.top.equalTo(safeAreaLayoutGuide).offset(16)
-            make.centerX.equalToSuperview()
-            make.height.equalTo(28)
-        }
-        
-        dateLabel.snp.makeConstraints { make in
-            make.center.equalTo(dateView.safeAreaLayoutGuide)
-            make.horizontalEdges.equalTo(dateView.safeAreaLayoutGuide).inset(16)
-            make.height.equalTo(18)
-        }
-        
         noticeView.snp.makeConstraints { make in
-            make.top.equalTo(dateView.snp.bottom)
-            make.centerX.equalToSuperview()
+            make.center.equalTo(safeAreaLayoutGuide)
+            make.horizontalEdges.equalTo(safeAreaLayoutGuide).inset(16)
+            make.height.equalTo(78)
         }
         
         titleView.snp.makeConstraints { make in
@@ -167,30 +104,6 @@ final class ChatAlertCell: UITableViewCell {
             make.top.equalTo(titleView.snp.bottom).offset(2)
             make.centerX.equalTo(noticeView.safeAreaLayoutGuide)
             make.height.equalTo(22)
-        }
-        
-        messageTableView.snp.makeConstraints { make in
-            make.top.equalTo(noticeView.snp.bottom).offset(12)
-            make.horizontalEdges.equalToSuperview()
-            make.bottom.equalTo(textAreaView.snp.top)
-        }
-        
-        textAreaView.snp.makeConstraints { make in
-            make.horizontalEdges.equalToSuperview().inset(16)
-            make.bottom.equalTo(safeAreaLayoutGuide)
-            make.height.equalTo(50)
-        }
-        
-        userTextView.snp.makeConstraints { make in
-            make.verticalEdges.equalTo(textAreaView.safeAreaLayoutGuide).inset(14)
-            make.leading.equalTo(textAreaView.safeAreaLayoutGuide).offset(12)
-        }
-        
-        sendButton.snp.makeConstraints { make in
-            make.leading.equalTo(userTextView.snp.trailing).offset(8)
-            make.trailing.equalTo(textAreaView.safeAreaLayoutGuide).offset(-12)
-            make.centerY.equalTo(textAreaView.safeAreaLayoutGuide)
-            make.size.equalTo(24)
         }
     }
 }
