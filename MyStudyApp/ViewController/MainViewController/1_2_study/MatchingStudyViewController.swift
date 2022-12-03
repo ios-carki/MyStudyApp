@@ -33,6 +33,7 @@ final class MatchingStudyViewController: UIViewController {
         naviSetting()
         searchSesacButtonSetting()
         collectionViewSetting()
+        nextVCnaviSetting()
         
         searchAPI(lat: UserDefaults.standard.string(forKey: "currentLocationLat")!, long: UserDefaults.standard.string(forKey: "currentLocationLong")!)
         
@@ -46,7 +47,6 @@ final class MatchingStudyViewController: UIViewController {
     }
     
     func naviSetting() {
-        
         //서치바 크기 구해서 백버튼 모든 기기가 동일한 사이즈로 보이도록 구상하기
         mainView.searchBar.placeholder = "띄워쓰기로 복수 입력이 가능해요."
         mainView.searchBar.delegate = self
@@ -57,6 +57,18 @@ final class MatchingStudyViewController: UIViewController {
         backBarButtonItem.tintColor = .black
         navigationItem.hidesBackButton = true
         self.navigationItem.leftBarButtonItem = backBarButtonItem
+    }
+    
+    func nextVCnaviSetting() {
+        let backButton: UIBarButtonItem = {
+            let button = UIBarButtonItem()
+            button.image = UIImage(named: "arrow")
+            
+            return button
+        }()
+        
+        
+        self.navigationItem.backBarButtonItem = backButton
     }
     
     func collectionViewSetting() {
@@ -140,19 +152,20 @@ final class MatchingStudyViewController: UIViewController {
     //Revise: static으로 관리하기
     func searchAPI(lat: String, long: String) {
         modelView.searchSeSAC(latitude: lat, longitude: long) { (statusCode, data) in
+            let apiData = data.fromQueueDB
             
             switch statusCode {
             case 200:
                 print("새싹 검색 성공🤢🤢🤢🤢🤢🤢🤢🤢")
                 //서버 데이터 받아오기
-                self.arroundUserData = data
-                for i in 0..<data.count {
-                    self.studyList.append(contentsOf: data[i].studylist)
-                    print("넣는 스터디 요소: \(i): ", data[i].studylist)
+                self.arroundUserData = apiData
+                for i in 0..<apiData.count {
+                    self.studyList.append(contentsOf: apiData[i].studylist)
+                    print("넣는 스터디 요소: \(i): ", apiData[i].studylist)
                     print("스터디 리스트 출력 \(i): ", self.studyList)
                     self.mainView.studyCollectionView.reloadData()
                 }
-                print("데이터 목록: 🦍🦍🦍🦍🦍🦍🦍🦍", data)
+                print("데이터 목록: 🦍🦍🦍🦍🦍🦍🦍🦍", apiData)
             case 401:
                 print("FireBase Token Error 토큰 갱신 ㄱ ㄱ")
                 self.modelView.getIdToken()
@@ -247,7 +260,7 @@ extension MatchingStudyViewController: UISearchBarDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         self.searchBarIsFiltering = true
         //Revise: 취소버튼 생기면 어떻게 될까
-        searchBar.showsCancelButton = true
+//        searchBar.showsCancelButton = true
         mainView.studyCollectionView.reloadData()
     }
     

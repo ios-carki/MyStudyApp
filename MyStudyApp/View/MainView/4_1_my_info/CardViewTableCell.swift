@@ -38,15 +38,12 @@ final class CardViewTableCell: UITableViewCell {
     
     let requestButtonView: UIView = {
         let view = UIView()
-        view.backgroundColor = .colorError
         view.layer.cornerRadius = 8
         return view
     }()
     
     let requestButton: UILabel = {
         let view = UILabel()
-        view.text = "요청하기"
-        view.textColor = .white
         view.font = .systemFont(ofSize: 14)
         return view
     }()

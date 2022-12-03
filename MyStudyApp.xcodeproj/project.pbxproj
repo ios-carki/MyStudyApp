@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C31DD3B9293B380D00ABB3AC /* UINavigation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31DD3B8293B380D00ABB3AC /* UINavigation+Extension.swift */; };
+		C31DD3BB293B3C2800ABB3AC /* ChatAlertCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31DD3BA293B3C2800ABB3AC /* ChatAlertCell.swift */; };
 		C32C81D5291B78B60070F387 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32C81D4291B78B60070F387 /* String+Extension.swift */; };
 		C32C820E291D0EE00070F387 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C32C820D291D0EE00070F387 /* GoogleService-Info.plist */; };
 		C32C8211291E508E0070F387 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = C32C8210291E508E0070F387 /* FirebaseAnalytics */; };
@@ -33,6 +35,7 @@
 		C372E934293336EC00B0462D /* NearSeSACView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C372E933293336EC00B0462D /* NearSeSACView.swift */; };
 		C372E95E2933963400B0462D /* Image+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C372E95D2933963400B0462D /* Image+Extension.swift */; };
 		C372E98329357DDD00B0462D /* NearUserPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C372E98229357DDD00B0462D /* NearUserPopupViewController.swift */; };
+		C372E9CC293B06DD00B0462D /* RequestPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C372E9CB293B06DD00B0462D /* RequestPopupViewController.swift */; };
 		C3B28AA8292CA83800B284BB /* ChattingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B28AA7292CA83800B284BB /* ChattingViewController.swift */; };
 		C3B28AAA292CA83D00B284BB /* ChattingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B28AA9292CA83D00B284BB /* ChattingView.swift */; };
 		C3B28AAE292DF2C600B284BB /* StudyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B28AAD292DF2C600B284BB /* StudyCollectionViewCell.swift */; };
@@ -97,6 +100,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C31DD3B8293B380D00ABB3AC /* UINavigation+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigation+Extension.swift"; sourceTree = "<group>"; };
+		C31DD3BA293B3C2800ABB3AC /* ChatAlertCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatAlertCell.swift; sourceTree = "<group>"; };
 		C32C81D4291B78B60070F387 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		C32C81E1291BAAD70070F387 /* MyStudyApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyStudyApp.entitlements; sourceTree = "<group>"; };
 		C32C820D291D0EE00070F387 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -117,6 +122,7 @@
 		C372E933293336EC00B0462D /* NearSeSACView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearSeSACView.swift; sourceTree = "<group>"; };
 		C372E95D2933963400B0462D /* Image+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Extension.swift"; sourceTree = "<group>"; };
 		C372E98229357DDD00B0462D /* NearUserPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearUserPopupViewController.swift; sourceTree = "<group>"; };
+		C372E9CB293B06DD00B0462D /* RequestPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestPopupViewController.swift; sourceTree = "<group>"; };
 		C3B28AA7292CA83800B284BB /* ChattingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingViewController.swift; sourceTree = "<group>"; };
 		C3B28AA9292CA83D00B284BB /* ChattingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingView.swift; sourceTree = "<group>"; };
 		C3B28AAD292DF2C600B284BB /* StudyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -417,6 +423,7 @@
 			isa = PBXGroup;
 			children = (
 				C3B28AA9292CA83D00B284BB /* ChattingView.swift */,
+				C31DD3BA293B3C2800ABB3AC /* ChatAlertCell.swift */,
 			);
 			path = 1_5_chatting;
 			sourceTree = "<group>";
@@ -478,6 +485,7 @@
 				C32C8218291E546D0070F387 /* Elert+Extension.swift */,
 				C32C8245291FC4960070F387 /* URL+Extension.swift */,
 				C372E95D2933963400B0462D /* Image+Extension.swift */,
+				C31DD3B8293B380D00ABB3AC /* UINavigation+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -660,8 +668,9 @@
 			children = (
 				C3C68955292A147600B59D0C /* TabManViewController.swift */,
 				C372E931293336D700B0462D /* NearSeSACViewController.swift */,
-				C372E92F2933344400B0462D /* RequestSeSACViewController.swift */,
 				C372E98229357DDD00B0462D /* NearUserPopupViewController.swift */,
+				C372E92F2933344400B0462D /* RequestSeSACViewController.swift */,
+				C372E9CB293B06DD00B0462D /* RequestPopupViewController.swift */,
 			);
 			path = 1_3_near_user;
 			sourceTree = "<group>";
@@ -785,6 +794,7 @@
 				C32C8246291FC4960070F387 /* URL+Extension.swift in Sources */,
 				C36907F629220DB2002B4C4D /* MyInfoCustomTableView.swift in Sources */,
 				C36907FA29221E91002B4C4D /* SecondMyInfoView.swift in Sources */,
+				C31DD3BB293B3C2800ABB3AC /* ChatAlertCell.swift in Sources */,
 				C32C81D5291B78B60070F387 /* String+Extension.swift in Sources */,
 				C3B28AAA292CA83D00B284BB /* ChattingView.swift in Sources */,
 				C3C689502927DFDB00B59D0C /* SeSACTitleCollectionCell.swift in Sources */,
@@ -824,6 +834,7 @@
 				C3B293762918D29F00F2D55D /* AppDelegate.swift in Sources */,
 				C3C6891A2924E7DB00B59D0C /* MatchingStudyView.swift in Sources */,
 				C3C688FF2924CC8B00B59D0C /* MainShopKindView.swift in Sources */,
+				C31DD3B9293B380D00ABB3AC /* UINavigation+Extension.swift in Sources */,
 				C3C2265E291A603F0042062A /* BirthView.swift in Sources */,
 				C3B293782918D29F00F2D55D /* SceneDelegate.swift in Sources */,
 				C3C689032924CCAD00B59D0C /* MainFriendsView.swift in Sources */,
@@ -839,6 +850,7 @@
 				C3C6890B2924CD6800B59D0C /* MainMapView.swift in Sources */,
 				C3C22656291A50CA0042062A /* SecondLoginViewController.swift in Sources */,
 				C3C689012924CC9600B59D0C /* MainShopBackgroundView.swift in Sources */,
+				C372E9CC293B06DD00B0462D /* RequestPopupViewController.swift in Sources */,
 				C3C6890F2924CE8A00B59D0C /* MainShopBackgroundViewController.swift in Sources */,
 				C3B293AD2919307400F2D55D /* LoginView.swift in Sources */,
 				C3B293A729192D0F00F2D55D /* Color+Extension.swift in Sources */,

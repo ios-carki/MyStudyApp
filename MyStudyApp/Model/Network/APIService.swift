@@ -152,8 +152,7 @@ final class APIService {
     
     
     //MARK: 새싹 검색 -> 어노테이션 관련 / 필요한 데이터 -> 좌표값(lat, long), 성별, 캐릭터이미지(sesac)
-    //handler: (상태코드 Int, 좌표값 - 위도 Double, 좌표값 - 경도 Double, 성별 Int, 캐릭터 이미지 Int)
-    func searchSeSAC(latitude: String, longitude: String, completionHandler: @escaping (Int, [SearchUserDataFromQueueDB]) -> Void) {
+    func searchSeSAC(latitude: String, longitude: String, completionHandler: @escaping (Int, SearchUserData) -> Void) {
         let api = SeSACAPI.searchSeSAC(lat: latitude, long: longitude)
         
         AF.request(api.url, method: .post, parameters: api.parameters, headers: api.headers).responseDecodable(of: SearchUserData.self) { response in
@@ -161,7 +160,7 @@ final class APIService {
             switch response.result {
             case .success(let data):
                 print("검색 성공: ")
-                completionHandler(response.response?.statusCode ?? 0, data.fromQueueDB)
+                completionHandler(response.response?.statusCode ?? 0, data)
                 
                 return
             case .failure(_):
@@ -202,9 +201,27 @@ final class APIService {
                 completionHandler(response.response?.statusCode ?? 0)
                 
                 return
-            case .failure(_):
+            case .failure:
                 print("스터디요청 에러")
                 
+                return
+            }
+        }
+    }
+    
+    //MARK: 스터디 취소
+    func stopSearchStudyAPI() {
+        let api = SeSACAPI.stopSearchStudy
+        
+        AF.request(api.url, method: .delete, headers: api.headers).responseData { response in
+            
+            switch response.result {
+            case .success:
+                print("스터디 찾기 중단 요청 완료!", #function)
+                
+                return
+            case .failure:
+                print("스터디 찾기 중단 요청 실패! ❌❌❌❌❌", response.response?.statusCode)
                 return
             }
         }

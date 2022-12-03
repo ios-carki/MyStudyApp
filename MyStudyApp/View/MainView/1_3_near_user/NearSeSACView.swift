@@ -38,6 +38,7 @@ final class NearSeSACView: BaseView {
     let arroundSesacTableView: UITableView = {
         let view = UITableView()
         view.backgroundColor = .white
+        view.separatorStyle = .none
         return view
     }()
     

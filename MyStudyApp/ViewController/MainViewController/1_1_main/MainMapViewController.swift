@@ -50,12 +50,14 @@ final class MainMapViewController: UIViewController {
         super.viewWillAppear(animated)
         userQueueState()
         floatingButtonImage()
-        navigationController?.setNavigationBarHidden(true, animated: true)
+        //navigationController?.setNavigationBarHidden(true, animated: true)
+        navigationController?.isNavigationBarHidden = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: true)
+        //navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationController?.isNavigationBarHidden = false
     }
     
     func naviSetting() {
@@ -68,29 +70,33 @@ final class MainMapViewController: UIViewController {
     
     @objc func floatingSearchClicked() {
         print("유저 매칭상태 확인2222222: ", userState)
-        let vc = MatchingStudyViewController()
-        
-        var currentLat = String(format: "%.4f", currentLocation.coordinate.latitude)
-        var currentLong = String(format: "%.4f", currentLocation.coordinate.longitude)
-        print("소수점 줄인 위치값: ", currentLat, currentLong)
-        
-        vc.arroundUserData = receivedUserData
-        
-        UserDefaults.standard.set(currentLat, forKey: "currentLocationLat")
-        UserDefaults.standard.set(currentLong, forKey: "currentLocationLong")
-        
-        navigationController?.pushViewController(vc, animated: true)
+    
+        if UserDefaults.standard.integer(forKey: "matchingStatus") == 0 {
+            let vc = TabManViewController()
+            
+            navigationController?.pushViewController(vc, animated: true)
+        } else if UserDefaults.standard.integer(forKey: "matchingStatus") == 1 {
+            let vc = ChattingViewController()
+            
+            navigationController?.pushViewController(vc, animated: true)
+        } else {
+            let vc = MatchingStudyViewController()
+            
+            var currentLat = String(format: "%.4f", currentLocation.coordinate.latitude)
+            var currentLong = String(format: "%.4f", currentLocation.coordinate.longitude)
+            print("소수점 줄인 위치값: ", currentLat, currentLong)
+            
+            vc.arroundUserData = receivedUserData
+            
+            UserDefaults.standard.set(currentLat, forKey: "currentLocationLat")
+            UserDefaults.standard.set(currentLong, forKey: "currentLocationLong")
+            
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     func floatingButtonImage() {
         
-//        if userState == 0 { // 매칭 대기중
-//            mainView.floationButton.buttonImage = UIImage(named: "antenna")
-//        } else if userState == 1 { // 매칭됨
-//            mainView.floationButton.buttonImage = UIImage(named: "message")
-//        } else {
-//            mainView.floationButton.buttonImage = UIImage(named: "search")
-//        }UserDefaults.standard.integer(forKey: "matchingStatus")
         if UserDefaults.standard.integer(forKey: "matchingStatus") == 0 { // 매칭 대기중
             mainView.floationButton.buttonImage = UIImage(named: "antenna")
         } else if UserDefaults.standard.integer(forKey: "matchingStatus") == 1 { // 매칭됨
@@ -233,7 +239,7 @@ final class MainMapViewController: UIViewController {
                 print("새싹 검색 성공")
                 //서버 데이터 받아오기
                 
-                self.receivedUserData = data
+                self.receivedUserData = data.fromQueueDB
                 for i in 0..<self.receivedUserData.count {
                     self.addCustomPin(sesacImage: self.receivedUserData[i].sesac, coordinate: CLLocationCoordinate2D(latitude: self.receivedUserData[i].lat, longitude: self.receivedUserData[i].long))
                 }

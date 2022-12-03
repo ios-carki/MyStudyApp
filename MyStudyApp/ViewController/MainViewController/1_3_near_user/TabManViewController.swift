@@ -13,6 +13,7 @@ import Pageboy
 final class TabManViewController: TabmanViewController {
     
     let mainView = TabManView()
+    let modelView = APIService()
     
     private var viewControllers: Array<UIViewController> = [NearSeSACViewController(), RequestSeSACViewController()]
     
@@ -29,7 +30,17 @@ final class TabManViewController: TabmanViewController {
     }
     
     func naviSetting() {
-        self.title = "새싹 찾기"
+        self.navigationController?.navigationBar.tintColor = .black
+        
+        self.navigationItem.title = "새싹 찾기"
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "찾기 중단", style: .plain, target: self, action: #selector(stopSearchButtonClikced))
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black]
+    }
+    
+    @objc func stopSearchButtonClikced() {
+        modelView.stopSearchStudyAPI()
+        UserDefaults.standard.set(2, forKey: "matchingStatus")
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     func pageBoySetting() {
@@ -56,17 +67,7 @@ final class TabManViewController: TabmanViewController {
         
         
         addBar(bar, dataSource: self, at: .custom(view: mainView.tabBarView, layout: nil))
-        
-//        viewControllers.append(UIViewController())
     }
-    
-//    func changeStudyButtonSetting() {
-//        mainView.changeStudyButton.addTarget(self, action: #selector(changeStudyButtonClicked), for: .touchUpInside)
-//    }
-//
-//    @objc func changeStudyButtonClicked() {
-//        navigationController?.popViewController(animated: true)
-//    }
 }
 
 

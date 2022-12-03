@@ -29,7 +29,6 @@ final class NearUserPopupViewController: UIViewController {
     func viewSetting() {
         mainView.signLabel.text = "스터디를 요청할게요!"
         mainView.messageLabel.text = "상대방이 요청을 수락하면\n채팅창에서 대화를 나눌 수 있어요"
-        mainView.messageLabel.textColor = .colorGray7
     }
     
     func buttonSetting() {

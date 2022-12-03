@@ -49,24 +49,25 @@ final class NearSeSACViewController: UIViewController {
     
     func searchAPI(lat: String, long: String) {
         modelView.searchSeSAC(latitude: lat, longitude: long) { (statusCode, data) in
+            let apiData = data.fromQueueDB
             
             switch statusCode {
             case 200:
                 print("새싹 검색 성공🤢🤢🤢🤢🤢🤢🤢🤢")
                 //서버 데이터 받아오기
-                self.arroundUserData = data
-                for i in 0..<data.count {
-                    self.userNickName.append(data[i].nick)
-                    self.userSeSACImage.append(data[i].sesac)
-                    self.userBackgroundImage.append(data[i].background)
-                    self.userUID.append(data[i].uid)
+                self.arroundUserData = apiData
+                for i in 0..<apiData.count {
+                    self.userNickName.append(apiData[i].nick)
+                    self.userSeSACImage.append(apiData[i].sesac)
+                    self.userBackgroundImage.append(apiData[i].background)
+                    self.userUID.append(apiData[i].uid)
                     
                     //카드뷰 상태
                     self.cardStatus.append(false)
                     self.mainView.arroundSesacTableView.reloadData()
                     
                 }
-                print("데이터 목록: 🦍🦍🦍🦍🦍🦍🦍🦍", data)
+                print("데이터 목록: 🦍🦍🦍🦍🦍🦍🦍🦍", apiData)
                 
                 return
             case 401:
@@ -117,8 +118,14 @@ extension NearSeSACViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //MARK: 빈 화면이 나올시 분기처리도 해야되니 UIView로 만들어놓은 emptyView -> 테이블뷰 셀로 만들어서 유저데이터 카운트가 0 이면 해당셀 보여주기로 하기
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CardViewTableCell.identifier) as? CardViewTableCell else { return UITableViewCell () }
-        cell.requestButtonView.isHidden = false
+        
         cell.selectionStyle = .none
+        
+        //요청하기 버튼 뷰
+        cell.requestButtonView.isHidden = false
+        cell.requestButtonView.backgroundColor = .colorError
+        cell.requestButton.text = "요청하기"
+        cell.requestButton.textColor = .white
         
         var userBackground: backgroundImage = .background
         var userChar: backgroundImage = .userImage

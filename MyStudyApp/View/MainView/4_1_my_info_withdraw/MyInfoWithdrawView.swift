@@ -36,6 +36,7 @@ final class MyInfoWithdrawView: BaseView {
     let messageLabel: UILabel = {
         let view = UILabel()
         view.textAlignment = .center
+        view.textColor = .colorGray7
         view.numberOfLines = 0
         view.font = .systemFont(ofSize: 14)
         return view
