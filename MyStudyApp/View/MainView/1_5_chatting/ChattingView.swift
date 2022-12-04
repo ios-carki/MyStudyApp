@@ -13,6 +13,7 @@ final class ChattingView: BaseView {
     
     let messageTableView: UITableView = {
         let view = UITableView()
+        view.backgroundColor = .white
         return view
     }()
     

@@ -13,6 +13,7 @@ final class ChattingViewController: UIViewController {
     let modelView = APIService()
     
     var chat: [Chat] = []
+    var myMessage: [String] = []
     
     
     override func loadView() {
@@ -23,6 +24,7 @@ final class ChattingViewController: UIViewController {
         super.viewDidLoad()
         
         tableSetting()
+        sendButtonSetting()
         
         NotificationCenter.default.addObserver(self, selector: #selector(getMessage(notification: )), name: NSNotification.Name("getMessage"), object: nil)
     }
@@ -34,22 +36,36 @@ final class ChattingViewController: UIViewController {
     }
     
     func sendButtonSetting() {
+        mainView.sendButton.addTarget(self, action: #selector(sendButtonClikced), for: .touchUpInside)
+        
+    }
+    
+    @objc func sendButtonClikced() {
         guard let myText = mainView.userTextView.text else { return }
         modelView.postChat(text: myText, userUID: UserDefaults.standard.string(forKey: "userUID")!) { statusCode, data in
             switch statusCode {
             case 200:
+                print("전송 성공")
+                self.myMessage.append(data.chat)
+                self.mainView.messageTableView.reloadData()
                 return
             case 201:
+                print("전송 201")
                 return
             case 401:
+                print("전송 401")
                 return
             case 406:
+                print("전송 406")
                 return
             case 500:
+                print("전송 500")
                 return
             case 501:
+                print("전송 501")
                 return
             default:
+                print("전송 default")
                 return
             }
         }
@@ -85,7 +101,7 @@ final class ChattingViewController: UIViewController {
 
 extension ChattingViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1 + chat.count
+        return chat.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
