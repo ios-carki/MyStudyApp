@@ -10,6 +10,7 @@ import UIKit
 final class ChattingViewController: UIViewController {
     
     let mainView = ChattingView()
+    let modelView = APIService()
     
     var chat: [Chat] = []
     
@@ -32,7 +33,7 @@ final class ChattingViewController: UIViewController {
     }
     
     func sendButtonSetting() {
-        
+        modelView.postChat(text: mainView.userTextView.text, userUID: <#T##String#>, completionHandler: <#T##(Int) -> Void#>)
     }
     
     @objc func getMessage(notification: NSNotification) {

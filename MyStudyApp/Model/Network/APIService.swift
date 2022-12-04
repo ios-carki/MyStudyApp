@@ -252,6 +252,7 @@ final class APIService {
         
         AF.request(api.url, method: .post, parameters: api.parameters, headers: api.headers).responseString { data in
             print("POST CHAT SUCCEED", data)
+            completionHandler(data.response?.statusCode ?? 0)
         }
     }
     
