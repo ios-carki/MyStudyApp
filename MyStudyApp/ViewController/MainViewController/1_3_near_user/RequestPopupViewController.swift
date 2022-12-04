@@ -45,6 +45,9 @@ final class RequestPopupViewController: UIViewController {
     //MARK: 스터디 수락하기 버튼
     @objc func okButtonClikced() {
         print("넘어온 유저 UID: \(userUID)")
+        
+        //Revise: 테스트 용으로 유저디폴트 이후 완성되면 값전달로 전환할 로직
+        UserDefaults.standard.set(userUID, forKey: "userUID")
         acceptStudy(userUID: userUID ?? "")
     }
     

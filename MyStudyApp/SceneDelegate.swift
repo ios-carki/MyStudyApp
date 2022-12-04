@@ -17,17 +17,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: scene)
         
         //원래 코드
-//        let vc = SplashViewController()
-//        let nav = UINavigationController(rootViewController: vc)
-//
-//        window?.rootViewController = nav
-//        window?.makeKeyAndVisible()
-        
-        let vc = ChattingViewController()
+        let vc = SplashViewController()
         let nav = UINavigationController(rootViewController: vc)
 
         window?.rootViewController = nav
         window?.makeKeyAndVisible()
+        
+//        let vc = ChattingViewController()
+//        let nav = UINavigationController(rootViewController: vc)
+//
+//        window?.rootViewController = nav
+//        window?.makeKeyAndVisible()
 
         
     }

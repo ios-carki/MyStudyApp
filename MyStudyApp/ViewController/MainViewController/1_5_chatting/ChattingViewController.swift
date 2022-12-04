@@ -14,6 +14,7 @@ final class ChattingViewController: UIViewController {
     
     var chat: [Chat] = []
     
+    
     override func loadView() {
         view = mainView
     }
@@ -33,7 +34,25 @@ final class ChattingViewController: UIViewController {
     }
     
     func sendButtonSetting() {
-        modelView.postChat(text: mainView.userTextView.text, userUID: <#T##String#>, completionHandler: <#T##(Int) -> Void#>)
+        guard let myText = mainView.userTextView.text else { return }
+        modelView.postChat(text: myText, userUID: UserDefaults.standard.string(forKey: "userUID")!) { statusCode, data in
+            switch statusCode {
+            case 200:
+                return
+            case 201:
+                return
+            case 401:
+                return
+            case 406:
+                return
+            case 500:
+                return
+            case 501:
+                return
+            default:
+                return
+            }
+        }
     }
     
     @objc func getMessage(notification: NSNotification) {

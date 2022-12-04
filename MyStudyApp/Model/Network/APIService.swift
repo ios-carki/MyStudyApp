@@ -82,6 +82,14 @@ struct MyQueueState: Codable {
     let matchedUid: String
 }
 
+struct chatData: Codable {
+    let _id: String
+    let to: String
+    let from: String
+    let chat: String
+    let createdAt: String
+}
+
 final class APIService {
     
     func signup(phoneNum: String, FCMToken: String, nickName: String, birth: String, email: String, gender: String, completionHandler: @escaping (Int) -> Void) {
@@ -247,12 +255,21 @@ final class APIService {
     }
     
     //MARK: Chat
-    func postChat(text: String, userUID: String, completionHandler: @escaping (Int) -> Void) {
+    func postChat(text: String, userUID: String, completionHandler: @escaping (Int, chatData) -> Void) {
         let api = SeSACAPI.postChat(chatText: text)
+        let chatURL = URL(string: URL.makeEndpointURL("/v1/chat/\(userUID)"))!
         
-        AF.request(api.url, method: .post, parameters: api.parameters, headers: api.headers).responseString { data in
-            print("POST CHAT SUCCEED", data)
-            completionHandler(data.response?.statusCode ?? 0)
+        AF.request(chatURL, method: .post, parameters: api.parameters, headers: api.headers).responseDecodable(of: chatData.self) { response in
+            switch response.result {
+            case .success(let data):
+                completionHandler(response.response?.statusCode ?? 0, data)
+                
+                return
+            case .failure(_):
+                print("채팅 에러: ", #function)
+                
+                return
+            }
         }
     }
     
