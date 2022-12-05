@@ -48,6 +48,7 @@ final class ChattingViewController: UIViewController {
                 print("전송 성공")
                 self.myMessage.append(data.chat)
                 self.mainView.messageTableView.reloadData()
+                //데이터 전송 안되는 지점
                 return
             case 201:
                 print("전송 201")
