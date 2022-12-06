@@ -7,19 +7,14 @@
 
 import Foundation
 
-struct Chat: Codable {
-    let text, userID, name, username: String
-    let id, createdAt, updatedAt: String
-    let v: Int
-    let ID: String
-
+struct chatData: Codable {
+    let ID, to, from, chat, createdAt: String
+    
     enum CodingKeys: String, CodingKey {
-        case text
-        case userID = "userId"
-        case name, username
-        case id = "_id"
-        case createdAt, updatedAt
-        case v = "__v"
-        case ID = "id"
+        case ID = "_id"
+        case to
+        case from
+        case chat
+        case createdAt
     }
 }

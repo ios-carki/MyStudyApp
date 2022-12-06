@@ -16,6 +16,7 @@ final class ChattingViewController: UIViewController {
     
     var chat: [chatData] = []
     var myMessage: [String] = []
+    var oldChatData: [chatData] = []
     
     
     override func loadView() {
@@ -25,6 +26,7 @@ final class ChattingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        fetchChat()
         tableSetting()
         sendButtonSetting()
         myID()
@@ -45,8 +47,8 @@ final class ChattingViewController: UIViewController {
     }
     
     @objc func sendButtonClikced() {
-        guard let myText = mainView.userTextView.text else { return }
-        modelView.postChat(text: myText, userUID: UserDefaults.standard.string(forKey: "userUID")!) { statusCode, data in
+        //guard let myText = mainView.userTextView.text else { return }
+        modelView.postChat(text: mainView.userTextView.text ?? "", userUID: UserDefaults.standard.string(forKey: "userUID")!) { statusCode, data in
             switch statusCode {
             case 200:
                 print("전송 성공")
@@ -59,6 +61,9 @@ final class ChattingViewController: UIViewController {
                 //row -> 전체 데이터 - 1
                 //index가 0 이면 런타임 오류 발생
                 self.mainView.messageTableView.scrollToRow(at: IndexPath(row: self.myMessage.count - 1, section: 0), at: .bottom, animated: false)
+                
+                //마지막 채팅 시간 저장
+                UserDefaults.standard.set(String(Date().formatted("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")), forKey: "lastChatDate")
                 //데이터 전송 안되는 지점
                 return
             case 201:
@@ -79,6 +84,20 @@ final class ChattingViewController: UIViewController {
             default:
                 print("전송 default")
                 return
+            }
+        }
+    }
+    
+    func fetchChat() {
+        modelView.fetchChat(otherUID: UserDefaults.standard.string(forKey: "userUID")!) { statusCode, chatData in
+            switch statusCode {
+            case 200:
+                self.oldChatData = [chatData]
+                self.mainView.messageTableView.reloadData()
+                self.mainView.messageTableView.scrollToRow(at: IndexPath(row: self.oldChatData.count - 1, section: 0), at: .bottom, animated: false)
+                return
+            default:
+                return print("fetchChat error!")
             }
         }
     }
@@ -133,14 +152,14 @@ extension ChattingViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let data = chat[indexPath.row]
         
-        if data._id == myIdString {
+        if data.ID == myIdString {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ChatMyMessageCell.identifier) as? ChatMyMessageCell else { return UITableViewCell() }
             cell.chatTextLabel.text = data.chat
             
             return cell
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ChatOtherMessageCell.identifier) as? ChatOtherMessageCell else { return UITableViewCell() }
-            cell.chatTextLabel.text = "상대방 메시지 테스트"
+            cell.chatTextLabel.text = data.chat
             
             return cell
         }

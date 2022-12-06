@@ -82,14 +82,6 @@ struct MyQueueState: Codable {
     let matchedUid: String
 }
 
-struct chatData: Codable {
-    let _id: String
-    let to: String
-    let from: String
-    let chat: String
-    let createdAt: String
-}
-
 final class APIService {
     
     func signup(phoneNum: String, FCMToken: String, nickName: String, birth: String, email: String, gender: String, completionHandler: @escaping (Int) -> Void) {
@@ -258,7 +250,7 @@ final class APIService {
     //MARK: Chat
     func postChat(text: String, userUID: String, completionHandler: @escaping (Int, chatData) -> Void) {
         let api = SeSACAPI.postChat(chatText: text)
-        let chatURL = URL(string: URL.makeEndpointURL("/v1/chat/\(userUID)"))!
+        let chatURL = URL(string: APIKey.url + "/" + APIKey.userId)!//URL(string: URL.makeEndpointURL("/v1/chat/\(userUID)"))!
         
         AF.request(chatURL, method: .post, parameters: api.parameters, headers: api.headers).responseDecodable(of: chatData.self) { response in
             switch response.result {
@@ -270,6 +262,25 @@ final class APIService {
                 print("채팅 에러: ", #function)
                 print(response.response?.statusCode)
                 
+                return
+            }
+        }
+    }
+    
+    func fetchChat(otherUID: String, completionHandler: @escaping (Int, chatData) -> Void) {
+        let api = SeSACAPI.fetchChat
+        let lastChatDate = UserDefaults.standard.string(forKey: "lastChatDate") ?? String(Date().formatted("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"))
+        let fetchChatURL = URL(string: APIKey.url + "/" + otherUID + "?lastchatDate=" + lastChatDate)!
+        
+        AF.request(fetchChatURL, method: .get, headers: api.headers).responseDecodable(of: chatData.self) { response in
+            switch response.result {
+            case .success(let data):
+                completionHandler(response.response?.statusCode ?? 0, data)
+                
+                return
+            case .failure(_):
+                print("채팅 내역 패치 오류", #function)
+                print(response.response?.statusCode ?? 0)
                 return
             }
         }
