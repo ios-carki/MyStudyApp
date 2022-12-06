@@ -48,6 +48,7 @@ final class SecondLoginViewController: UIViewController {
     }
     
     //Revise: 이거 위치 아닌거같음 -> 신규 사용자는 토큰 갱신할 필요가 없음 / 그리고 이건 자주 사용될 함수니 따로 빼서 사용해도 될듯
+    //sync로 관리
     func getIdToken() {
         
         guard let currentUser = Auth.auth().currentUser else { return }

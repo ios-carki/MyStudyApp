@@ -112,7 +112,7 @@ final class APIService {
         
     }
     
-    func login(completionHandler: @escaping (String?, Int) -> Void) {
+    func login(completionHandler: @escaping (UserData?, Int) -> Void) {
         let api = SeSACAPI.profile
         
         //로그인 후 받는 토큰 제이슨 데이터 디코딩
@@ -121,8 +121,9 @@ final class APIService {
             
             switch response.result {
                 
+                
             case .success(let data):
-                completionHandler(data.nick, response.response?.statusCode ?? 0)
+                completionHandler(data, response.response?.statusCode ?? 0)
                 
                 return
             case .failure(_):
@@ -267,6 +268,7 @@ final class APIService {
                 return
             case .failure(_):
                 print("채팅 에러: ", #function)
+                print(response.response?.statusCode)
                 
                 return
             }

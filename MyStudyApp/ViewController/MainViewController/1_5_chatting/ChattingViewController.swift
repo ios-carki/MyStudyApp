@@ -12,7 +12,9 @@ final class ChattingViewController: UIViewController {
     let mainView = ChattingView()
     let modelView = APIService()
     
-    var chat: [Chat] = []
+    var myIdString: String?
+    
+    var chat: [chatData] = []
     var myMessage: [String] = []
     
     
@@ -25,8 +27,9 @@ final class ChattingViewController: UIViewController {
         
         tableSetting()
         sendButtonSetting()
+        myID()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(getMessage(notification: )), name: NSNotification.Name("getMessage"), object: nil)
+        //NotificationCenter.default.addObserver(self, selector: #selector(getMessage(notification: )), name: NSNotification.Name("getMessage"), object: nil)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -37,6 +40,7 @@ final class ChattingViewController: UIViewController {
     
     func sendButtonSetting() {
         mainView.sendButton.addTarget(self, action: #selector(sendButtonClikced), for: .touchUpInside)
+        mainView.userTextView.text = ""
         
     }
     
@@ -46,8 +50,15 @@ final class ChattingViewController: UIViewController {
             switch statusCode {
             case 200:
                 print("전송 성공")
+                print("받은 데이터 >>>>>>>>>>>> ", data)
                 self.myMessage.append(data.chat)
+                self.chat.append(data)
                 self.mainView.messageTableView.reloadData()
+                
+                //채팅텍스트 누르고 스크롤 최 하단으로 내리기
+                //row -> 전체 데이터 - 1
+                //index가 0 이면 런타임 오류 발생
+                self.mainView.messageTableView.scrollToRow(at: IndexPath(row: self.myMessage.count - 1, section: 0), at: .bottom, animated: false)
                 //데이터 전송 안되는 지점
                 return
             case 201:
@@ -72,19 +83,19 @@ final class ChattingViewController: UIViewController {
         }
     }
     
-    @objc func getMessage(notification: NSNotification) {
-            
-        let chat = notification.userInfo!["chat"] as! String
-        let name = notification.userInfo!["name"] as! String
-        let createdAt = notification.userInfo!["createdAt"] as! String
-        let userID = notification.userInfo!["userId"] as! String
-        
-        let value = Chat(text: chat, userID: userID, name: name, username: "", id: "", createdAt: createdAt, updatedAt: "", v: 0, ID: "")
-        
-        self.chat.append(value)
-        mainView.messageTableView.reloadData()
-        mainView.messageTableView.scrollToRow(at: IndexPath(row: self.chat.count - 1, section: 0), at: .bottom, animated: false)
-    }
+//    @objc func getMessage(notification: NSNotification) {
+//
+//        let chat = notification.userInfo!["chat"] as! String
+//        let name = notification.userInfo!["name"] as! String
+//        let createdAt = notification.userInfo!["createdAt"] as! String
+//        let userID = notification.userInfo!["userId"] as! String
+//
+//        let value = Chat(text: chat, userID: userID, name: name, username: "", id: "", createdAt: createdAt, updatedAt: "", v: 0, ID: "")
+//
+//        self.chat.append(value)
+//        mainView.messageTableView.reloadData()
+//        mainView.messageTableView.scrollToRow(at: IndexPath(row: self.chat.count - 1, section: 0), at: .bottom, animated: false)
+//    }
     
     func tableSetting() {
         mainView.messageTableView.register(ChatAlertCell.self, forCellReuseIdentifier: ChatAlertCell.identifier)
@@ -98,6 +109,20 @@ final class ChattingViewController: UIViewController {
         mainView.messageTableView.separatorStyle = .none
         mainView.messageTableView.rowHeight = UITableView.automaticDimension
     }
+    
+    //매칭쪽에서 구현해서 값전달 해야됨
+    func myID() {
+        modelView.login { data, statusCode in
+            switch statusCode {
+            case 200:
+                self.myIdString = data?._id
+                return
+            default:
+                print("id받아오기 오류")
+                self.myIdString = "error"
+            }
+        }
+    }
 }
 
 extension ChattingViewController: UITableViewDataSource, UITableViewDelegate {
@@ -108,14 +133,14 @@ extension ChattingViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let data = chat[indexPath.row]
         
-        if data.userID == APIKey.userId {
+        if data._id == myIdString {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ChatMyMessageCell.identifier) as? ChatMyMessageCell else { return UITableViewCell() }
-            cell.chatTextLabel.text = data.text
+            cell.chatTextLabel.text = data.chat
             
             return cell
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ChatOtherMessageCell.identifier) as? ChatOtherMessageCell else { return UITableViewCell() }
-            cell.chatTextLabel.text = data.text
+            cell.chatTextLabel.text = "상대방 메시지 테스트"
             
             return cell
         }
