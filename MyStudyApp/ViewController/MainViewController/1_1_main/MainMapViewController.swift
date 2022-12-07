@@ -77,6 +77,8 @@ final class MainMapViewController: UIViewController {
             navigationController?.pushViewController(vc, animated: true)
         } else if UserDefaults.standard.integer(forKey: "matchingStatus") == 1 {
             
+            
+            
             let vc = ChattingViewController()
             
             navigationController?.pushViewController(vc, animated: true)

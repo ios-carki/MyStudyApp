@@ -8,7 +8,7 @@
 import Foundation
 
 struct chatData: Codable {
-    let ID, to, from, chat, createdAt: String
+    let ID, to, from, chat, createdAt: String?
     
     enum CodingKeys: String, CodingKey {
         case ID = "_id"

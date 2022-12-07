@@ -31,12 +31,14 @@ final class ChattingViewController: UIViewController {
         sendButtonSetting()
         myID()
         
-        //NotificationCenter.default.addObserver(self, selector: #selector(getMessage(notification: )), name: NSNotification.Name("getMessage"), object: nil)
+        //이벤트 수신
+        NotificationCenter.default.addObserver(self, selector: #selector(getMessage(notification: )), name: NSNotification.Name("getMessage"), object: nil)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
+        //뷰가 완전 사라지고나서 소켓 해제
         SocketIOManager.shared.cloaseConnect()
     }
     
@@ -53,7 +55,7 @@ final class ChattingViewController: UIViewController {
             case 200:
                 print("전송 성공")
                 print("받은 데이터 >>>>>>>>>>>> ", data)
-                self.myMessage.append(data.chat)
+                self.myMessage.append(data.chat ?? "")
                 self.chat.append(data)
                 self.mainView.messageTableView.reloadData()
                 
@@ -92,9 +94,13 @@ final class ChattingViewController: UIViewController {
         modelView.fetchChat(otherUID: UserDefaults.standard.string(forKey: "userUID")!) { statusCode, chatData in
             switch statusCode {
             case 200:
-                self.oldChatData = [chatData]
+                self.chat.append(chatData)
                 self.mainView.messageTableView.reloadData()
-                self.mainView.messageTableView.scrollToRow(at: IndexPath(row: self.oldChatData.count - 1, section: 0), at: .bottom, animated: false)
+//                self.mainView.messageTableView.scrollToRow(at: IndexPath(row: self.oldChatData.count - 1, section: 0), at: .bottom, animated: false)
+                
+                //이전 데이터 먼저 받고나서 소켓 연결
+                SocketIOManager.shared.establishConnect()
+                
                 return
             default:
                 return print("fetchChat error!")
@@ -102,19 +108,26 @@ final class ChattingViewController: UIViewController {
         }
     }
     
-//    @objc func getMessage(notification: NSNotification) {
-//
+    //노티피케이션센터 이벤트 수신
+    @objc func getMessage(notification: NSNotification) {
+
 //        let chat = notification.userInfo!["chat"] as! String
 //        let name = notification.userInfo!["name"] as! String
 //        let createdAt = notification.userInfo!["createdAt"] as! String
 //        let userID = notification.userInfo!["userId"] as! String
-//
-//        let value = Chat(text: chat, userID: userID, name: name, username: "", id: "", createdAt: createdAt, updatedAt: "", v: 0, ID: "")
-//
-//        self.chat.append(value)
-//        mainView.messageTableView.reloadData()
+        
+        let userID = notification.userInfo!["ID"] as! String
+        let to = notification.userInfo!["to"] as! String
+        let from = notification.userInfo!["from"] as! String
+        let chat = notification.userInfo!["chat"] as! String
+        let createdAt = notification.userInfo!["createdAt"] as! String
+         
+        let value = chatData(ID: userID, to: to, from: from, chat: chat, createdAt: createdAt)
+
+        self.chat.append(value)
+        mainView.messageTableView.reloadData()
 //        mainView.messageTableView.scrollToRow(at: IndexPath(row: self.chat.count - 1, section: 0), at: .bottom, animated: false)
-//    }
+    }
     
     func tableSetting() {
         mainView.messageTableView.register(ChatAlertCell.self, forCellReuseIdentifier: ChatAlertCell.identifier)
@@ -153,17 +166,20 @@ extension ChattingViewController: UITableViewDataSource, UITableViewDelegate {
         let data = chat[indexPath.row]
         
         if data.ID == myIdString {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: ChatMyMessageCell.identifier) as? ChatMyMessageCell else { return UITableViewCell() }
-            cell.chatTextLabel.text = data.chat
-            
-            return cell
-        } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ChatOtherMessageCell.identifier) as? ChatOtherMessageCell else { return UITableViewCell() }
             cell.chatTextLabel.text = data.chat
             
             return cell
+        } else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: ChatMyMessageCell.identifier) as? ChatMyMessageCell else { return UITableViewCell() }
+            cell.chatTextLabel.text = data.chat
+
+            return cell
         }
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
     
 }
