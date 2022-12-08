@@ -238,8 +238,9 @@ final class APIService {
             case .success(let data):
                 completionHandler(data, response.response?.statusCode ?? 0)
                 return
-            case .failure(_):
+            case .failure(let errorCode):
                 completionHandler(nil, response.response?.statusCode ?? 0)
+                
                 print("내 상태 확인 에러")
                 
                 return
@@ -284,6 +285,14 @@ final class APIService {
                 return
             }
         }
+    }
+    
+    func validateAPIError(statusCode: Int) throws -> Bool {
+        guard statusCode == 401 else {
+            throw statusCodeError.renewalToken
+        }
+        
+        return true
     }
     
     
