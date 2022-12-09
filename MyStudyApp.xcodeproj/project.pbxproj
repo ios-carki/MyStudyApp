@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C30F7CAF2942013C0050C045 /* ErrorCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30F7CAE2942013C0050C045 /* ErrorCase.swift */; };
 		C31DD3B9293B380D00ABB3AC /* UINavigation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31DD3B8293B380D00ABB3AC /* UINavigation+Extension.swift */; };
 		C31DD3BB293B3C2800ABB3AC /* ChatAlertCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31DD3BA293B3C2800ABB3AC /* ChatAlertCell.swift */; };
 		C31DD3BD293B3DA000ABB3AC /* ChatDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31DD3BC293B3DA000ABB3AC /* ChatDateCell.swift */; };
@@ -108,7 +107,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C30F7CAE2942013C0050C045 /* ErrorCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorCase.swift; sourceTree = "<group>"; };
 		C31DD3B8293B380D00ABB3AC /* UINavigation+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigation+Extension.swift"; sourceTree = "<group>"; };
 		C31DD3BA293B3C2800ABB3AC /* ChatAlertCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatAlertCell.swift; sourceTree = "<group>"; };
 		C31DD3BC293B3DA000ABB3AC /* ChatDateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDateCell.swift; sourceTree = "<group>"; };
@@ -222,14 +220,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C30F7CAD294201290050C045 /* Error */ = {
-			isa = PBXGroup;
-			children = (
-				C30F7CAE2942013C0050C045 /* ErrorCase.swift */,
-			);
-			path = Error;
-			sourceTree = "<group>";
-		};
 		C31DD3C2293B610700ABB3AC /* Chat */ = {
 			isa = PBXGroup;
 			children = (
@@ -278,7 +268,6 @@
 		C32C8220291E608E0070F387 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C30F7CAD294201290050C045 /* Error */,
 				C31DD3C2293B610700ABB3AC /* Chat */,
 				C32C823E291FB5EB0070F387 /* Network */,
 				C32C8221291E609A0070F387 /* User.swift */,
@@ -887,7 +876,6 @@
 				C3C22658291A50D50042062A /* SecondLoginView.swift in Sources */,
 				C3C689132924CEA300B59D0C /* MainPlusFriendsViewController.swift in Sources */,
 				C3C68956292A147600B59D0C /* TabManViewController.swift in Sources */,
-				C30F7CAF2942013C0050C045 /* ErrorCase.swift in Sources */,
 				C372E932293336D700B0462D /* NearSeSACViewController.swift in Sources */,
 				C3C2265C291A5CB50042062A /* NickNameViewController.swift in Sources */,
 				C3C22660291A604D0042062A /* BirthViewController.swift in Sources */,

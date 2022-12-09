@@ -287,15 +287,6 @@ final class APIService {
         }
     }
     
-    func validateAPIError(statusCode: Int) throws -> Bool {
-        guard statusCode == 401 else {
-            throw statusCodeError.renewalToken
-        }
-        
-        return true
-    }
-    
-    
     func getIdToken() {
         
         guard let currentUser = Auth.auth().currentUser else { return }
