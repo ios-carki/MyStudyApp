@@ -7,6 +7,8 @@
 
 import UIKit
 
+import RealmSwift
+
 final class ChattingViewController: UIViewController {
     
     let mainView = ChattingView()
@@ -17,6 +19,13 @@ final class ChattingViewController: UIViewController {
     var chat: [chatData] = []
     var myMessage: [String] = []
     var oldChatData: [chatData] = []
+    
+    let localRealm = try! Realm()
+    var tasks: Results<UserChatData>! {
+        didSet {
+            mainView.messageTableView.reloadData()
+        }
+    }
     
     
     override func loadView() {
@@ -58,6 +67,13 @@ final class ChattingViewController: UIViewController {
                 self.myMessage.append(data.chat ?? "")
                 self.chat.append(data)
                 self.mainView.messageTableView.reloadData()
+                
+                //채팅내역 db저장
+                let task = UserChatData(chatID: data.ID ?? "chatIDError", userID: data.to ?? "userIDError", myID: data.from ?? "myIDError", chat: data.chat ?? "chatError", createdAt: Date().formatted("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"))
+                
+                try! self.localRealm.write({
+                    self.localRealm.add(task)
+                })
                 
                 //채팅텍스트 누르고 스크롤 최 하단으로 내리기
                 //row -> 전체 데이터 - 1
@@ -110,11 +126,6 @@ final class ChattingViewController: UIViewController {
     
     //노티피케이션센터 이벤트 수신
     @objc func getMessage(notification: NSNotification) {
-
-//        let chat = notification.userInfo!["chat"] as! String
-//        let name = notification.userInfo!["name"] as! String
-//        let createdAt = notification.userInfo!["createdAt"] as! String
-//        let userID = notification.userInfo!["userId"] as! String
         
         let userID = notification.userInfo!["ID"] as! String
         let to = notification.userInfo!["to"] as! String
@@ -163,9 +174,10 @@ extension ChattingViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let data = chat[indexPath.row]
+        //let data = chat[indexPath.row]
+        let data = tasks[indexPath.row]
         
-        if data.ID == myIdString {
+        if data.myID == myIdString {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ChatOtherMessageCell.identifier) as? ChatOtherMessageCell else { return UITableViewCell() }
             cell.chatTextLabel.text = data.chat
             

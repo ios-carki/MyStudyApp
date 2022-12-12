@@ -8,8 +8,6 @@
 import UIKit
 import CoreLocation
 
-
-
 final class NearSeSACViewController: UIViewController {
     
     private let mainView = NearSeSACView()

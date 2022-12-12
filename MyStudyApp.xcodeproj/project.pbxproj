@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C30F7CB2294769640050C045 /* UserChatData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30F7CB1294769640050C045 /* UserChatData.swift */; };
+		C30F7CB529476A200050C045 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = C30F7CB429476A200050C045 /* Realm */; };
+		C30F7CB729476A200050C045 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C30F7CB629476A200050C045 /* RealmSwift */; };
 		C31DD3B9293B380D00ABB3AC /* UINavigation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31DD3B8293B380D00ABB3AC /* UINavigation+Extension.swift */; };
 		C31DD3BB293B3C2800ABB3AC /* ChatAlertCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31DD3BA293B3C2800ABB3AC /* ChatAlertCell.swift */; };
 		C31DD3BD293B3DA000ABB3AC /* ChatDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31DD3BC293B3DA000ABB3AC /* ChatDateCell.swift */; };
@@ -51,7 +54,6 @@
 		C3B28AD6292FAF9C00B284BB /* StudyHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B28AD5292FAF9C00B284BB /* StudyHeaderView.swift */; };
 		C3B293762918D29F00F2D55D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B293752918D29F00F2D55D /* AppDelegate.swift */; };
 		C3B293782918D29F00F2D55D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B293772918D29F00F2D55D /* SceneDelegate.swift */; };
-		C3B2937A2918D29F00F2D55D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B293792918D29F00F2D55D /* ViewController.swift */; };
 		C3B2937D2918D29F00F2D55D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3B2937B2918D29F00F2D55D /* Main.storyboard */; };
 		C3B2937F2918D2A100F2D55D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3B2937E2918D2A100F2D55D /* Assets.xcassets */; };
 		C3B293822918D2A100F2D55D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3B293802918D2A100F2D55D /* LaunchScreen.storyboard */; };
@@ -107,6 +109,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C30F7CB1294769640050C045 /* UserChatData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserChatData.swift; sourceTree = "<group>"; };
 		C31DD3B8293B380D00ABB3AC /* UINavigation+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigation+Extension.swift"; sourceTree = "<group>"; };
 		C31DD3BA293B3C2800ABB3AC /* ChatAlertCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatAlertCell.swift; sourceTree = "<group>"; };
 		C31DD3BC293B3DA000ABB3AC /* ChatDateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDateCell.swift; sourceTree = "<group>"; };
@@ -145,7 +148,6 @@
 		C3B293722918D29F00F2D55D /* MyStudyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyStudyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3B293752918D29F00F2D55D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3B293772918D29F00F2D55D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C3B293792918D29F00F2D55D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C3B2937C2918D29F00F2D55D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C3B2937E2918D2A100F2D55D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C3B293812918D2A100F2D55D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -208,7 +210,9 @@
 				C32C8237291E70B40070F387 /* Toast in Frameworks */,
 				C3B293972918E1FC00F2D55D /* SnapKit in Frameworks */,
 				C32C823A291FB2770070F387 /* Alamofire in Frameworks */,
+				C30F7CB729476A200050C045 /* RealmSwift in Frameworks */,
 				C32C8211291E508E0070F387 /* FirebaseAnalytics in Frameworks */,
+				C30F7CB529476A200050C045 /* Realm in Frameworks */,
 				C31DD3C9293B759E00ABB3AC /* SocketIO in Frameworks */,
 				C3B293B02919424400F2D55D /* IQKeyboardManagerSwift in Frameworks */,
 				C32C8215291E508E0070F387 /* FirebaseFirestore in Frameworks */,
@@ -220,6 +224,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C30F7CB0294769510050C045 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				C30F7CB1294769640050C045 /* UserChatData.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
 		C31DD3C2293B610700ABB3AC /* Chat */ = {
 			isa = PBXGroup;
 			children = (
@@ -268,6 +280,7 @@
 		C32C8220291E608E0070F387 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C30F7CB0294769510050C045 /* Realm */,
 				C31DD3C2293B610700ABB3AC /* Chat */,
 				C32C823E291FB5EB0070F387 /* Network */,
 				C32C8221291E609A0070F387 /* User.swift */,
@@ -493,7 +506,6 @@
 				C3B293892918DCB200F2D55D /* Extension */,
 				C3B293752918D29F00F2D55D /* AppDelegate.swift */,
 				C3B293772918D29F00F2D55D /* SceneDelegate.swift */,
-				C3B293792918D29F00F2D55D /* ViewController.swift */,
 				C3B2937B2918D29F00F2D55D /* Main.storyboard */,
 				C3B2937E2918D2A100F2D55D /* Assets.xcassets */,
 				C3B293802918D2A100F2D55D /* LaunchScreen.storyboard */,
@@ -743,6 +755,8 @@
 				C3C6892D2926C13C00B59D0C /* RxGesture */,
 				C372E92B2933253700B0462D /* Tabman */,
 				C31DD3C8293B759E00ABB3AC /* SocketIO */,
+				C30F7CB429476A200050C045 /* Realm */,
+				C30F7CB629476A200050C045 /* RealmSwift */,
 			);
 			productName = MyStudyApp;
 			productReference = C3B293722918D29F00F2D55D /* MyStudyApp.app */;
@@ -783,6 +797,7 @@
 				C3C6892C2926C13C00B59D0C /* XCRemoteSwiftPackageReference "RxGesture" */,
 				C372E92A2933253700B0462D /* XCRemoteSwiftPackageReference "Tabman" */,
 				C31DD3C7293B759E00ABB3AC /* XCRemoteSwiftPackageReference "socket.io-client-swift" */,
+				C30F7CB329476A200050C045 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = C3B293732918D29F00F2D55D /* Products */;
 			projectDirPath = "";
@@ -861,7 +876,6 @@
 				C3C6891C2924E7E300B59D0C /* MatchingStudyViewController.swift in Sources */,
 				C3C689222925234800B59D0C /* MVVMFirstLoginViewController.swift in Sources */,
 				C3C688ED2923BA9E00B59D0C /* MyInfoWithdrawViewController.swift in Sources */,
-				C3B2937A2918D29F00F2D55D /* ViewController.swift in Sources */,
 				C32C824E292209C10070F387 /* MyInforViewController.swift in Sources */,
 				C3B28AA8292CA83800B284BB /* ChattingViewController.swift in Sources */,
 				C3C6892429266B6A00B59D0C /* SplashView.swift in Sources */,
@@ -879,6 +893,7 @@
 				C372E932293336D700B0462D /* NearSeSACViewController.swift in Sources */,
 				C3C2265C291A5CB50042062A /* NickNameViewController.swift in Sources */,
 				C3C22660291A604D0042062A /* BirthViewController.swift in Sources */,
+				C30F7CB2294769640050C045 /* UserChatData.swift in Sources */,
 				C3B28AB0292DF52C00B284BB /* AroundStudyCollectionViewCell.swift in Sources */,
 				C32C823D291FB2E40070F387 /* APIService.swift in Sources */,
 				C31DD3FC293F7EBF00ABB3AC /* Date+Extension.swift in Sources */,
@@ -1124,6 +1139,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		C30F7CB329476A200050C045 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.33.0;
+			};
+		};
 		C31DD3C7293B759E00ABB3AC /* XCRemoteSwiftPackageReference "socket.io-client-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/socketio/socket.io-client-swift.git";
@@ -1207,6 +1230,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C30F7CB429476A200050C045 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C30F7CB329476A200050C045 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		C30F7CB629476A200050C045 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C30F7CB329476A200050C045 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
 		C31DD3C8293B759E00ABB3AC /* SocketIO */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C31DD3C7293B759E00ABB3AC /* XCRemoteSwiftPackageReference "socket.io-client-swift" */;
