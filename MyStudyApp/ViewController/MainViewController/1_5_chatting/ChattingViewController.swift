@@ -26,7 +26,7 @@ final class ChattingViewController: UIViewController {
             mainView.messageTableView.reloadData()
         }
     }
-    
+    var otherUID: String?
     
     override func loadView() {
         view = mainView
@@ -34,7 +34,10 @@ final class ChattingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("Realm is located at:", localRealm.configuration.fileURL!)
         
+        fetchRealm()
+        naviSetting()
         fetchChat()
         tableSetting()
         sendButtonSetting()
@@ -49,6 +52,25 @@ final class ChattingViewController: UIViewController {
         
         //뷰가 완전 사라지고나서 소켓 해제
         SocketIOManager.shared.cloaseConnect()
+    }
+    
+    private func fetchRealm() {
+        tasks = localRealm.objects(UserChatData.self).sorted(byKeyPath: "userID").where {
+            $0.userID == otherUID ?? "otherUserUID Error!"
+        }
+    }
+    
+    //네비바 - 스터디 취소, 리뷰등록
+    private func naviSetting() {
+        //self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "more"), style: .plain, target: self, action: #selector(moreButtonClikced))
+        rightMoreButtonSetting()
+    }
+    
+    private func rightMoreButtonSetting() {
+        let cancelStudy = UIAction(title: "스터디 취소") { action in
+            self.modelView.dodgeStudyAPI(otherUID: self.otherUID ?? "error")
+        }
+        self.navigationItem.rightBarButtonItem?.menu = UIMenu(image: UIImage(named: "more"), options: .displayInline, children: [cancelStudy])
     }
     
     func sendButtonSetting() {
@@ -78,7 +100,7 @@ final class ChattingViewController: UIViewController {
                 //채팅텍스트 누르고 스크롤 최 하단으로 내리기
                 //row -> 전체 데이터 - 1
                 //index가 0 이면 런타임 오류 발생
-                self.mainView.messageTableView.scrollToRow(at: IndexPath(row: self.myMessage.count - 1, section: 0), at: .bottom, animated: false)
+                //self.mainView.messageTableView.scrollToRow(at: IndexPath(row: self.tasks.count - 1, section: 0), at: .bottom, animated: false)
                 
                 //마지막 채팅 시간 저장
                 UserDefaults.standard.set(String(Date().formatted("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")), forKey: "lastChatDate")
@@ -111,6 +133,14 @@ final class ChattingViewController: UIViewController {
             switch statusCode {
             case 200:
                 self.chat.append(chatData)
+                
+                
+//                let task = UserChatData(chatID: chatData.ID ?? "chatIDError", userID: chatData.to ?? "userIDError", myID: chatData.from ?? "myIDError", chat: chatData.chat ?? "chatError", createdAt: chatData.createdAt ?? "createdAtError")
+//
+//                try! self.localRealm.write({
+//                    self.localRealm.add(task)
+//                })
+                
                 self.mainView.messageTableView.reloadData()
 //                self.mainView.messageTableView.scrollToRow(at: IndexPath(row: self.oldChatData.count - 1, section: 0), at: .bottom, animated: false)
                 
@@ -170,14 +200,14 @@ final class ChattingViewController: UIViewController {
 
 extension ChattingViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return chat.count
+        return tasks.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //let data = chat[indexPath.row]
         let data = tasks[indexPath.row]
         
-        if data.myID == myIdString {
+        if data.myID == myIdString ?? "" {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ChatOtherMessageCell.identifier) as? ChatOtherMessageCell else { return UITableViewCell() }
             cell.chatTextLabel.text = data.chat
             

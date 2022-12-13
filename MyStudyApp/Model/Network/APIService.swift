@@ -210,7 +210,7 @@ final class APIService {
         }
     }
     
-    //MARK: 스터디 취소
+    //MARK: 스터디 찾기 중단
     func stopSearchStudyAPI() {
         let api = SeSACAPI.stopSearchStudy
         
@@ -223,6 +223,24 @@ final class APIService {
                 return
             case .failure:
                 print("스터디 찾기 중단 요청 실패! ❌❌❌❌❌", response.response?.statusCode)
+                return
+            }
+        }
+    }
+    
+    //MARK: 스터디 취소
+    func dodgeStudyAPI(otherUID: String) {
+        let api = SeSACAPI.dodgeStudy(otheruid: otherUID)
+        
+        AF.request(api.url, method: .post, parameters: api.parameters, headers: api.headers).responseData { response in
+            switch response.result {
+            case .success:
+                print("스터디 취소 성공 ✅✅✅✅✅")
+                
+                return
+            case .failure:
+                print("스터디 취소 실패 ❌❌❌❌❌: ", response.response?.statusCode)
+                
                 return
             }
         }

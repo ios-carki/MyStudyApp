@@ -21,6 +21,7 @@ final class MainMapViewController: UIViewController {
     
     //유저 매칭 상태 확인
     var userState: Int?
+    var matchedUserID: String?
     
     //about location
     var locationManager: CLLocationManager = CLLocationManager()
@@ -81,6 +82,7 @@ final class MainMapViewController: UIViewController {
             
             let vc = ChattingViewController()
             
+            
             navigationController?.pushViewController(vc, animated: true)
         } else {
             let vc = MatchingStudyViewController()
@@ -117,6 +119,7 @@ final class MainMapViewController: UIViewController {
             case 200:
                 print("200 데이터 확인: ", data)
                 UserDefaults.standard.set(data?.matched, forKey: "matchingStatus")
+                self.matchedUserID = data?.matchedUid
                 return
             case 201:
                 print("201 데이터 확인: ", data)
