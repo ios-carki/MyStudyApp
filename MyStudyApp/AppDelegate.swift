@@ -12,6 +12,7 @@ import IQKeyboardManagerSwift
 import FirebaseCore
 import FirebaseAuth
 import FirebaseMessaging
+import RealmSwift
 
 
 @main
@@ -31,6 +32,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         }
         application.registerForRemoteNotifications()
+        
+        //마이그레이션
+        // 1. config 설정(이전 버전에서 다음 버전으로 마이그레이션될때 어떻게 변경될것인지)
+        let config = Realm.Configuration(
+            schemaVersion: 3, // 새로운 스키마 버전 설정
+            migrationBlock: { migration, oldSchemaVersion in
+                if oldSchemaVersion < 2 {
+                    
+                }
+            }
+        )
+        
+        // 2. Realm이 새로운 Object를 쓸 수 있도록 설정
+        Realm.Configuration.defaultConfiguration = config
         
         return true
     }

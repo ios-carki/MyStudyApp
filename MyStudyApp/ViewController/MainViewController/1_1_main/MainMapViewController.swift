@@ -21,6 +21,7 @@ final class MainMapViewController: UIViewController {
     
     //유저 매칭 상태 확인
     var userState: Int?
+    var myID: String?
     var matchedUserID: String?
     
     //about location
@@ -50,6 +51,7 @@ final class MainMapViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         userQueueState()
+        loginFunc()
         floatingButtonImage()
         //navigationController?.setNavigationBarHidden(true, animated: true)
         navigationController?.isNavigationBarHidden = true
@@ -78,10 +80,9 @@ final class MainMapViewController: UIViewController {
             navigationController?.pushViewController(vc, animated: true)
         } else if UserDefaults.standard.integer(forKey: "matchingStatus") == 1 {
             
-            
-            
             let vc = ChattingViewController()
-            
+            vc.otherUID = matchedUserID
+            vc.myIdString = myID
             
             navigationController?.pushViewController(vc, animated: true)
         } else {
@@ -149,6 +150,21 @@ final class MainMapViewController: UIViewController {
         }
         print("현재 유저 매칭 상태 확인: ", userState)
         
+    }
+    
+    func loginFunc() {
+        modelView.login { data, statusCode in
+            switch statusCode {
+            case 200:
+                self.myID = data?.uid
+                
+                return
+                
+            default:
+                print("메인 맵뷰 로그인 에러")
+                return
+            }
+        }
     }
     
     func mapViewSetting() {

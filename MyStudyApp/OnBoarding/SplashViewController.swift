@@ -90,6 +90,7 @@ final class SplashViewController: UIViewController {
     }
     
     func loginFunc() {
+        
         modelView.login { (data, statusCode) in
             print("에러코드전 상태 코드: ",statusCode)
             switch statusCode {

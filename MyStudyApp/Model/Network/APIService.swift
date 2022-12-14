@@ -109,11 +109,7 @@ final class APIService {
         
         //로그인 후 받는 토큰 제이슨 데이터 디코딩
         AF.request(api.url, method: .get, headers: api.headers).responseDecodable(of: UserData.self) { response in
-            
-            
             switch response.result {
-                
-                
             case .success(let data):
                 completionHandler(data, response.response?.statusCode ?? 0)
                 
@@ -286,10 +282,9 @@ final class APIService {
         }
     }
     
-    func fetchChat(otherUID: String, completionHandler: @escaping (Int, chatData) -> Void) {
+    func fetchChat(otherUID: String, lastChatDate: String, completionHandler: @escaping (Int, chatData) -> Void) {
         let api = SeSACAPI.fetchChat
-        let lastChatDate = UserDefaults.standard.string(forKey: "lastChatDate") ?? String(Date().formatted("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"))
-        let fetchChatURL = URL(string: APIKey.url + "/" + otherUID + "?lastchatDate=" + lastChatDate)!
+        let fetchChatURL = "\(APIKey.url)/\(otherUID)?lastchatDate=\(lastChatDate))"
         
         AF.request(fetchChatURL, method: .get, headers: api.headers).responseDecodable(of: chatData.self) { response in
             switch response.result {
@@ -297,9 +292,9 @@ final class APIService {
                 completionHandler(response.response?.statusCode ?? 0, data)
                 
                 return
-            case .failure(_):
+            case .failure:
                 print("채팅 내역 패치 오류", #function)
-                print(response.response?.statusCode ?? 0)
+                print(response.response?.statusCode)
                 return
             }
         }

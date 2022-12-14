@@ -20,10 +20,7 @@ final class SocketIOManager {
     private init() {
         manager = SocketManager(socketURL: URL(string: APIKey.socket)!, config: [
             //.log(true),
-            .extraHeaders([
-                "idtoken": UserDefaults.standard.string(forKey: "idtoken")!,
-                "Content-Type": "application/x-www-form-urlencoded"
-            ])
+            .forceWebsockets(true)
         ])
         
         //세부 링크
@@ -32,6 +29,8 @@ final class SocketIOManager {
         //연결
         socket.on(clientEvent: .connect) { data, ack in
             print("SOCKET IS CONNECTED", data, ack)
+            self.socket.emit("changesocketid", UserDefaults.standard.string(forKey: "myID")!)
+             
         }
         
         //연결 해제
@@ -40,26 +39,18 @@ final class SocketIOManager {
         }
         
         //이벤트 수신
-        socket.on("sesac") { dataArray, ack in
+        socket.on("chat") { dataArray, ack in
             print("SESAC RECEIVED", dataArray, ack)
             
-            //인코딩
-//            let data = dataArray[0] as! NSDictionary
-//            let chat = data["chat"] as! String
-//            let name = data["to"] as! String
-//            let userId = data["ID"] as! String
-//            let createdAt = data["createdAt"] as! String
-            
-//            print("CHECK >>>", chat, name, createdAt)
             let data = dataArray[0] as! NSDictionary
-            let userID = data["ID"] as! String
+            let chatID = data["_id"] as! String
             let to = data["to"] as! String
             let from = data["from"] as! String
             let chat = data["chat"] as! String
             let createdAt = data["createdAt"] as! String
-            
+            print("✅chat", chat)
             //이벤트 수신값 전달
-            NotificationCenter.default.post(name: NSNotification.Name("getMessage"), object: self, userInfo: ["ID": userID, "to": to, "from": from, "chat": chat, "createdAt": createdAt])
+            NotificationCenter.default.post(name: NSNotification.Name("getMessage"), object: self, userInfo: ["ID": chatID, "to": to, "from": from, "chat": chat, "createdAt": createdAt])
         }
     }
     
