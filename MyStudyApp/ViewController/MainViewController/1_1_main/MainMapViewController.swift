@@ -55,6 +55,7 @@ final class MainMapViewController: UIViewController {
         loginFunc()
         floatingButtonImage()
         //navigationController?.setNavigationBarHidden(true, animated: true)
+        tabBarController?.tabBar.isHidden = false
         navigationController?.isNavigationBarHidden = true
     }
     

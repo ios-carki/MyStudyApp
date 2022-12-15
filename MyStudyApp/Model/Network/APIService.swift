@@ -225,14 +225,14 @@ final class APIService {
     }
     
     //MARK: 스터디 취소
-    func dodgeStudyAPI(otherUID: String) {
+    func dodgeStudyAPI(otherUID: String, completionHandler: @escaping (Int) -> Void) {
         let api = SeSACAPI.dodgeStudy(otheruid: otherUID)
         
         AF.request(api.url, method: .post, parameters: api.parameters, headers: api.headers).responseData { response in
             switch response.result {
             case .success:
                 print("스터디 취소 성공 ✅✅✅✅✅")
-                
+                completionHandler(response.response?.statusCode ?? 0)
                 return
             case .failure:
                 print("스터디 취소 실패 ❌❌❌❌❌: ", response.response?.statusCode)

@@ -19,6 +19,7 @@ final class ChattingMoreView: BaseView {
         view.alignment = .fill
         view.distribution = .fillEqually
         view.spacing = 0
+        view.backgroundColor = .white
         return view
     }()
     
@@ -39,6 +40,7 @@ final class ChattingMoreView: BaseView {
     let reportLabel: UILabel = {
         let view = UILabel()
         view.text = "새싹 신고"
+        view.textColor = .black
         return view
     }()
     
@@ -59,6 +61,7 @@ final class ChattingMoreView: BaseView {
     let cancelLabel: UILabel = {
         let view = UILabel()
         view.text = "스터디 취소"
+        view.textColor = .black
         return view
     }()
     
@@ -79,6 +82,7 @@ final class ChattingMoreView: BaseView {
     let reviewLabel: UILabel = {
         let view = UILabel()
         view.text = "리뷰 등록"
+        view.textColor = .black
         return view
     }()
     
@@ -100,7 +104,7 @@ final class ChattingMoreView: BaseView {
         }
         
         self.addSubview(buttonStackView)
-        self.backgroundColor = .white
+        self.backgroundColor = .black.withAlphaComponent(0.5)
     }
     
     override func setConstraints() {

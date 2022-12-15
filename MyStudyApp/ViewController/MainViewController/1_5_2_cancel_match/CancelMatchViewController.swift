@@ -12,6 +12,8 @@ final class CancelMatchViewController: UIViewController {
     let mainView = MyInfoWithdrawView()
     let modelView = APIService()
     
+    var otherUID: String?
+    
     override func loadView() {
         view = mainView
     }
@@ -21,6 +23,8 @@ final class CancelMatchViewController: UIViewController {
         
         viewSetting()
         buttonSetting()
+        
+        print("매칭중인 사람 id: ", otherUID ?? "아이디 못받았어 ✅✅✅✅")
     }
     
     private func viewSetting() {
@@ -40,5 +44,34 @@ final class CancelMatchViewController: UIViewController {
     
     @objc func okButtonClikced() {
         
+    }
+    
+    private func cancelStudyAPI() {
+        modelView.dodgeStudyAPI(otherUID: otherUID ?? "") { statusCode in
+            switch statusCode {
+            case 200:
+                UserDefaults.standard.set(2, forKey: "matchingStatus")
+                self.changeRootVC()
+                
+                return
+            default:
+                self.view.makeToast("매칭취소 실패", position: .top)
+                
+                return
+            }
+        }
+    }
+    
+    func changeRootVC() {
+        let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+        let sceneDelegate = windowScene?.delegate as? SceneDelegate
+        
+        
+        let vc = MainMapViewController()
+        UIView.transition(with: (sceneDelegate?.window)!, duration: 0.6, options: [.transitionCrossDissolve], animations: nil, completion: nil)
+        let nav = UINavigationController(rootViewController: vc)
+        sceneDelegate?.window?.rootViewController = nav
+        sceneDelegate?.window?.makeKeyAndVisible()
+
     }
 }

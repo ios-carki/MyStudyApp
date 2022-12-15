@@ -7,6 +7,7 @@
 
 import UIKit
 
+import Hero
 import RealmSwift
 
 final class ChattingViewController: UIViewController {
@@ -58,6 +59,11 @@ final class ChattingViewController: UIViewController {
         //이벤트 수신
         NotificationCenter.default.addObserver(self, selector: #selector(getMessage(notification: )), name: NSNotification.Name("getMessage"), object: nil)
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tabBarController?.tabBar.isHidden = true
+    }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
@@ -75,16 +81,22 @@ final class ChattingViewController: UIViewController {
     
     //네비바 - 스터디 취소, 리뷰등록
     private func naviSetting() {
-        //self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "more"), style: .plain, target: self, action: #selector(moreButtonClikced))
-        rightMoreButtonSetting()
         self.title = matchedUserNick
+        self.navigationController?.navigationBar.tintColor = .black
+        self.navigationController?.navigationBar.topItem?.backButtonTitle = ""
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "more"), style: .plain, target: self, action: #selector(rightBarButtonClikced))
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black]
     }
     
-    private func rightMoreButtonSetting() {
-        let cancelStudy = UIAction(title: "스터디 취소") { action in
-            self.modelView.dodgeStudyAPI(otherUID: self.otherUID ?? "error")
-        }
-        self.navigationItem.rightBarButtonItem?.menu = UIMenu(image: UIImage(named: "more"), options: .displayInline, children: [cancelStudy])
+    @objc func rightBarButtonClikced() {
+        let vc = ChattingMoreViewController()
+        vc.modalPresentationStyle = .overCurrentContext
+        vc.hero.isEnabled = true
+        //vc.hero.modalAnimationType = .selectBy(presenting: .slide(direction: .down), dismissing: .slide(direction: .up))
+        vc.hero.modalAnimationType = .pageIn(direction: .down)
+        vc.otherUID = otherUID ?? ""
+        
+        self.present(vc, animated: true, completion: nil)
     }
     
     func sendButtonSetting() {
