@@ -23,13 +23,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.rootViewController = nav
         window?.makeKeyAndVisible()
         
-//        let vc = ChattingViewController()
+//        let vc = ChattingMoreViewController()
 //        let nav = UINavigationController(rootViewController: vc)
 //
 //        window?.rootViewController = nav
 //        window?.makeKeyAndVisible()
 
-        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

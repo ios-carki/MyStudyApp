@@ -23,13 +23,39 @@ final class SplashViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loginFunc()
+        //loginFunc()
         
+        if UserDefaults.standard.string(forKey: "idtoken") == nil {
+            self.getIdToken {
+                self.loginFunc()
+            }
+        } else {
+            loginFunc()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationSetting()
+    }
+    
+    func getIdToken(completionHandler: @escaping () -> ()) {
+        
+        guard let currentUser = Auth.auth().currentUser else { return }
+        currentUser.getIDTokenForcingRefresh(true) { idToken, error in
+          if let error = error {
+            // Handle error
+              print("Handle error")
+            return;
+          }
+            print("갱신성공!❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️")
+            print("갱신 id토큰: ", idToken)
+            UserDefaults.standard.set(idToken!, forKey: "idtoken")
+
+            print("갱신된 id토큰으로 재 로그인 시도")
+            completionHandler()
+        }
+        
     }
     
     func navigationSetting() {
@@ -72,7 +98,7 @@ final class SplashViewController: UIViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    func getIdToken() {
+    func getIdTokena() {
         
         guard let currentUser = Auth.auth().currentUser else { return }
         currentUser.getIDTokenForcingRefresh(true) { idToken, error in
@@ -109,7 +135,7 @@ final class SplashViewController: UIViewController {
             case 401:
                 print("에러코드: ", statusCode)
                 print("로그인 실패, idtoken 갱신필요")
-                self.getIdToken()
+                self.getIdTokena()
                 
             case 406:
                 print("에러코드: ", statusCode)

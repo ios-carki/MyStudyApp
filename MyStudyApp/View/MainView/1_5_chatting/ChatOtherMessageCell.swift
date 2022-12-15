@@ -68,7 +68,6 @@ final class ChatOtherMessageCell: UITableViewCell {
         
         receiveView.snp.makeConstraints { make in
             make.leading.equalTo(safeAreaLayoutGuide).offset(16)
-            make.trailing.equalTo(safeAreaLayoutGuide).offset(-56)
             make.verticalEdges.equalTo(safeAreaLayoutGuide).inset(16)
         }
         

@@ -10,6 +10,11 @@
 		C30F7CB2294769640050C045 /* UserChatData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30F7CB1294769640050C045 /* UserChatData.swift */; };
 		C30F7CB529476A200050C045 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = C30F7CB429476A200050C045 /* Realm */; };
 		C30F7CB729476A200050C045 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C30F7CB629476A200050C045 /* RealmSwift */; };
+		C30F7CBB294B5DBC0050C045 /* ChattingMoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30F7CBA294B5DBC0050C045 /* ChattingMoreView.swift */; };
+		C30F7CBD294B637B0050C045 /* ChattingMoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30F7CBC294B637B0050C045 /* ChattingMoreViewController.swift */; };
+		C30F7CC5294B68710050C045 /* CancelMatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30F7CC4294B68710050C045 /* CancelMatchViewController.swift */; };
+		C30F7CC7294B687C0050C045 /* WriteReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30F7CC6294B687C0050C045 /* WriteReviewView.swift */; };
+		C30F7CC9294B68840050C045 /* WriteReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30F7CC8294B68840050C045 /* WriteReviewViewController.swift */; };
 		C31DD3B9293B380D00ABB3AC /* UINavigation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31DD3B8293B380D00ABB3AC /* UINavigation+Extension.swift */; };
 		C31DD3BB293B3C2800ABB3AC /* ChatAlertCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31DD3BA293B3C2800ABB3AC /* ChatAlertCell.swift */; };
 		C31DD3BD293B3DA000ABB3AC /* ChatDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31DD3BC293B3DA000ABB3AC /* ChatDateCell.swift */; };
@@ -110,6 +115,11 @@
 
 /* Begin PBXFileReference section */
 		C30F7CB1294769640050C045 /* UserChatData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserChatData.swift; sourceTree = "<group>"; };
+		C30F7CBA294B5DBC0050C045 /* ChattingMoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingMoreView.swift; sourceTree = "<group>"; };
+		C30F7CBC294B637B0050C045 /* ChattingMoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingMoreViewController.swift; sourceTree = "<group>"; };
+		C30F7CC4294B68710050C045 /* CancelMatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelMatchViewController.swift; sourceTree = "<group>"; };
+		C30F7CC6294B687C0050C045 /* WriteReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteReviewView.swift; sourceTree = "<group>"; };
+		C30F7CC8294B68840050C045 /* WriteReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteReviewViewController.swift; sourceTree = "<group>"; };
 		C31DD3B8293B380D00ABB3AC /* UINavigation+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigation+Extension.swift"; sourceTree = "<group>"; };
 		C31DD3BA293B3C2800ABB3AC /* ChatAlertCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatAlertCell.swift; sourceTree = "<group>"; };
 		C31DD3BC293B3DA000ABB3AC /* ChatDateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDateCell.swift; sourceTree = "<group>"; };
@@ -232,6 +242,30 @@
 			path = Realm;
 			sourceTree = "<group>";
 		};
+		C30F7CBF294B678D0050C045 /* 1_5_3_write_review */ = {
+			isa = PBXGroup;
+			children = (
+				C30F7CC6294B687C0050C045 /* WriteReviewView.swift */,
+			);
+			path = 1_5_3_write_review;
+			sourceTree = "<group>";
+		};
+		C30F7CC0294B67D40050C045 /* 1_5_2_cancel_match */ = {
+			isa = PBXGroup;
+			children = (
+				C30F7CC4294B68710050C045 /* CancelMatchViewController.swift */,
+			);
+			path = 1_5_2_cancel_match;
+			sourceTree = "<group>";
+		};
+		C30F7CC1294B67E30050C045 /* 1_5_3_write_review */ = {
+			isa = PBXGroup;
+			children = (
+				C30F7CC8294B68840050C045 /* WriteReviewViewController.swift */,
+			);
+			path = 1_5_3_write_review;
+			sourceTree = "<group>";
+		};
 		C31DD3C2293B610700ABB3AC /* Chat */ = {
 			isa = PBXGroup;
 			children = (
@@ -244,6 +278,7 @@
 		C32C821A291E5C2F0070F387 /* MainView */ = {
 			isa = PBXGroup;
 			children = (
+				C30F7CBF294B678D0050C045 /* 1_5_3_write_review */,
 				C3B28AA5292CA81200B284BB /* 1_5_chatting */,
 				C3C68951292A143B00B59D0C /* 1_3_near_user */,
 				C3C689172924E7AE00B59D0C /* 1_2_study */,
@@ -262,6 +297,8 @@
 		C32C821B291E5C370070F387 /* MainViewController */ = {
 			isa = PBXGroup;
 			children = (
+				C30F7CC1294B67E30050C045 /* 1_5_3_write_review */,
+				C30F7CC0294B67D40050C045 /* 1_5_2_cancel_match */,
 				C3B28AA6292CA82200B284BB /* 1_5_chatting */,
 				C3C68952292A145700B59D0C /* 1_3_near_user */,
 				C3C689182924E7BC00B59D0C /* 1_2_study */,
@@ -464,6 +501,7 @@
 				C31DD3BC293B3DA000ABB3AC /* ChatDateCell.swift */,
 				C31DD3BE293B410700ABB3AC /* ChatMyMessageCell.swift */,
 				C31DD3C0293B41C900ABB3AC /* ChatOtherMessageCell.swift */,
+				C30F7CBA294B5DBC0050C045 /* ChattingMoreView.swift */,
 			);
 			path = 1_5_chatting;
 			sourceTree = "<group>";
@@ -472,6 +510,7 @@
 			isa = PBXGroup;
 			children = (
 				C3B28AA7292CA83800B284BB /* ChattingViewController.swift */,
+				C30F7CBC294B637B0050C045 /* ChattingMoreViewController.swift */,
 			);
 			path = 1_5_chatting;
 			sourceTree = "<group>";
@@ -835,7 +874,9 @@
 				C32C8244291FB7F50070F387 /* KEY.swift in Sources */,
 				C3B28AAE292DF2C600B284BB /* StudyCollectionViewCell.swift in Sources */,
 				C32C8222291E609A0070F387 /* User.swift in Sources */,
+				C30F7CC7294B687C0050C045 /* WriteReviewView.swift in Sources */,
 				C372E934293336EC00B0462D /* NearSeSACView.swift in Sources */,
+				C30F7CBB294B5DBC0050C045 /* ChattingMoreView.swift in Sources */,
 				C32C8246291FC4960070F387 /* URL+Extension.swift in Sources */,
 				C36907F629220DB2002B4C4D /* MyInfoCustomTableView.swift in Sources */,
 				C36907FA29221E91002B4C4D /* SecondMyInfoView.swift in Sources */,
@@ -853,6 +894,7 @@
 				C3C6890D2924CE7E00B59D0C /* MainShopKindViewController.swift in Sources */,
 				C372E98329357DDD00B0462D /* NearUserPopupViewController.swift in Sources */,
 				C372E9302933344400B0462D /* RequestSeSACViewController.swift in Sources */,
+				C30F7CBD294B637B0050C045 /* ChattingMoreViewController.swift in Sources */,
 				C3C689052924CCC200B59D0C /* MainPlusFriendsView.swift in Sources */,
 				C3B28AD6292FAF9C00B284BB /* StudyHeaderView.swift in Sources */,
 				C31DD3C1293B41C900ABB3AC /* ChatOtherMessageCell.swift in Sources */,
@@ -860,6 +902,7 @@
 				C31DD3C4293B610F00ABB3AC /* Chat.swift in Sources */,
 				C3C22662291A62590042062A /* EmailView.swift in Sources */,
 				C372E92E29332D0D00B0462D /* RequestSeSACView.swift in Sources */,
+				C30F7CC5294B68710050C045 /* CancelMatchViewController.swift in Sources */,
 				C3C688E5292394B400B59D0C /* UserSettingTableCell.swift in Sources */,
 				C31DD3C6293B756800ABB3AC /* SocketIOManager.swift in Sources */,
 				C3C68954292A146C00B59D0C /* TabManView.swift in Sources */,
@@ -890,6 +933,7 @@
 				C3C22658291A50D50042062A /* SecondLoginView.swift in Sources */,
 				C3C689132924CEA300B59D0C /* MainPlusFriendsViewController.swift in Sources */,
 				C3C68956292A147600B59D0C /* TabManViewController.swift in Sources */,
+				C30F7CC9294B68840050C045 /* WriteReviewViewController.swift in Sources */,
 				C372E932293336D700B0462D /* NearSeSACViewController.swift in Sources */,
 				C3C2265C291A5CB50042062A /* NickNameViewController.swift in Sources */,
 				C3C22660291A604D0042062A /* BirthViewController.swift in Sources */,
@@ -1053,7 +1097,7 @@
 				CODE_SIGN_ENTITLEMENTS = MyStudyApp/MyStudyApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 48S4T8HCYX;
+				DEVELOPMENT_TEAM = 2EZ5QWFYX2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MyStudyApp/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "";
@@ -1069,7 +1113,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.memolease.sesacslp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.memolease.sesac1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -1088,7 +1132,7 @@
 				CODE_SIGN_ENTITLEMENTS = MyStudyApp/MyStudyApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 48S4T8HCYX;
+				DEVELOPMENT_TEAM = 2EZ5QWFYX2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MyStudyApp/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "";
@@ -1104,7 +1148,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.memolease.sesacslp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.memolease.sesac1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;

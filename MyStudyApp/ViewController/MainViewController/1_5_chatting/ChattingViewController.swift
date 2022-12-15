@@ -15,10 +15,18 @@ final class ChattingViewController: UIViewController {
     let modelView = APIService()
     
     var myIdString: String?
+    var otherUID: String?
+    var matchedUserNick: String?
     
     var chat: [chatData] = []
     var myMessage: [String] = []
     var oldChatData: [chatData] = []
+    
+    let dateFormatter: DateFormatter = {
+        let format = DateFormatter()
+        format.locale = Locale(identifier: "ko_KR")
+        return format
+    }()
     
     let localRealm = try! Realm()
     var tasks: Results<UserChatData>! {
@@ -27,7 +35,6 @@ final class ChattingViewController: UIViewController {
             mainView.messageTableView.reloadData()
         }
     }
-    var otherUID: String?
     
     override func loadView() {
         view = mainView
@@ -45,6 +52,7 @@ final class ChattingViewController: UIViewController {
         tableSetting()
         sendButtonSetting()
         myID()
+        userStatusAPI()
         print("내 id값", myIdString)
 
         //이벤트 수신
@@ -61,8 +69,6 @@ final class ChattingViewController: UIViewController {
     //MARK: 1. DB에서 상대방 UID 필터링해서 가져옴
     private func fetchRealm(_ completion: () -> ()) {
         tasks = localRealm.objects(UserChatData.self)
-            .sorted(byKeyPath: "userID")
-            .where { $0.userID == otherUID! }
         completion()
         
     }
@@ -71,7 +77,7 @@ final class ChattingViewController: UIViewController {
     private func naviSetting() {
         //self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "more"), style: .plain, target: self, action: #selector(moreButtonClikced))
         rightMoreButtonSetting()
-        
+        self.title = matchedUserNick
     }
     
     private func rightMoreButtonSetting() {
@@ -142,13 +148,13 @@ final class ChattingViewController: UIViewController {
     
     func fetchChat() {
         let lastChat = localRealm.objects(UserChatData.self)
-            .filter("userID == '\(UserDefaults.standard.string(forKey: "userUID")!)'")
+            .filter("userID == '\(otherUID)'")
             .sorted(byKeyPath: "createdAt", ascending: false)
             .first
       
         print("lastChat결과!!!!!!: ", lastChat)
         
-        modelView.fetchChat(otherUID: UserDefaults.standard.string(forKey: "userUID")!, lastChatDate: "\(lastChat)") { statusCode, chatData in
+        modelView.fetchChat(otherUID: otherUID ?? "", lastChatDate: "\(lastChat)") { statusCode, chatData in
             switch statusCode {
             case 200:
                 
@@ -210,6 +216,19 @@ final class ChattingViewController: UIViewController {
         }
     }
     
+    func userStatusAPI() {
+        modelView.myQueueState { data, statusCode in
+            switch statusCode {
+            case 200:
+                print("큐 확인 성공")
+                self.otherUID = data?.matchedUid
+                return
+            default:
+                print("큐 확인 실패")
+            }
+        }
+    }
+    
 }
 
 extension ChattingViewController: UITableViewDataSource, UITableViewDelegate {
@@ -219,27 +238,25 @@ extension ChattingViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //let data = chat[indexPath.row]
         let data = tasks[indexPath.row]
-//        print("데이터상 내 아이디 값: ", indexPath.row)
-//        print("전달받은 내 아이디: ", indexPath.row, myIdString!)
-//        print("상대방 id, ", indexPath.row, UserDefaults.standard.string(forKey: "userUID")!)
+        
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        let convertDate = dateFormatter.date(from: data.createdAt)
+        
+        dateFormatter.dateFormat = "HH:mm"
+        
         UserDefaults.standard.set(myIdString!, forKey: "myID")
         
-        print("내 아이디: \(myIdString!)_____ 상대방 아이디: \(data.userID)")
-        if data.userID == myIdString! {
-           print("같을때 :", data.userID)
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: ChatMyMessageCell.identifier) as? ChatMyMessageCell else { return UITableViewCell() }
+        if data.userID == myIdString ?? "" {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: ChatOtherMessageCell.identifier) as? ChatOtherMessageCell else { return UITableViewCell() }
             cell.chatTextLabel.text = data.chat
-            //print("내 버블: ", indexPath.row, myIdString!)
-            
+            cell.timeLabel.text = dateFormatter.string(from: convertDate ?? Date())
 
             return cell
         } else {
-            print("다를때 :", data.userID)
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: ChatOtherMessageCell.identifier) as? ChatOtherMessageCell else { return UITableViewCell() }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: ChatMyMessageCell.identifier) as? ChatMyMessageCell else { return UITableViewCell() }
             cell.chatTextLabel.text = data.chat
-            print("상대방 버블: ", indexPath.row, myIdString!)
+            cell.timeLabel.text = dateFormatter.string(from: convertDate ?? Date())
             
             return cell
         } 

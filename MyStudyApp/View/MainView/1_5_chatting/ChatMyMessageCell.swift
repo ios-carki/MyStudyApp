@@ -67,7 +67,6 @@ final class ChatMyMessageCell: UITableViewCell {
     private func setConstraints() {
         
         sendView.snp.makeConstraints { make in
-            make.leading.equalTo(safeAreaLayoutGuide).offset(56)
             make.trailing.equalTo(safeAreaLayoutGuide).offset(-16)
             make.verticalEdges.equalTo(safeAreaLayoutGuide).inset(16)
         }

@@ -11,13 +11,18 @@ import SocketIO
 
 final class SocketIOManager {
     static let shared = SocketIOManager()
+    let modelView = APIService()
     
     //서버와 메시지를 주고 받기 위한 클래스
     var manager: SocketManager!
     
     var socket: SocketIOClient!
     
+    var myID: String?
+    
     private init() {
+        loginAPI()
+        
         manager = SocketManager(socketURL: URL(string: APIKey.socket)!, config: [
             //.log(true),
             .forceWebsockets(true)
@@ -29,7 +34,8 @@ final class SocketIOManager {
         //연결
         socket.on(clientEvent: .connect) { data, ack in
             print("SOCKET IS CONNECTED", data, ack)
-            self.socket.emit("changesocketid", UserDefaults.standard.string(forKey: "myID")!)
+            self.socket.emit("changesocketid", self.myID ?? "")
+            print("마이 아이디: ", self.myID ?? "")
              
         }
         
@@ -62,5 +68,20 @@ final class SocketIOManager {
     func cloaseConnect() {
         socket.disconnect()
         print("소켓 연결 해제됨 🔴🔴🔴🔴🔴")
+    }
+    
+    private func loginAPI() {
+        modelView.login { data, statusCode in
+            switch statusCode {
+            case 200:
+                print("로그인 성공")
+                self.myID = data?.uid
+                print("내 아이디는: 입니다: ", data?.uid ?? "")
+                return
+            default:
+                print("로그인 API에러")
+                return
+            }
+        }
     }
 }

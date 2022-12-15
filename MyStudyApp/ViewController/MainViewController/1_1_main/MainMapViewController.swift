@@ -23,6 +23,7 @@ final class MainMapViewController: UIViewController {
     var userState: Int?
     var myID: String?
     var matchedUserID: String?
+    var matchedUserNick: String?
     
     //about location
     var locationManager: CLLocationManager = CLLocationManager()
@@ -83,6 +84,7 @@ final class MainMapViewController: UIViewController {
             let vc = ChattingViewController()
             vc.otherUID = matchedUserID
             vc.myIdString = myID
+            vc.matchedUserNick = matchedUserNick
             
             navigationController?.pushViewController(vc, animated: true)
         } else {
@@ -121,6 +123,7 @@ final class MainMapViewController: UIViewController {
                 print("200 데이터 확인: ", data)
                 UserDefaults.standard.set(data?.matched, forKey: "matchingStatus")
                 self.matchedUserID = data?.matchedUid
+                self.matchedUserNick = data?.matchedNick
                 return
             case 201:
                 print("201 데이터 확인: ", data)
