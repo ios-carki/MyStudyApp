@@ -50,6 +50,9 @@ final class ChattingMoreViewController: UIViewController {
     }
     
     @objc func reviewButtonClikced() {
+        let vc = WriteReviewViewController()
+        vc.modalPresentationStyle = .overCurrentContext
         
+        self.present(vc, animated: false)
     }
 }

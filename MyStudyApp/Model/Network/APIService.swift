@@ -82,6 +82,12 @@ struct MyQueueState: Codable {
     let matchedUid: String
 }
 
+struct rateData: Codable {
+    let otheruid: String
+    let reputation: [Int]
+    let comment: String
+}
+
 final class APIService {
     
     func signup(phoneNum: String, FCMToken: String, nickName: String, birth: String, email: String, gender: String, completionHandler: @escaping (Int) -> Void) {
@@ -295,6 +301,25 @@ final class APIService {
             case .failure:
                 print("채팅 내역 패치 오류", #function)
                 print(response.response?.statusCode)
+                return
+            }
+        }
+    }
+    
+    //MARK: 리뷰 남기기
+    func rate(otherUID: String, completionHandler: @escaping (Int) -> Void) {
+        let api = SeSACAPI.rate(otheruid: otherUID)
+        let rateURL = APIKey.reviewURL + otherUID
+        
+        AF.request(rateURL, method: .post, headers: api.headers).responseDecodable(of: rateData.self) { response in
+            switch response.result {
+            case .success:
+                completionHandler(response.response?.statusCode ?? 0)
+                
+                return
+            case .failure:
+                print("리뷰남기기 실패✅✅✅✅✅✅✅✅", response.response?.statusCode)
+                
                 return
             }
         }

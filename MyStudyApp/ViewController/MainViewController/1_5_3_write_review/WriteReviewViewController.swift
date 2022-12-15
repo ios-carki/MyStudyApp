@@ -9,4 +9,14 @@ import UIKit
 
 final class WriteReviewViewController: UIViewController {
     
+    let mainView = WriteReviewView()
+    
+    override func loadView() {
+        view = mainView
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+    }
 }
