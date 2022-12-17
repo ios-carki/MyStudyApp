@@ -1,16 +1,16 @@
-# About Project
+# 📱 About Project
 1. 인앱 결제 및 소켓 학습을위한 서비스 레벨 프로젝트
 2. 위치기반 스터디 매칭 앱
 3. 서버통신 (회원가입, 로그인, 주변유저 검색, 내 매칭 상태, 스터디 요청 / 수락하기, 스터디 취소, 상대방 리뷰 등...)
 
-# ScreenShot
+# 📲 ScreenShot
 
 <img width="710" alt="스크린샷 2022-12-17 오전 3 22 40" src="https://user-images.githubusercontent.com/44957712/208163975-9e9618e8-1e70-42bd-a2d7-ffa7584b418c.png">
 
 <img width="469" alt="스크린샷 2022-12-17 오전 3 27 07" src="https://user-images.githubusercontent.com/44957712/208164674-f3a86026-b4ed-4b23-ac9f-b794d8027f44.png">
 
 * * *
-# Issue
+# 🔴 Issue
 
 ### 1. 회원가입(SignUp) API Request
 - Status Code 401(idToken 갱신 필요) Error Handling
