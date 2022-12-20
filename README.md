@@ -231,7 +231,7 @@ cell.nickNameView.addGestureRecognizer(cardViewTapped)
 var currentLat = String(format: "%.4f", currentLocation.coordinate.latitude)
 var currentLong = String(format: "%.4f", currentLocation.coordinate.longitude)
 ```
-
+* * *
 ### Performance 회고
 
 협업을 통해 팀원간 이해관계 충돌에 대한 합의점 조정과 이슈 공유를 통해 Team Activity를 경험하게 됐고,
