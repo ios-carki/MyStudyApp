@@ -232,7 +232,11 @@ var currentLat = String(format: "%.4f", currentLocation.coordinate.latitude)
 var currentLong = String(format: "%.4f", currentLocation.coordinate.longitude)
 ```
 
+### Performance 회고
 
+협업을 통해 팀원간 이해관계 충돌에 대한 합의점 조정과 이슈 공유를 통해 Team Activity를 경험하게 됐고,
+
+실제 서비스 레벨의 프로젝트를 통해 서비스 기획, 설계를 경험할 수 있는 기회의 프로젝트를 경험하게 됐습니다.
 
 
 
