@@ -124,11 +124,8 @@ final class LoginViewController: UIViewController {
     
     func isValidPhone(phone: String?) -> Bool {
         guard phone != nil else { return false }
-
-        //let regex = "^01[0-1, 7][0-9]{7,8}$"
         
         let phoneRegEx = "^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$"
-        //let phoneRegEx = "^01[0-1, 7][0-9]{7,8}$"
         let pred = NSPredicate(format:"SELF MATCHES %@", phoneRegEx)
         return pred.evaluate(with: phone)
     }

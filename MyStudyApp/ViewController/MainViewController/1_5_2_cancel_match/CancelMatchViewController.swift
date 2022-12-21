@@ -43,7 +43,7 @@ final class CancelMatchViewController: UIViewController {
     }
     
     @objc func okButtonClikced() {
-        
+        cancelStudyAPI()
     }
     
     private func cancelStudyAPI() {
@@ -75,3 +75,8 @@ final class CancelMatchViewController: UIViewController {
 
     }
 }
+
+/*
+ 스터디 취소 후 메인 지도뷰로 넘어오면 텝바 사라지는 문제
+ 다른 사람이랑 매칭되면 다른 사람의 채팅 기록 까지 넘어오는 문제
+ */

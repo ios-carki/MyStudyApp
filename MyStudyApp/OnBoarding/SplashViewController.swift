@@ -115,6 +115,7 @@ final class SplashViewController: UIViewController {
         }
     }
     
+    
     func loginFunc() {
         
         modelView.login { (data, statusCode) in
@@ -132,11 +133,13 @@ final class SplashViewController: UIViewController {
                 DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
                     self.oldUserSplashControl()
                 }
+                return
             case 401:
                 print("에러코드: ", statusCode)
                 print("로그인 실패, idtoken 갱신필요")
                 self.getIdTokena()
                 
+                return
             case 406:
                 print("에러코드: ", statusCode)
                 print("로그인 실패, 미가입유저")
@@ -145,17 +148,21 @@ final class SplashViewController: UIViewController {
                     self.newUserSplashControl()
                 }
                 //MARK: checkList 두 가지 케이스
+                return
             case 500:
                 print("에러코드: ", statusCode)
                 print("로그인 실패, 서버에러 - FCMtoken및 URL 확인 필요")
                 //Revise: FCM토큰 발급, URL 이상함 -> [check] -> 로그인부터?
                 
+                return
             case 501:
                 print("에러코드: ", statusCode)
                 print("로그인 실패, 클라이언트 에러 - API 요청시 Header와 RequestBody에 값을 빠트리지 않고 전송했는지 확인")
                 //Revise: FCM토큰 발급, URL 이상함 -> [check] -> 로그인부터? / 얼럿 띄워서 앱 종료?
+                return
             default:
                 print("에러코드: ", statusCode)
+                return
             }
         }
     }

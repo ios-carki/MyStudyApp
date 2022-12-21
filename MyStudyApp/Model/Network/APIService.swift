@@ -93,14 +93,6 @@ final class APIService {
     func signup(phoneNum: String, FCMToken: String, nickName: String, birth: String, email: String, gender: String, completionHandler: @escaping (Int) -> Void) {
         let api = SeSACAPI.signup(phoneNumber: phoneNum, FCMtoken: FCMToken, nick: nickName, birth: birth, email: email, gender: gender)
         
-        print("URL검사: ", api.url)
-        print("phoneNum검사: ", phoneNum)
-        print("FCMToken검사: ", FCMToken)
-        print("nickName검사: ", nickName)
-        print("birth검사: ", birth)
-        print("email검사: ", email)
-        print("gender검사: ", gender)
-        
         AF.request(api.url, method: .post, parameters: api.parameters, headers: api.headers).responseString { response in
             
             completionHandler(response.response?.statusCode ?? 0)
@@ -339,6 +331,23 @@ final class APIService {
             
             print("갱신된 id토큰으로 재 로그인 시도")
             
+        }
+    }
+    
+    func getIdTokenLogin(completion: @escaping () -> Void) {
+        
+        guard let currentUser = Auth.auth().currentUser else { return }
+        currentUser.getIDTokenForcingRefresh(true) { idToken, error in
+          if let error = error {
+            // Handle error
+            return;
+          }
+            print("갱신성공!❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️")
+            print("갱신 id토큰: ", idToken)
+            UserDefaults.standard.set(idToken!, forKey: "idtoken")
+            
+            print("갱신된 id토큰으로 재 로그인 시도")
+            completion()
         }
     }
 }
