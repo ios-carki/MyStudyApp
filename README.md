@@ -6,6 +6,15 @@
 회원가입이 완료된 후 **CLLocation과 MapKit을 활용한 앱의 메인 지도뷰로 RootView가 전환**되며, 만약 **기존 유저가 로그인할 시 회원가입 로직은 건너 뛰며 RootView는 메인 지도뷰**가 됩니다.
 
 이용자 상호간에 **매칭 요청 / 수락을 통해 매칭이 이루어지고** 매칭된 사용자끼리 **Web Socket를 통한 1:1 실시간 채팅**이 가능하며, 유저간 재 매칭을 고려해 **과거의 채팅 내용을 Realm DB를 통해 저장시켜 데이터 영속성을 유지**시켰으며 이를 통해 DB상 가장 마지막 날짜에 저장된 채팅 이력은 DB를 통해 받아오기 때문에 **불필요한 소켓 통신을 제외**시켜 앱 성능향상이 가능했습니다.
+
+# 🔨 Tech
+Architecture - MVC / MVVM
+
+Framework - MapKit / UserNotifications / UIKit / CoreLocation / StoreKit
+
+Library - Realm / Firebase / IQKeyboardManager / SnapKit / Toast / SocketIO / Hero / JJFloatingActionButton / Tabman / RxSwift / RxCocoa / Alamofire
+
+Tool - Figma / Confluence / Swagger
 # 📲 ScreenShot
 
 <img width="710" alt="스크린샷 2022-12-17 오전 3 22 40" src="https://user-images.githubusercontent.com/44957712/208163975-9e9618e8-1e70-42bd-a2d7-ffa7584b418c.png">
@@ -13,7 +22,7 @@
 <img width="469" alt="스크린샷 2022-12-17 오전 3 27 07" src="https://user-images.githubusercontent.com/44957712/208164674-f3a86026-b4ed-4b23-ac9f-b794d8027f44.png">
 
 * * *
-# 🔴 Issue
+# 🔴 Trouble Shooting
 
 ### 1. 회원가입(SignUp) API Request
 - Status Code 401(idToken 갱신 필요) Error Handling
@@ -232,11 +241,18 @@ var currentLat = String(format: "%.4f", currentLocation.coordinate.latitude)
 var currentLong = String(format: "%.4f", currentLocation.coordinate.longitude)
 ```
 * * *
-### Performance 회고
+# 🤔 프로젝트 회고
 
 협업을 통해 팀원간 이해관계 충돌에 대한 합의점 조정과 이슈 공유를 통해 Team Activity를 경험하게 됐고,
 
 실제 서비스 레벨의 프로젝트를 통해 서비스 기획, 설계를 경험할 수 있는 기회의 프로젝트를 경험하게 됐습니다.
 
-
-
+- **BaseView, BaseVC, BaseCell**를 활용하여 **확장성** 높은 코드구현.
+- **MVVM + RxSwift**를 통한 반응형 프로그래밍.
+- **RESTful** **API 통신**을 활용하여 **클라이언트 - 서버 개발**에 대한 숙련도 향상.
+- **MapKit + GPS**를 통한 위치 기반 서비스 구현.
+- **SocketIO**를 활용한 소켓통신기반 1:1 채팅 구현.
+- **Realm**을 통한 과거 채팅 내역에 대한 데이터 영속성 유지.
+- **FirebaseAuth**를 통해 **전화번호 인증 로직** 및 **idtoken 갱신** 구현.
+- **FirebaseMessaging**을 통해 **Push Notification 구현** 및 **유저 매칭알림, 채팅 내용, 알림 개수 뱃지** 대응**.**
+- **Sandbox 계정**을 통해 비소모성 **In-App Purchase** 테스트 구현.
