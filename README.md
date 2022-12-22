@@ -15,7 +15,7 @@ Framework - MapKit / UserNotifications / UIKit / CoreLocation / StoreKit
 Library - Realm / Firebase / IQKeyboardManager / SnapKit / Toast / SocketIO / Hero / JJFloatingActionButton / Tabman / RxSwift / RxCocoa / Alamofire
 
 Tool - Figma / Confluence / Swagger
-# 📲 ScreenShot
+# 📲 Sample App Views
 
 <img width="710" alt="스크린샷 2022-12-17 오전 3 22 40" src="https://user-images.githubusercontent.com/44957712/208163975-9e9618e8-1e70-42bd-a2d7-ffa7584b418c.png">
 
