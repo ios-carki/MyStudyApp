@@ -145,7 +145,7 @@ final class GenderViewController: UIViewController {
     
     func appStart() {
         let homeViewController = UINavigationController(rootViewController: MainMapViewController())
-        let sesacShopViewController = UINavigationController(rootViewController: MainShopKindViewController())
+        let sesacShopViewController = UINavigationController(rootViewController: ShopTapmanViewController())
         let sesacFriendViewController = UINavigationController(rootViewController: MainFriendsViewController())
         let myInfoViewController = UINavigationController(rootViewController: MyInfoViewController())
 

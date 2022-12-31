@@ -23,7 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.rootViewController = nav
         window?.makeKeyAndVisible()
         
-//        let vc = WriteReviewViewController()
+//        let vc = ShopTapmanViewController()
 //        let nav = UINavigationController(rootViewController: vc)
 //
 //        window?.rootViewController = nav

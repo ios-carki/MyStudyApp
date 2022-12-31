@@ -64,7 +64,7 @@ final class SplashViewController: UIViewController {
     
     func oldUserSplashControl() {
         let homeViewController = UINavigationController(rootViewController: MainMapViewController())
-        let sesacShopViewController = UINavigationController(rootViewController: MainShopKindViewController())
+        let sesacShopViewController = UINavigationController(rootViewController: ShopTapmanViewController())
         let sesacFriendViewController = UINavigationController(rootViewController: MainFriendsViewController())
         let myInfoViewController = UINavigationController(rootViewController: MyInfoViewController())
 

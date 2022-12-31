@@ -10,6 +10,7 @@ import Foundation
 import Alamofire
 import FirebaseAuth
 import FirebaseCore
+import Toast
 
 
 //로그인 Post해서 받은 형태 -> 토큰만 받았기 때문에 토큰 파라미터 하나만 생성
@@ -311,6 +312,44 @@ final class APIService {
                 return
             case .failure:
                 print("리뷰남기기 실패✅✅✅✅✅✅✅✅", response.response?.statusCode)
+                
+                return
+            }
+        }
+    }
+    
+    //MARK: In_App 새싹샵 내 정보 요청
+    func shopMyInfo(completionHandler: @escaping (UserData) -> Void) {
+        let api = SeSACAPI.shopMyInfo
+        
+        AF.request(api.url, method: .get, headers: api.headers).responseDecodable(of: UserData.self) { response in
+            switch response.result {
+            case .success(let data):
+                print("새싹샵 유저 정보 불러오기 성공✅✅✅✅✅: ", response.response?.statusCode ?? 0)
+                completionHandler(data)
+                return
+            case .failure:
+                print("새싹샵 유저 정보 불러오기 실패❌❌❌❌❌: ", response.response?.statusCode ?? 0)
+                return
+            }
+        }
+    }
+    
+    //MARK: In_App 유저 프로필 새싹, 배경화면 업데이트
+    func sesacUpdate(sesac: String?, background: String?, completionHandler: @escaping (Int) -> Void) {
+        let api = SeSACAPI.sesacDetail(sesac: sesac ?? "0", background: background ?? "0")
+        
+        AF.request(api.url, method: .post, parameters: api.parameters, headers: api.headers).responseDecodable(of: shopItem.self) { response in
+            switch response.result {
+            case .success:
+                print("새싹 디테일 요청 성공✅✅✅✅✅: 상태코드 = ", response.response?.statusCode ?? 0)
+                
+                return
+            case .failure:
+                print("들어간 API PARAMETERS: ", api.parameters)
+                print("들어간 API HEADERS: ", api.headers)
+                print("새싹 디테일 요청 실패❌❌❌❌❌: 상태코드 = ", response.response?.statusCode ?? 0)
+                completionHandler(response.response?.statusCode ?? 0)
                 
                 return
             }

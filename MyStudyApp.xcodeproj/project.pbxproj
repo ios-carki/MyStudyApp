@@ -52,6 +52,16 @@
 		C372E98329357DDD00B0462D /* NearUserPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C372E98229357DDD00B0462D /* NearUserPopupViewController.swift */; };
 		C372E9CC293B06DD00B0462D /* RequestPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C372E9CB293B06DD00B0462D /* RequestPopupViewController.swift */; };
 		C37AADA2294BC1A80051E68E /* Hero in Frameworks */ = {isa = PBXBuildFile; productRef = C37AADA1294BC1A80051E68E /* Hero */; };
+		C3A1EF9B295C14AD00ADB845 /* ShopTapmanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A1EF9A295C14AD00ADB845 /* ShopTapmanViewController.swift */; };
+		C3A1EF9D295C14DF00ADB845 /* ShopTabmanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A1EF9C295C14DF00ADB845 /* ShopTabmanView.swift */; };
+		C3A1EF9F295C68B500ADB845 /* ShopSeSACView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A1EF9E295C68B500ADB845 /* ShopSeSACView.swift */; };
+		C3A1EFA1295C68F300ADB845 /* ShopSeSACViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A1EFA0295C68F300ADB845 /* ShopSeSACViewController.swift */; };
+		C3A1EFA3295C690100ADB845 /* ShopBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A1EFA2295C690100ADB845 /* ShopBackgroundView.swift */; };
+		C3A1EFA5295C690C00ADB845 /* ShopBackgroundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A1EFA4295C690C00ADB845 /* ShopBackgroundViewController.swift */; };
+		C3A1EFA7295C6B1D00ADB845 /* ShopSeSACCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A1EFA6295C6B1D00ADB845 /* ShopSeSACCell.swift */; };
+		C3A1EFA9295D471800ADB845 /* ShopBackgroundCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A1EFA8295D471800ADB845 /* ShopBackgroundCell.swift */; };
+		C3A1EFAB295D75EC00ADB845 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A1EFAA295D75EC00ADB845 /* BaseTableViewCell.swift */; };
+		C3A1EFAE295D8AAA00ADB845 /* ShopData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A1EFAD295D8AAA00ADB845 /* ShopData.swift */; };
 		C3B28AA8292CA83800B284BB /* ChattingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B28AA7292CA83800B284BB /* ChattingViewController.swift */; };
 		C3B28AAA292CA83D00B284BB /* ChattingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B28AA9292CA83D00B284BB /* ChattingView.swift */; };
 		C3B28AAE292DF2C600B284BB /* StudyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B28AAD292DF2C600B284BB /* StudyCollectionViewCell.swift */; };
@@ -87,13 +97,11 @@
 		C3C688E5292394B400B59D0C /* UserSettingTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C688E4292394B400B59D0C /* UserSettingTableCell.swift */; };
 		C3C688EB2923BA9500B59D0C /* MyInfoWithdrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C688EA2923BA9500B59D0C /* MyInfoWithdrawView.swift */; };
 		C3C688ED2923BA9E00B59D0C /* MyInfoWithdrawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C688EC2923BA9E00B59D0C /* MyInfoWithdrawViewController.swift */; };
-		C3C688FF2924CC8B00B59D0C /* MainShopKindView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C688FE2924CC8B00B59D0C /* MainShopKindView.swift */; };
 		C3C689012924CC9600B59D0C /* MainShopBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C689002924CC9600B59D0C /* MainShopBackgroundView.swift */; };
 		C3C689032924CCAD00B59D0C /* MainFriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C689022924CCAD00B59D0C /* MainFriendsView.swift */; };
 		C3C689052924CCC200B59D0C /* MainPlusFriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C689042924CCC200B59D0C /* MainPlusFriendsView.swift */; };
 		C3C689092924CD5E00B59D0C /* MainMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C689082924CD5E00B59D0C /* MainMapViewController.swift */; };
 		C3C6890B2924CD6800B59D0C /* MainMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C6890A2924CD6800B59D0C /* MainMapView.swift */; };
-		C3C6890D2924CE7E00B59D0C /* MainShopKindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C6890C2924CE7E00B59D0C /* MainShopKindViewController.swift */; };
 		C3C6890F2924CE8A00B59D0C /* MainShopBackgroundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C6890E2924CE8A00B59D0C /* MainShopBackgroundViewController.swift */; };
 		C3C689112924CE9500B59D0C /* MainFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C689102924CE9500B59D0C /* MainFriendsViewController.swift */; };
 		C3C689132924CEA300B59D0C /* MainPlusFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C689122924CEA300B59D0C /* MainPlusFriendsViewController.swift */; };
@@ -150,6 +158,16 @@
 		C372E95D2933963400B0462D /* Image+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Extension.swift"; sourceTree = "<group>"; };
 		C372E98229357DDD00B0462D /* NearUserPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearUserPopupViewController.swift; sourceTree = "<group>"; };
 		C372E9CB293B06DD00B0462D /* RequestPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestPopupViewController.swift; sourceTree = "<group>"; };
+		C3A1EF9A295C14AD00ADB845 /* ShopTapmanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopTapmanViewController.swift; sourceTree = "<group>"; };
+		C3A1EF9C295C14DF00ADB845 /* ShopTabmanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopTabmanView.swift; sourceTree = "<group>"; };
+		C3A1EF9E295C68B500ADB845 /* ShopSeSACView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopSeSACView.swift; sourceTree = "<group>"; };
+		C3A1EFA0295C68F300ADB845 /* ShopSeSACViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopSeSACViewController.swift; sourceTree = "<group>"; };
+		C3A1EFA2295C690100ADB845 /* ShopBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopBackgroundView.swift; sourceTree = "<group>"; };
+		C3A1EFA4295C690C00ADB845 /* ShopBackgroundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopBackgroundViewController.swift; sourceTree = "<group>"; };
+		C3A1EFA6295C6B1D00ADB845 /* ShopSeSACCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopSeSACCell.swift; sourceTree = "<group>"; };
+		C3A1EFA8295D471800ADB845 /* ShopBackgroundCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopBackgroundCell.swift; sourceTree = "<group>"; };
+		C3A1EFAA295D75EC00ADB845 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		C3A1EFAD295D8AAA00ADB845 /* ShopData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopData.swift; sourceTree = "<group>"; };
 		C3B28AA7292CA83800B284BB /* ChattingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingViewController.swift; sourceTree = "<group>"; };
 		C3B28AA9292CA83D00B284BB /* ChattingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingView.swift; sourceTree = "<group>"; };
 		C3B28AAD292DF2C600B284BB /* StudyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -185,13 +203,11 @@
 		C3C688E4292394B400B59D0C /* UserSettingTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingTableCell.swift; sourceTree = "<group>"; };
 		C3C688EA2923BA9500B59D0C /* MyInfoWithdrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoWithdrawView.swift; sourceTree = "<group>"; };
 		C3C688EC2923BA9E00B59D0C /* MyInfoWithdrawViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoWithdrawViewController.swift; sourceTree = "<group>"; };
-		C3C688FE2924CC8B00B59D0C /* MainShopKindView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainShopKindView.swift; sourceTree = "<group>"; };
 		C3C689002924CC9600B59D0C /* MainShopBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainShopBackgroundView.swift; sourceTree = "<group>"; };
 		C3C689022924CCAD00B59D0C /* MainFriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFriendsView.swift; sourceTree = "<group>"; };
 		C3C689042924CCC200B59D0C /* MainPlusFriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPlusFriendsView.swift; sourceTree = "<group>"; };
 		C3C689082924CD5E00B59D0C /* MainMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMapViewController.swift; sourceTree = "<group>"; };
 		C3C6890A2924CD6800B59D0C /* MainMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMapView.swift; sourceTree = "<group>"; };
-		C3C6890C2924CE7E00B59D0C /* MainShopKindViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainShopKindViewController.swift; sourceTree = "<group>"; };
 		C3C6890E2924CE8A00B59D0C /* MainShopBackgroundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainShopBackgroundViewController.swift; sourceTree = "<group>"; };
 		C3C689102924CE9500B59D0C /* MainFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFriendsViewController.swift; sourceTree = "<group>"; };
 		C3C689122924CEA300B59D0C /* MainPlusFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPlusFriendsViewController.swift; sourceTree = "<group>"; };
@@ -288,7 +304,7 @@
 				C3C688FB2924CC2F00B59D0C /* 3_plus_friends */,
 				C3C688FA2924CC1A00B59D0C /* 3_friends */,
 				C3C688F92924CBFD00B59D0C /* 2_shop_bg */,
-				C3C688F82924CBF400B59D0C /* 2_shop_kind */,
+				C3C688F82924CBF400B59D0C /* 2_shop */,
 				C3C688E82923BA4600B59D0C /* 4_1_my_info_withdraw */,
 				C36907F829221E73002B4C4D /* 4_1_my_info */,
 				C32C82492922096D0070F387 /* 4_my_info */,
@@ -308,7 +324,7 @@
 				C3C688FD2924CC5300B59D0C /* 3_plus_friends */,
 				C3C688FC2924CC4A00B59D0C /* 3_friends */,
 				C3C688F72924CBE800B59D0C /* 2_shop_bg */,
-				C3C688F62924CBB300B59D0C /* 2_shop_kind */,
+				C3C688F62924CBB300B59D0C /* 2_shop */,
 				C3C688E92923BA6100B59D0C /* 4_1_my_info_withdraw */,
 				C36907F729221E66002B4C4D /* 4_1_my_info */,
 				C32C824C292209A30070F387 /* 4_my_info */,
@@ -319,6 +335,7 @@
 		C32C8220291E608E0070F387 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C3A1EFAC295D8A8F00ADB845 /* Shop */,
 				C30F7CB0294769510050C045 /* Realm */,
 				C31DD3C2293B610700ABB3AC /* Chat */,
 				C32C823E291FB5EB0070F387 /* Network */,
@@ -495,6 +512,14 @@
 			path = 4_1_my_info;
 			sourceTree = "<group>";
 		};
+		C3A1EFAC295D8A8F00ADB845 /* Shop */ = {
+			isa = PBXGroup;
+			children = (
+				C3A1EFAD295D8AAA00ADB845 /* ShopData.swift */,
+			);
+			path = Shop;
+			sourceTree = "<group>";
+		};
 		C3B28AA5292CA81200B284BB /* 1_5_chatting */ = {
 			isa = PBXGroup;
 			children = (
@@ -617,12 +642,14 @@
 			path = 4_1_my_info_withdraw;
 			sourceTree = "<group>";
 		};
-		C3C688F62924CBB300B59D0C /* 2_shop_kind */ = {
+		C3C688F62924CBB300B59D0C /* 2_shop */ = {
 			isa = PBXGroup;
 			children = (
-				C3C6890C2924CE7E00B59D0C /* MainShopKindViewController.swift */,
+				C3A1EF9A295C14AD00ADB845 /* ShopTapmanViewController.swift */,
+				C3A1EFA0295C68F300ADB845 /* ShopSeSACViewController.swift */,
+				C3A1EFA4295C690C00ADB845 /* ShopBackgroundViewController.swift */,
 			);
-			path = 2_shop_kind;
+			path = 2_shop;
 			sourceTree = "<group>";
 		};
 		C3C688F72924CBE800B59D0C /* 2_shop_bg */ = {
@@ -633,12 +660,16 @@
 			path = 2_shop_bg;
 			sourceTree = "<group>";
 		};
-		C3C688F82924CBF400B59D0C /* 2_shop_kind */ = {
+		C3C688F82924CBF400B59D0C /* 2_shop */ = {
 			isa = PBXGroup;
 			children = (
-				C3C688FE2924CC8B00B59D0C /* MainShopKindView.swift */,
+				C3A1EF9C295C14DF00ADB845 /* ShopTabmanView.swift */,
+				C3A1EF9E295C68B500ADB845 /* ShopSeSACView.swift */,
+				C3A1EFA6295C6B1D00ADB845 /* ShopSeSACCell.swift */,
+				C3A1EFA2295C690100ADB845 /* ShopBackgroundView.swift */,
+				C3A1EFA8295D471800ADB845 /* ShopBackgroundCell.swift */,
 			);
-			path = 2_shop_kind;
+			path = 2_shop;
 			sourceTree = "<group>";
 		};
 		C3C688F92924CBFD00B59D0C /* 2_shop_bg */ = {
@@ -761,6 +792,7 @@
 			children = (
 				C3B2939E2918E24A00F2D55D /* BaseView.swift */,
 				C3DC022A2931EAA2006DD705 /* BaseCollectionViewCell.swift */,
+				C3A1EFAA295D75EC00ADB845 /* BaseTableViewCell.swift */,
 			);
 			path = ViewBase;
 			sourceTree = "<group>";
@@ -873,6 +905,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3C68920292518BB00B59D0C /* FristLoginViewModel.swift in Sources */,
+				C3A1EFA9295D471800ADB845 /* ShopBackgroundCell.swift in Sources */,
 				C3B293AB2919306E00F2D55D /* LoginViewController.swift in Sources */,
 				C3C688EB2923BA9500B59D0C /* MyInfoWithdrawView.swift in Sources */,
 				C32C8244291FB7F50070F387 /* KEY.swift in Sources */,
@@ -881,6 +914,9 @@
 				C30F7CC7294B687C0050C045 /* WriteReviewView.swift in Sources */,
 				C372E934293336EC00B0462D /* NearSeSACView.swift in Sources */,
 				C30F7CBB294B5DBC0050C045 /* ChattingMoreView.swift in Sources */,
+				C3A1EF9F295C68B500ADB845 /* ShopSeSACView.swift in Sources */,
+				C3A1EFAB295D75EC00ADB845 /* BaseTableViewCell.swift in Sources */,
+				C3A1EFA1295C68F300ADB845 /* ShopSeSACViewController.swift in Sources */,
 				C32C8246291FC4960070F387 /* URL+Extension.swift in Sources */,
 				C36907F629220DB2002B4C4D /* MyInfoCustomTableView.swift in Sources */,
 				C36907FA29221E91002B4C4D /* SecondMyInfoView.swift in Sources */,
@@ -890,12 +926,13 @@
 				C3B28AAA292CA83D00B284BB /* ChattingView.swift in Sources */,
 				C3C689502927DFDB00B59D0C /* SeSACTitleCollectionCell.swift in Sources */,
 				C32C8219291E546D0070F387 /* Elert+Extension.swift in Sources */,
+				C3A1EF9B295C14AD00ADB845 /* ShopTapmanViewController.swift in Sources */,
 				C3C22668291AA7A70042062A /* GenderViewController.swift in Sources */,
 				C32C8240291FB6320070F387 /* API.swift in Sources */,
 				C3C689112924CE9500B59D0C /* MainFriendsViewController.swift in Sources */,
 				C36907FC29221E9F002B4C4D /* SecondMyInfoViewController.swift in Sources */,
+				C3A1EF9D295C14DF00ADB845 /* ShopTabmanView.swift in Sources */,
 				C3C689092924CD5E00B59D0C /* MainMapViewController.swift in Sources */,
-				C3C6890D2924CE7E00B59D0C /* MainShopKindViewController.swift in Sources */,
 				C372E98329357DDD00B0462D /* NearUserPopupViewController.swift in Sources */,
 				C372E9302933344400B0462D /* RequestSeSACViewController.swift in Sources */,
 				C30F7CBD294B637B0050C045 /* ChattingMoreViewController.swift in Sources */,
@@ -928,7 +965,6 @@
 				C3C6892429266B6A00B59D0C /* SplashView.swift in Sources */,
 				C3B293762918D29F00F2D55D /* AppDelegate.swift in Sources */,
 				C3C6891A2924E7DB00B59D0C /* MatchingStudyView.swift in Sources */,
-				C3C688FF2924CC8B00B59D0C /* MainShopKindView.swift in Sources */,
 				C31DD3B9293B380D00ABB3AC /* UINavigation+Extension.swift in Sources */,
 				C3C2265E291A603F0042062A /* BirthView.swift in Sources */,
 				C3B293782918D29F00F2D55D /* SceneDelegate.swift in Sources */,
@@ -943,6 +979,7 @@
 				C3C22660291A604D0042062A /* BirthViewController.swift in Sources */,
 				C30F7CB2294769640050C045 /* UserChatData.swift in Sources */,
 				C3B28AB0292DF52C00B284BB /* AroundStudyCollectionViewCell.swift in Sources */,
+				C3A1EFA7295C6B1D00ADB845 /* ShopSeSACCell.swift in Sources */,
 				C32C823D291FB2E40070F387 /* APIService.swift in Sources */,
 				C31DD3FC293F7EBF00ABB3AC /* Date+Extension.swift in Sources */,
 				C3C6890B2924CD6800B59D0C /* MainMapView.swift in Sources */,
@@ -950,9 +987,12 @@
 				C3C689012924CC9600B59D0C /* MainShopBackgroundView.swift in Sources */,
 				C372E9CC293B06DD00B0462D /* RequestPopupViewController.swift in Sources */,
 				C31DD3BF293B410700ABB3AC /* ChatMyMessageCell.swift in Sources */,
+				C3A1EFAE295D8AAA00ADB845 /* ShopData.swift in Sources */,
 				C3C6890F2924CE8A00B59D0C /* MainShopBackgroundViewController.swift in Sources */,
+				C3A1EFA3295C690100ADB845 /* ShopBackgroundView.swift in Sources */,
 				C3B293AD2919307400F2D55D /* LoginView.swift in Sources */,
 				C3B293A729192D0F00F2D55D /* Color+Extension.swift in Sources */,
+				C3A1EFA5295C690C00ADB845 /* ShopBackgroundViewController.swift in Sources */,
 				C3C6892629266B7700B59D0C /* SplashViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

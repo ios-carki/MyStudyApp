@@ -115,7 +115,7 @@ extension NearSeSACViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //MARK: 빈 화면이 나올시 분기처리도 해야되니 UIView로 만들어놓은 emptyView -> 테이블뷰 셀로 만들어서 유저데이터 카운트가 0 이면 해당셀 보여주기로 하기
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: CardViewTableCell.identifier) as? CardViewTableCell else { return UITableViewCell () }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: CardViewTableCell.identifier) as? CardViewTableCell else { return UITableViewCell() }
         
         cell.selectionStyle = .none
         

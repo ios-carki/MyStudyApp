@@ -1,15 +1,15 @@
 //
-//  MainShopKindViewController.swift
+//  ShopSeSACViewController.swift
 //  MyStudyApp
 //
-//  Created by Carki on 2022/11/16.
+//  Created by Carki on 2022/12/28.
 //
 
 import UIKit
 
-final class MainShopKindViewController: UIViewController {
+final class ShopSeSACViewController: UIViewController {
     
-    private let mainView = MainShopKindView()
+    private let mainView = ShopSeSACView()
     
     override func loadView() {
         view = mainView
