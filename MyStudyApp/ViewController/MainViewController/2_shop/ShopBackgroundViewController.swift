@@ -9,6 +9,9 @@ import UIKit
 
 final class ShopBackgroundViewController: UIViewController {
     private let mainView = ShopBackgroundView()
+    private let tabManView = ShopTabmanView()
+    
+    //API Request
     private let modelView = APIService()
     
     override func loadView() {
@@ -29,7 +32,6 @@ final class ShopBackgroundViewController: UIViewController {
         
         mainView.backgroundTable.rowHeight = 165
     }
-    
     
 }
 
@@ -52,53 +54,48 @@ extension ShopBackgroundViewController: UITableViewDelegate, UITableViewDataSour
         
         switch indexPath.row {
         case 0:
-            userSelectedData.shared.background = "0"
-            
-            
-            return
-        case 1:
             userSelectedData.shared.background = "1"
             
-            
-            return
-        case 2:
+            break
+        case 1:
             userSelectedData.shared.background = "2"
             
-            
-            return
-        case 3:
+            break
+        case 2:
             userSelectedData.shared.background = "3"
             
-            
-            return
-        case 4:
+            break
+        case 3:
             userSelectedData.shared.background = "4"
             
-            
-            return
-        case 5:
+            break
+        case 4:
             userSelectedData.shared.background = "5"
             
-            
-            return
-        case 6:
+            break
+        case 5:
             userSelectedData.shared.background = "6"
             
-            
-            return
-        case 7:
+            break
+        case 6:
             userSelectedData.shared.background = "7"
             
-            
-            return
-        case 8:
+            break
+        case 7:
             userSelectedData.shared.background = "8"
             
+            break
+        case 8:
+            userSelectedData.shared.background = "9"
             
-            return
+            break
         default:
             print("잘못된 인덱스 선택")
+            
+            
         }
+        print("결과: ", userSelectedData.shared.background)
+        NotificationCenter.default.post(name: NSNotification.Name("background"), object: userSelectedData.shared.background)
     }
     
 }

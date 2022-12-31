@@ -10,7 +10,6 @@ import Foundation
 import Alamofire
 import FirebaseAuth
 import FirebaseCore
-import Toast
 
 
 //로그인 Post해서 받은 형태 -> 토큰만 받았기 때문에 토큰 파라미터 하나만 생성
@@ -343,6 +342,7 @@ final class APIService {
             switch response.result {
             case .success:
                 print("새싹 디테일 요청 성공✅✅✅✅✅: 상태코드 = ", response.response?.statusCode ?? 0)
+                completionHandler(response.response?.statusCode ?? 0)
                 
                 return
             case .failure:

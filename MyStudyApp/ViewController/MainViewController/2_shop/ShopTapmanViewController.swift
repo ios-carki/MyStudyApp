@@ -13,6 +13,8 @@ import Pageboy
 final class ShopTapmanViewController: TabmanViewController {
     
     private let mainView = ShopTabmanView()
+    
+    //API Request
     private let modelView = APIService()
     
     private var viewControllers: Array<UIViewController> = [ShopSeSACViewController(), ShopBackgroundViewController()]
@@ -26,11 +28,20 @@ final class ShopTapmanViewController: TabmanViewController {
         
         naviSetting()
         pageBoySetting()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(backgroundImageNoti), name: NSNotification.Name("background"), object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         sesacInfoAPI()
+        
+    }
+    
+    @objc func backgroundImageNoti(_ notification: Notification) {
+        guard let imageData = notification.object as? String else { return }
+        
+        mainView.cardBackgroundImage.image = UIImage(named: "shop_sesac_background_" + imageData)
     }
     
     func naviSetting() {
@@ -42,7 +53,7 @@ final class ShopTapmanViewController: TabmanViewController {
     }
     
     @objc func saveButtonClicked() {
-        
+        userInfoUpdateAPI()
     }
     
     //새싹 정보요청
@@ -58,6 +69,9 @@ final class ShopTapmanViewController: TabmanViewController {
     func userInfoUpdateAPI() {
         modelView.sesacUpdate(sesac: userSelectedData.shared.sesac, background: userSelectedData.shared.background) { statusCode in
             switch statusCode {
+            case 200:
+                
+                return
             case 201:
                 self.view.makeToast("구매가 필요한 아이템이 있어요.", position: .top)
                 return
