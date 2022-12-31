@@ -32,6 +32,12 @@ final class ShopTapmanViewController: TabmanViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(backgroundImageNoti), name: NSNotification.Name("background"), object: nil)
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         sesacInfoAPI()

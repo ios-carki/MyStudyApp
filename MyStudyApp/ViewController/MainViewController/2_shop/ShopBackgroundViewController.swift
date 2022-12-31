@@ -50,7 +50,6 @@ extension ShopBackgroundViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let changeView = ShopTabmanView()
         
         switch indexPath.row {
         case 0:
@@ -91,9 +90,8 @@ extension ShopBackgroundViewController: UITableViewDelegate, UITableViewDataSour
             break
         default:
             print("잘못된 인덱스 선택")
-            
-            
         }
+        
         print("결과: ", userSelectedData.shared.background)
         NotificationCenter.default.post(name: NSNotification.Name("background"), object: userSelectedData.shared.background)
     }
