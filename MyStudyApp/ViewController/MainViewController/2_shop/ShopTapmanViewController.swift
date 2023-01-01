@@ -28,20 +28,17 @@ final class ShopTapmanViewController: TabmanViewController {
         
         naviSetting()
         pageBoySetting()
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(backgroundImageNoti), name: NSNotification.Name("background"), object: nil)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        
         NotificationCenter.default.removeObserver(self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        NotificationCenter.default.addObserver(self, selector: #selector(backgroundImageNoti), name: .NotiName, object: nil)
         sesacInfoAPI()
-        
     }
     
     @objc func backgroundImageNoti(_ notification: Notification) {
@@ -51,7 +48,7 @@ final class ShopTapmanViewController: TabmanViewController {
     }
     
     func naviSetting() {
-        self.navigationItem.title = "새싹샵"
+        self.navigationController?.navigationBar.topItem?.title = "새싹샵"
     }
     
     func buttonSetting() {

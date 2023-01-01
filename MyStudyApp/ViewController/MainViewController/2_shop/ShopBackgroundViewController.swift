@@ -37,63 +37,25 @@ final class ShopBackgroundViewController: UIViewController {
 
 extension ShopBackgroundViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ShopData.backgroundImage.count
+        return ShopData.backgroundDataSet.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ShopBackgroundCell.identifier) as? ShopBackgroundCell else { return UITableViewCell() }
-        cell.backgroundImage.image = UIImage(named: ShopData.backgroundImage[indexPath.row])
-        cell.backgroundNameLabel.text = ShopData.backgroundImageName[indexPath.row]
-        cell.detailLabel.text = ShopData.backgroundImageDetail[indexPath.row]
+        
+        cell.backgroundImage.image = UIImage(named: "shop_sesac_background_" +  ShopData.backgroundDataSet[indexPath.row].0)
+        cell.backgroundNameLabel.text = ShopData.backgroundDataSet[indexPath.row].1
+        cell.detailLabel.text = ShopData.backgroundDataSet[indexPath.row].2
+        
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        switch indexPath.row {
-        case 0:
-            userSelectedData.shared.background = "1"
-            
-            break
-        case 1:
-            userSelectedData.shared.background = "2"
-            
-            break
-        case 2:
-            userSelectedData.shared.background = "3"
-            
-            break
-        case 3:
-            userSelectedData.shared.background = "4"
-            
-            break
-        case 4:
-            userSelectedData.shared.background = "5"
-            
-            break
-        case 5:
-            userSelectedData.shared.background = "6"
-            
-            break
-        case 6:
-            userSelectedData.shared.background = "7"
-            
-            break
-        case 7:
-            userSelectedData.shared.background = "8"
-            
-            break
-        case 8:
-            userSelectedData.shared.background = "9"
-            
-            break
-        default:
-            print("잘못된 인덱스 선택")
-        }
+        userSelectedData.shared.background = "\(indexPath.row + 1)"
         
         print("결과: ", userSelectedData.shared.background)
-        NotificationCenter.default.post(name: NSNotification.Name("background"), object: userSelectedData.shared.background)
+        NotificationCenter.default.post(name: .NotiName, object: userSelectedData.shared.background)
     }
     
 }

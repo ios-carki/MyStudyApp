@@ -62,6 +62,7 @@
 		C3A1EFA9295D471800ADB845 /* ShopBackgroundCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A1EFA8295D471800ADB845 /* ShopBackgroundCell.swift */; };
 		C3A1EFAB295D75EC00ADB845 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A1EFAA295D75EC00ADB845 /* BaseTableViewCell.swift */; };
 		C3A1EFAE295D8AAA00ADB845 /* ShopData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A1EFAD295D8AAA00ADB845 /* ShopData.swift */; };
+		C3A1EFEA296092F300ADB845 /* Noti+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A1EFE9296092F300ADB845 /* Noti+Extension.swift */; };
 		C3B28AA8292CA83800B284BB /* ChattingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B28AA7292CA83800B284BB /* ChattingViewController.swift */; };
 		C3B28AAA292CA83D00B284BB /* ChattingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B28AA9292CA83D00B284BB /* ChattingView.swift */; };
 		C3B28AAE292DF2C600B284BB /* StudyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B28AAD292DF2C600B284BB /* StudyCollectionViewCell.swift */; };
@@ -168,6 +169,7 @@
 		C3A1EFA8295D471800ADB845 /* ShopBackgroundCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopBackgroundCell.swift; sourceTree = "<group>"; };
 		C3A1EFAA295D75EC00ADB845 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		C3A1EFAD295D8AAA00ADB845 /* ShopData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopData.swift; sourceTree = "<group>"; };
+		C3A1EFE9296092F300ADB845 /* Noti+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Noti+Extension.swift"; sourceTree = "<group>"; };
 		C3B28AA7292CA83800B284BB /* ChattingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingViewController.swift; sourceTree = "<group>"; };
 		C3B28AA9292CA83D00B284BB /* ChattingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingView.swift; sourceTree = "<group>"; };
 		C3B28AAD292DF2C600B284BB /* StudyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -592,6 +594,7 @@
 				C372E95D2933963400B0462D /* Image+Extension.swift */,
 				C31DD3B8293B380D00ABB3AC /* UINavigation+Extension.swift */,
 				C31DD3FB293F7EBF00ABB3AC /* Date+Extension.swift */,
+				C3A1EFE9296092F300ADB845 /* Noti+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -954,6 +957,7 @@
 				C3C22666291AA7A00042062A /* GenderView.swift in Sources */,
 				C3B2939F2918E24A00F2D55D /* BaseView.swift in Sources */,
 				C3C2265A291A5CAF0042062A /* NickNameView.swift in Sources */,
+				C3A1EFEA296092F300ADB845 /* Noti+Extension.swift in Sources */,
 				C3C68958292A2DCF00B59D0C /* CustomAnnotationView.swift in Sources */,
 				C3B293A32918F32700F2D55D /* PageView.swift in Sources */,
 				C3B2938E2918E1B300F2D55D /* PageViewController.swift in Sources */,
