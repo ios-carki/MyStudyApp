@@ -15,7 +15,7 @@ struct shopItem: Codable {
 
 //SeSAC_Shop -> 인앱 리스트 리터럴 데이터
 class ShopData {
-    static let backgroundDataSet: [(String, String, String)] = [
+    static let backgroundDataSet: [(backgroundImageTuple: String, imageNameTuple: String, imageDetailTuple: String)] = [
         //(backgroundImage, Name, Detail)
         ("1", "하늘 공원", "새싹들을 많이 마주치는 매력적인 하늘 공원입니다."),
         ("2", "씨티 뷰", "창밖으로 보이는 도시 야경이 아름다운 공간입니다."),

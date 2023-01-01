@@ -43,10 +43,9 @@ extension ShopBackgroundViewController: UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ShopBackgroundCell.identifier) as? ShopBackgroundCell else { return UITableViewCell() }
         
-        cell.backgroundImage.image = UIImage(named: "shop_sesac_background_" +  ShopData.backgroundDataSet[indexPath.row].0)
-        cell.backgroundNameLabel.text = ShopData.backgroundDataSet[indexPath.row].1
-        cell.detailLabel.text = ShopData.backgroundDataSet[indexPath.row].2
-        
+        cell.backgroundImage.image = UIImage(named: "shop_sesac_background_" +  ShopData.backgroundDataSet[indexPath.row].backgroundImageTuple)
+        cell.backgroundNameLabel.text = ShopData.backgroundDataSet[indexPath.row].imageNameTuple
+        cell.detailLabel.text = ShopData.backgroundDataSet[indexPath.row].imageDetailTuple
         
         return cell
     }
