@@ -356,6 +356,25 @@ final class APIService {
         }
     }
     
+    //MARK: In_App 새싹 샵 아이템 구매 API
+    func shopPurchase(receipt: String, product: String, completionHandler: @escaping (Int) -> Void) {
+        let api = SeSACAPI.inAppPurchase(receipt: receipt, product: product)
+        
+        AF.request(api.url, method: .post, parameters: api.parameters, headers: api.headers).responseData { response in
+            switch response.result {
+            case .success:
+                print("✅✅✅✅✅ 인앱결제 성공 ✅✅✅✅✅")
+                completionHandler(response.response?.statusCode ?? 0)
+                
+                return
+            case .failure:
+                print("❌❌❌❌❌ 인앱결제 성공 ❌❌❌❌❌")
+                completionHandler(response.response?.statusCode ?? 0)
+                return
+            }
+        }
+    }
+    
     func getIdToken() {
         
         guard let currentUser = Auth.auth().currentUser else { return }

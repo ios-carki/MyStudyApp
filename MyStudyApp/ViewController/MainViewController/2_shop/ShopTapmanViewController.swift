@@ -5,6 +5,7 @@
 //  Created by Carki on 2022/12/28.
 //
 
+import StoreKit
 import UIKit
 
 import Tabman
@@ -17,6 +18,7 @@ final class ShopTapmanViewController: TabmanViewController {
     //API Request
     private let modelView = APIService()
     
+    //Tabman
     private var viewControllers: Array<UIViewController> = [ShopSeSACViewController(), ShopBackgroundViewController()]
     
     override func loadView() {
@@ -28,6 +30,7 @@ final class ShopTapmanViewController: TabmanViewController {
         
         naviSetting()
         pageBoySetting()
+        buttonSetting()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -55,7 +58,7 @@ final class ShopTapmanViewController: TabmanViewController {
     }
     
     func naviSetting() {
-        self.navigationController?.navigationBar.topItem?.title = "새싹샵"
+        navigationItem.title = "새싹샵"
     }
     
     func buttonSetting() {
@@ -69,6 +72,7 @@ final class ShopTapmanViewController: TabmanViewController {
     //새싹 정보요청
     func sesacInfoAPI() {
         modelView.shopMyInfo { data in
+            
             print("유저 캐릭터 정보 상태: 새싹이 = \(data.sesac), 배경 = \(data.background)")
 //            self.mainView.cardCharImage.image = UIImage(named: "shop_sesac_background_" + String(data.sesac + 1))
             self.mainView.cardBackgroundImage.image = UIImage(named: "shop_sesac_background_" + String(data.sesac + 1))
@@ -77,14 +81,17 @@ final class ShopTapmanViewController: TabmanViewController {
     }
     
     func userInfoUpdateAPI() {
+        print("저장하기 버튼 눌림!✅✅✅✅✅✅")
         modelView.sesacUpdate(sesac: userSelectedData.shared.sesac, background: userSelectedData.shared.background) { statusCode in
             switch statusCode {
             case 200:
+                print("상태코드 200 선택한 캐릭터, 배경 적용 ✅✅✅")
                 
-                return
+                break
             case 201:
-                self.view.makeToast("구매가 필요한 아이템이 있어요.", position: .top)
-                return
+                print("상태코드 201 토스트메시지 pop ✅✅✅")
+                self.view.makeToast("구매가 필요한 아이템이 있어요.", position: .bottom)
+                break
             default:
                 
                 return
@@ -117,8 +124,13 @@ final class ShopTapmanViewController: TabmanViewController {
         addBar(bar, dataSource: self, at: .custom(view: mainView.shopTabBarView, layout: nil))
     }
     
+    //인앱API
+//    func purchaseAPI() {
+//        modelView.shopPurchase(receipt: <#T##String#>, product: <#T##String#>, completionHandler: <#T##(Int) -> Void#>)
+//    }
 }
 
+//MARK: Tabman EX
 extension ShopTapmanViewController: PageboyViewControllerDataSource, TMBarDataSource {
     
     func numberOfViewControllers(in pageboyViewController: Pageboy.PageboyViewController) -> Int {
@@ -145,8 +157,5 @@ extension ShopTapmanViewController: PageboyViewControllerDataSource, TMBarDataSo
                 let title = "Page\(index)"
                 return TMBarItem(title: title)
             }
-        
     }
-    
-    
 }

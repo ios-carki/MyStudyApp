@@ -190,4 +190,5 @@ extension NearSeSACViewController: UITableViewDelegate, UITableViewDataSource {
 
 class CustomTapGestureRecognizer: UITapGestureRecognizer {
     var targetView: UIView?
+    var targetLabel: UILabel?
 }

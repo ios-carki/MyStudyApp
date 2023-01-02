@@ -35,6 +35,14 @@ class ShopData {
         ("8", "뮤지션 작업실", "여러가지 음악 작업을 할 수 있는 작업실입니다."),
         ("9", "서재", "조용하게 혼자만의 공부를 할 수 있는 서재입니다.")
     ]
+    
+    //인앱 번들ID - 새싹 캐릭터
+    static let productIdentifiers: Set<String> = [
+        "com.memolease.sesac1.sprout1",
+        "com.memolease.sesac1.sprout2",
+        "com.memolease.sesac1.sprout3",
+        "com.memolease.sesac1.sprout4"
+    ]
 }
 
 class userSelectedData {
