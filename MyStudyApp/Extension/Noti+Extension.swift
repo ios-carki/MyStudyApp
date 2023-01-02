@@ -8,5 +8,8 @@
 import Foundation
 
 extension NSNotification.Name {
-    static let NotiName = Notification.Name("background")
+    //새싹 캐릭터 노티네임
+    static let sesacNotiName = Notification.Name("shop_sesac")
+    //배경 노티네임
+    static let NotiName = Notification.Name("shop_background")
 }

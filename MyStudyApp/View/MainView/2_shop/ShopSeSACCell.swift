@@ -14,7 +14,6 @@ final class ShopSeSACCell: BaseCollectionViewCell {
     
     let cellView: UIView = {
         let view = UIView()
-        
         return view
     }()
     
@@ -35,9 +34,8 @@ final class ShopSeSACCell: BaseCollectionViewCell {
     
     let charNameLabel: UILabel = {
         let view = UILabel()
-        view.textColor = .black
         view.font = .systemFont(ofSize: 16)
-        view.text = "테테테테테테"
+        view.textColor = .black
         return view
     }()
     
@@ -45,7 +43,7 @@ final class ShopSeSACCell: BaseCollectionViewCell {
         let view = UILabel()
         view.backgroundColor = .colorGreen
         view.layer.cornerRadius = 30
-        view.text = "테테테테테테"
+        view.text = "기격레이블 입니다."
         return view
     }()
     
@@ -53,12 +51,12 @@ final class ShopSeSACCell: BaseCollectionViewCell {
         let view = UILabel()
         view.font = .systemFont(ofSize: 14)
         view.numberOfLines = 0
-        view.text = "테테테테테테"
+        view.textColor = .black
         return view
     }()
     
     override func configureUI() {
-        [sesacCharView, charNameLabel, priceLabel, charDetailLabel].forEach {
+        [sesacCharView, sesacCharImage, charNameLabel, priceLabel, charDetailLabel].forEach {
             cellView.addSubview($0)
         }
         contentView.addSubview(cellView)
@@ -68,7 +66,8 @@ final class ShopSeSACCell: BaseCollectionViewCell {
     override func setConstraints() {
         
         cellView.snp.makeConstraints { make in
-            make.center.equalTo(safeAreaLayoutGuide)
+            make.horizontalEdges.equalTo(safeAreaLayoutGuide).inset(8)
+            make.verticalEdges.equalTo(safeAreaLayoutGuide).inset(8)
         }
         
         sesacCharView.snp.makeConstraints { make in

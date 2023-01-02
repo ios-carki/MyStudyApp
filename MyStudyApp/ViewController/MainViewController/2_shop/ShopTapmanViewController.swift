@@ -37,11 +37,18 @@ final class ShopTapmanViewController: TabmanViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        NotificationCenter.default.addObserver(self, selector: #selector(backgroundImageNoti), name: .NotiName, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(shopSeSACNoti), name: .sesacNotiName, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(shopBackgroundNoti), name: .NotiName, object: nil)
         sesacInfoAPI()
     }
     
-    @objc func backgroundImageNoti(_ notification: Notification) {
+    @objc func shopSeSACNoti(_ notification: Notification) {
+        guard let imageData = notification.object as? String else { return }
+        
+        mainView.cardCharImage.image = UIImage(named: "shop_sesac_face_" + imageData)
+    }
+    
+    @objc func shopBackgroundNoti(_ notification: Notification) {
         guard let imageData = notification.object as? String else { return }
         
         mainView.cardBackgroundImage.image = UIImage(named: "shop_sesac_background_" + imageData)
