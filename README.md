@@ -22,7 +22,13 @@ Tool - Figma / Confluence / Swagger
 <img width="469" alt="스크린샷 2022-12-17 오전 3 27 07" src="https://user-images.githubusercontent.com/44957712/208164674-f3a86026-b4ed-4b23-ac9f-b794d8027f44.png">
 
 * * *
-# 🔴 Trouble Shooting
+
+# 💰 In_App Purchase
+
+<img width="947" alt="스크린샷 2023-01-03 오후 3 10 06" src="https://user-images.githubusercontent.com/44957712/210307518-685e04d5-0eb4-465a-bb44-12595ba3ea2b.png">
+
+* * *
+# 🔴Trouble Shooting
 
 ### 1. 회원가입(SignUp) API Request
 - Status Code 401(idToken 갱신 필요) Error Handling
