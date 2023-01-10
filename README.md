@@ -1,3 +1,9 @@
+<p align="center">
+
+<img width="809" alt="스크린샷 2023-01-11 오전 12 14 47" src="https://user-images.githubusercontent.com/44957712/211589165-e6bd94c6-c7e8-4f54-a570-d30f6e96a3b6.png">
+
+</p>
+
 # 📱 About Project
 이 프로젝트의 **가장 큰 특징으로는 서비스 기획자의 기획 요구사항과 디자이너의 UX/UI 디자인별 요구사항, 서버 개발자의 API 명세를 통한 서비스 레벨 단위의 프로젝트**이며, 핵심 기능으로는 **REST API 통신을 베이스로 MapKit과 GPS을 통해 주변 유저 탐색, 회원가입, 1:1 채팅, 인앱 결제** 등이 있습니다.
 
@@ -16,18 +22,22 @@ Library - Realm / Firebase / IQKeyboardManager / SnapKit / Toast / SocketIO / He
 
 Tool - Figma / Confluence / Swagger
 # 📲 Sample App Views
+<p align="center">
 
 <img width="710" alt="스크린샷 2022-12-17 오전 3 22 40" src="https://user-images.githubusercontent.com/44957712/208163975-9e9618e8-1e70-42bd-a2d7-ffa7584b418c.png">
 
 <img width="469" alt="스크린샷 2022-12-17 오전 3 27 07" src="https://user-images.githubusercontent.com/44957712/208164674-f3a86026-b4ed-4b23-ac9f-b794d8027f44.png">
+</p>
 
 * * *
 
 # 💰 In_App Purchase
-
+<p align="center">
 <img width="947" alt="스크린샷 2023-01-03 오후 3 10 06" src="https://user-images.githubusercontent.com/44957712/210307518-685e04d5-0eb4-465a-bb44-12595ba3ea2b.png">
+</p>
 
 * * *
+
 # 🔴Trouble Shooting
 
 ### 1. 회원가입(SignUp) API Request
